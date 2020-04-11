@@ -1,0 +1,39 @@
+.page p {
+  margin: 0;
+  padding-bottom: .2em;
+}
+
+.display_stage {
+  background-color: black;
+  color: white;
+  box-shadow: none;
+}
+
+.display_stage_background {
+	background-color: black;
+}
+
+/* Instructions */
+table, th, tr, td {
+    font-size: 24px;
+    padding: .5em;
+    border: 1px solid black;
+}
+
+.bc_start {
+    font-size: 24px;
+}
+
+.continue_next {
+    font-size: 24px;
+}
+
+/* Questionnaire */
+.q_title {
+    font-size: 24px;
+}
+
+.q_para{
+    font-weight: bold;
+    text-align: center;
+}
