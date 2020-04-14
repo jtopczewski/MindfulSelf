@@ -33,7 +33,24 @@ table, th, tr, td {
     font-size: 24px;
 }
 
-.q_para{
+.q_para {
     font-weight: bold;
     text-align: center;
+}
+
+label.jspsych-survey-likert-statement {
+    display: block;
+    font-size: 16px;
+    padding-top: 0px; !important;
+    margin-bottom: 0px !important;
+}
+
+ul.jspsych-survey-likert-opts {
+    list-style: none;
+    width: 500px;
+    margin: auto;
+    padding: 0 0 10px;
+    display: block;
+    font-size: 14px;
+    line-height: 1.1em;
 }

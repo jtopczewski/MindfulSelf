@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc5a3bb3-2ba0-41ef-8741-ac0a565266b0" name="Default Changelist" comment="update">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="cc5a3bb3-2ba0-41ef-8741-ac0a565266b0" name="Default Changelist" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +13,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -42,6 +40,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -62,7 +61,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -77,14 +76,14 @@
       <recent name="D:\Winson\Github\MindfulSelf\src" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
+  <component name="RunManager" selected="JavaScript Debug.test.html">
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MindfulSelf/public/views/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="app.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/app.js" working-dir="$PROJECT_DIR$">
+    <configuration name="test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MindfulSelf/test.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="bundle.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/dist/bundle.js" working-dir="$PROJECT_DIR$/dist">
+    <configuration name="app.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/app.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="bundle.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/bundle.js" working-dir="$PROJECT_DIR$">
@@ -95,11 +94,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.test.html" />
         <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="Node.js.app.js (1)" />
         <item itemvalue="Node.js.experiment.js" />
         <item itemvalue="Node.js.bundle.js" />
-        <item itemvalue="Node.js.bundle.js (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +160,10 @@
       <workItem from="1586490312739" duration="2240000" />
       <workItem from="1586551136155" duration="961000" />
       <workItem from="1586552116001" duration="449000" />
-      <workItem from="1586564044259" duration="1801000" />
+      <workItem from="1586564044259" duration="2533000" />
+      <workItem from="1586629938673" duration="10017000" />
+      <workItem from="1586745735434" duration="1630000" />
+      <workItem from="1586801357299" duration="7522000" />
     </task>
     <task id="LOCAL-00001" summary="Update exp">
       <created>1584553684725</created>
@@ -310,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586565950523</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="update">
+      <created>1586566124314</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1586566124314</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,6 +340,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
     <MESSAGE value="Update exp" />
     <MESSAGE value="Separate questionnaires to pages + add progress bar" />
     <MESSAGE value="Add CSS" />
@@ -372,10 +384,10 @@
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state x="2503" y="9" width="1011" height="1008" key="CommitChangelistDialog2/0.0.1536.834/1920.0.1920.1050@1920.0.1920.1050" timestamp="1586566123306" />
-    <state x="2012" y="92" width="1736" height="866" key="DiffContextDialog" timestamp="1586468695392">
+    <state x="2012" y="92" width="1736" height="866" key="DiffContextDialog" timestamp="1586635321677">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="2012" y="92" width="1736" height="866" key="DiffContextDialog/0.0.1536.834/1920.0.1920.1050@1920.0.1920.1050" timestamp="1586468695392" />
+    <state x="2012" y="92" width="1736" height="866" key="DiffContextDialog/0.0.1536.834/1920.0.1920.1050@1920.0.1920.1050" timestamp="1586635321677" />
     <state x="2660" y="280" key="FileChooserDialogImpl" timestamp="1586565345384">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
@@ -448,9 +460,10 @@
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state x="2584" y="232" width="801" height="586" key="MultipleFileMergeDialog/0.0.1536.834/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584812039655" />
-    <state x="2141" y="241" width="998" height="708" key="SettingsEditor" timestamp="1585845149354">
-      <screen x="1920" y="0" width="1920" height="1050" />
+    <state x="177" y="127" width="914" height="707" key="SettingsEditor" timestamp="1586819731487">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state x="177" y="127" width="914" height="707" key="SettingsEditor/0.0.1536.834/1920.0.1920.1050@0.0.1536.834" timestamp="1586819731487" />
     <state x="2141" y="241" width="998" height="708" key="SettingsEditor/0.0.1536.834/1920.0.1920.1050@1920.0.1920.1050" timestamp="1585845149354" />
     <state x="2766" y="437" key="VCS.EditChangelistDialog" timestamp="1586482300313">
       <screen x="1920" y="0" width="1920" height="1050" />

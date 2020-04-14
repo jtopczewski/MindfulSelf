@@ -6,7 +6,7 @@
 var stim = '';
 var runTime = 0;  // ms
 var runTime2 = 0;  // ms
-var taskTime = 5; // 15 minutes in seconds
+var taskTime = 300; // 15 minutes in seconds
 
 // Set instructions helpers
 var instructionshelper = {};
@@ -208,7 +208,7 @@ function startExperiment() {
             trial.data.screen_focus = data.event;
         },
 
-        timeline: [...breathcounting_experiment,...questionnaire_part],
+        timeline: [...questionnaire_part],
         on_finish: function() {
             $.ajax({
                 type: "POST",
@@ -223,10 +223,7 @@ function startExperiment() {
                     alert("A problem occurred while writing to the database. Please contact the researcher for more information.")
                     window.location.href = "/";
                 });
-
-            // var csv = jsPsych.data.get().csv();
-            // var filename = jsPsych.data.get().select('ID_DATE').values[0];
-            // window.save2Dropbox(csv, filename)
+            // jsPsych.data.displayData()
         }
     });
 }
