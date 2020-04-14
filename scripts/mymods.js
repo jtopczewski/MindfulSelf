@@ -58,4 +58,3 @@ function JSON2CSV(objArray) {
 
 module.exports.saveDropbox = saveDropbox;
 module.exports.JSON2CSV = JSON2CSV;
-module.exports.downloadCSV = downloadCSV;
