@@ -24,6 +24,10 @@ app.get('/', function(request, response) {
     response.render('index.html');
 });
 
+app.get('/finish', function(request, response) {
+    response.render('finish.html');
+});
+
 app.post('/experiment-data', function(request, response) {
     // Convert to CSV
     DATA_CSV = JSON2CSV(request.body);
@@ -34,7 +38,8 @@ app.post('/experiment-data', function(request, response) {
     ID_DATE = rows[1].split(',')[ID_DATE_index];
     ID_DATE = ID_DATE.replace(/"/g, "");
     filename = ID_DATE + ".csv";
-    saveDropbox(DATA_CSV, filename)
+    saveDropbox(DATA_CSV, filename);
+    response.end();
 });
 
 

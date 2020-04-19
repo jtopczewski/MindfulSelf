@@ -1,5 +1,5 @@
-require('dotenv').config();
-var Dropbox = require('dropbox').Dropbox;
+require("dotenv").config();
+var Dropbox = require("dropbox").Dropbox;
 const fetch = require("node-fetch");
 
 const dbx = new Dropbox({
@@ -7,13 +7,15 @@ const dbx = new Dropbox({
     fetch
 });
 
-saveDropbox = function(contents, filename) {
-    dbx.filesUpload({path: '/' + filename, contents: contents})
-        .then(function(response) {
-            alert("File saved!!");
-        })
+saveDropbox = function(content, filename) {
+    dbx.filesUpload({
+        path: "/" + filename,
+        contents: content
+    }).then(function() {
+        console.log("Completed");
+    })
         .catch(function(error) {
-            console.error("Error");
+            console.error(error);
         });
 };
 

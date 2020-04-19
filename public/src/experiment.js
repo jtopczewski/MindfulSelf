@@ -208,7 +208,7 @@ function startExperiment() {
             trial.data.screen_focus = data.event;
         },
 
-        timeline: [...questionnaire_part],
+        timeline: [...breathcounting_experiment, ...questionnaire_part],
         on_finish: function() {
             $.ajax({
                 type: "POST",
