@@ -21,7 +21,6 @@ var AES_Qs1 = {
     preamble: "<p class='q_title'>Please rate each of the following statements on a scale of 1 ('strongly agree') to 5 ('strongly disagree'). Please do not leave any items blank</p>",
     questions: populateQs(1, 8, aes_csv, aes_options),
     scale_width: 500,
-    on_finish: function(data) {data.responses = JSON.parse(data.responses)},
 };
 
 var AES_Qs2 = {
@@ -32,7 +31,6 @@ var AES_Qs2 = {
     preamble: "<p class='q_title'>Please rate each of the following statements on a scale of 1 ('strongly agree') to 5 ('strongly disagree'). Please do not leave any items blank</p>",
     questions: populateQs(9, 16, aes_csv, aes_options),
     scale_width: 500,
-    on_finish: function(data) {data.responses = JSON.parse(data.responses)},
 };
 
 var FFMQ_Qs1 = {
@@ -45,7 +43,6 @@ var FFMQ_Qs1 = {
         "READ EACH ITEM CAREFULLY BEFORE RESPONDING. Answer as honestly as you can. Thank you.</p>",
     questions: populateQs(1, 8, FFMQ_csv, FFMQ_options),
     scale_width: 500,
-    on_finish: function(data) {data.responses = JSON.parse(data.responses)},
 };
 
 var FFMQ_Qs2 = {
@@ -58,7 +55,6 @@ var FFMQ_Qs2 = {
         "READ EACH ITEM CAREFULLY BEFORE RESPONDING. Answer as honestly as you can. Thank you.</p>",
     questions: populateQs(9, 16, FFMQ_csv, FFMQ_options),
     scale_width: 500,
-    on_finish: function(data) {data.responses = JSON.parse(data.responses)},
 };
 
 var FFMQ_Qs3 = {
@@ -71,7 +67,6 @@ var FFMQ_Qs3 = {
         "READ EACH ITEM CAREFULLY BEFORE RESPONDING. Answer as honestly as you can. Thank you.</p>",
     questions: populateQs(17, 24, FFMQ_csv, FFMQ_options),
     scale_width: 500,
-    on_finish: function(data) {data.responses = JSON.parse(data.responses)},
 };
 
 var FFMQ_Qs4 = {
@@ -84,7 +79,6 @@ var FFMQ_Qs4 = {
         "READ EACH ITEM CAREFULLY BEFORE RESPONDING. Answer as honestly as you can. Thank you.</p>",
     questions: populateQs(25, 32, FFMQ_csv, FFMQ_options),
     scale_width: 500,
-    on_finish: function(data) {data.responses = JSON.parse(data.responses)},
 };
 
 var FFMQ_Qs5 = {
@@ -97,7 +91,6 @@ var FFMQ_Qs5 = {
         "READ EACH ITEM CAREFULLY BEFORE RESPONDING. Answer as honestly as you can. Thank you.</p>",
     questions: populateQs(33, 39, FFMQ_csv, FFMQ_options),
     scale_width: 500,
-    on_finish: function(data) {data.responses = JSON.parse(data.responses)},
 };
 
 
