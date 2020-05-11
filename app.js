@@ -32,7 +32,7 @@ app.post('/experiment-data', function(request, response) {
     // Convert to CSV
     DATA_CSV = JSON2CSV(request.body);
 
-    // Get ID_DATe
+    // Get ID_DATE
     var rows = DATA_CSV.split('\n');
     ID_DATE_index = rows[0].split(',').indexOf('"ID_DATE"');
     ID_DATE = rows[1].split(',')[ID_DATE_index];

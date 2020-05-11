@@ -18,7 +18,8 @@ var AES_Qs1 = {
     data: {
         trial_id: "aes_qs_pg1"
     },
-    preamble: "<p class='q_title'>Please rate each of the following statements on a scale of 1 ('strongly agree') to 5 ('strongly disagree'). Please do not leave any items blank</p>",
+    preamble: "<p class='q_title'>Please rate each of the following statements on a scale of 1 ('strongly agree') to 5 ('strongly disagree') regarding the breath-counting task you just completed. " +
+        "Please do not leave any items blank</p>",
     questions: populateQs(1, 8, aes_csv, aes_options),
     scale_width: 500,
 };
@@ -28,7 +29,8 @@ var AES_Qs2 = {
     data: {
         trial_id: "aes_qs_pg2"
     },
-    preamble: "<p class='q_title'>Please rate each of the following statements on a scale of 1 ('strongly agree') to 5 ('strongly disagree'). Please do not leave any items blank</p>",
+    preamble: "<p class='q_title'>Please rate each of the following statements on a scale of 1 ('strongly agree') to 5 ('strongly disagree') regarding the breath-counting task you just completed. " +
+        "Please do not leave any items blank</p>",
     questions: populateQs(9, 16, aes_csv, aes_options),
     scale_width: 500,
 };
@@ -102,12 +104,12 @@ var post_task_block = {
     },
     questions: [
         {
-            prompt: "<p style='font-size:20px'>Please summarize what you were asked to do in this task.</p>",
+            prompt: "<p style='font-size:20px'>Please summarize what you were asked to do during the breath-counting task.</p>",
             rows: 5,
             columns: 90
         },
         {
-            prompt: "<p style='font-size 20px'>Please comment in detail on what you experienced during the 10 minutes session. " +
+            prompt: "<p style='font-size 20px'>Please comment in detail on what you experienced during the 10 minutes breath-counting task. " +
                 "Please note anything you noticed, regardless of how trivial you might think it is, (e.g. I thought about…, I felt…, I noticed that…, after I noticed….)</p>",
             rows: 10, columns: 120}
     ],

@@ -3,7 +3,7 @@
 /* ************************************ */
 
 // task variables
-var stim = '';
+var stim = 'Breath counting task in progress...';
 var runTime = 0;  // ms
 var runTime2 = 0;  // ms
 var taskTime = 300; // 15 minutes in seconds
@@ -11,9 +11,10 @@ var taskTime = 300; // 15 minutes in seconds
 // Set instructions helpers
 var instructionshelper = {};
 
-instructionshelper.task_start = "<p class='bc_start'>Place your attention on the breath.</p>" +
+instructionshelper.task_start = "<p class='bc_start'>Close your eyes and place your attention on the breath.</p>" +
     "<p class='bc_start'>Press the down arrow after your first exhale as you count 'one'', " +
-    "then close your eyes and continue counting breaths and pressing the correct arrow key (1-8 = down, 9 = right).</p>";
+    "then close your eyes and continue counting breaths and pressing the correct arrow key (1-8 = down, 9 = right).</p>" +
+    "<p class='bc_start'>The experiment will start the moment you press the down button</p>";
 
 instructionshelper.continue_next = "<p class='continue_next'>Great job and thank you! You are now finished with this part of the study.</p>" +
     "<p class='continue_next'>Press <strong>ENTER</strong> to continue.</p>";
@@ -43,19 +44,27 @@ var instructions = {
         trial_id: "instructions"
     },
     pages: [
+        // Page 1
         "<p>In this task, we would like you to be aware of your breath. </p>" +
-        "<p>Close your eyes and notice whether you are breathing in or out, until you have counted three breaths (in and out is one breath), then open your eyes. </p> " +
+        "<p>Close your eyes now and notice whether you are breathing in or out, until you have counted three breaths (in and out is one breath), then open your eyes. </p> " +
         "<p>Use this same technique when counting your breaths in this task. There's no need to control the breath. Just breathe normally. </p>",
+
+        // Page 2
         "<p>At some point, you may notice your attention has wandered from the breath. That's okay. Just gently place it back on the breath. </p>" +
         "<p>To help you stay with the breath, you'll use a small part of your attention to silently count breaths from 1 to 9, again and again. " +
         "<strong><em>An in and out breath together make one count.</em></strong></p>" +
         "<p>Say the count softly in your mind so it only gets a little attention while most of the attention is on feeling the breath. </p>",
+
+        // Page 3
         "<p>Press the <em><strong>down arrow</strong> once on <strong>breaths 1-8</strong></em>, and the <em><strong>right arrow</strong> once on <strong>breath 9</strong>.</em></p> " +
         "<p>This means you'll be pressing a button once with each breath. Each time you reach breath 9, start counting again at 1.</p>" +
         "<p><div class='table'><table align='center'><tr><td>Breath number</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>1</td><td>2</td><td>etc.</td></tr>" +
-        "<tr><td>Press this key once</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&rarr;</td><td>&darr;</td><td>&darr;</td><td>etc.</td></tr></table></div></p>",
+        "<tr><td>Press this key once</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&rarr;</td><td>&darr;</td><td>&darr;</td><td>etc.</td></tr></table></div></p>" +
+        "<p>If you forgot which breath number you are at, you can reset the count from 1.</p>",
+
+       // Page 4
         "<p>We suggest you sit in an upright, relaxed posture that feels comfortable. </p>" +
-        "<p>Place the keyboard so that you can comfortably rest the index and middle fingers of your dominant hand over the down arrow and right arrow keys. </p>" +
+        "<p>Place the keyboard so that you can comfortably rest your fingers of your dominant hand over the down arrow and right arrow keys. </p>" +
         "<p>The task will last about 10 minutes separated into 5-minutes block. Your eyes will be closed, so a tone will sound to end the task. </p>" +
         "<p><strong>Ensure that your computer's volume is set high enough for you to hear the end tone.</strong></p>" +
         "<p>Click the button below to test the volume. Adjust the volume until it is not too loud and comfortable for you.</p>" +
