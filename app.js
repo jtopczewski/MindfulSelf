@@ -30,8 +30,7 @@ app.get('/finish', function(request, response) {
 });
 
 app.post('/experiment-data', function(request, response) {
-    console.log("obtaining data")
-
+    console.log("Posting data")
     // Convert to CSV
     DATA_CSV = JSON2CSV(request.body);
 
@@ -40,7 +39,12 @@ app.post('/experiment-data', function(request, response) {
     ID_DATE_index = rows[0].split(',').indexOf('"ID_DATE"');
     ID_DATE = rows[1].split(',')[ID_DATE_index];
     ID_DATE = ID_DATE.replace(/"/g, "");
-    filename = ID_DATE + ".csv";
+
+    DAYNUMBER_index = rows[0].split(',').indexOf('"daynumber"');
+    DAYNUMBER = rows[1].split(',')[DAYNUMBER_index];
+    DAYNUMBER = DAYNUMBER.replace(/"/g, "");
+    filename = ID_DATE + "_day_" + DAYNUMBER + ".csv";
+
     saveDropbox(DATA_CSV, filename);
     response.end();
 });

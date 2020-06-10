@@ -4,8 +4,10 @@
 
 // task variables
 var bc_stim = 'Breath counting task in progress...<br>Keep your eyes closed until you hear the bell';
-var runTime = 0;  // ms
+var runTime1 = 0;  // ms
 var runTime2 = 0;  // ms
+var runTime3 = 0;  // ms
+var runTime4 = 0;  // ms
 var taskTime = 5 * 60; // 5 minutes in seconds
 
 // Set instructions helpers
@@ -105,63 +107,6 @@ var bc_instr = {
 /* ************************************ */
 /* Set up jsPsych blocks */
 /* ************************************ */
-
-var bc1_first_block = {
-    on_start: function(trial) {
-        var bc_condition = jsPsych.data.get().values()[0].bc_condition;
-        if (bc_condition == "BC") {
-            trial.stimulus = bc_instrhelper.BCtask_start
-        } else {
-            trial.stimulus = bc_instrhelper.MFtask_start
-        }
-    },
-    type: "html-keyboard-response",
-    data: {
-        exp_id: "breath-counting-task",
-        trial_id: "breath_counting1"
-    },
-    stimulus: "",
-    choices: [40, 39],     // 40 = down arrow, 39 = right arrow
-    timing_response: -1,   // until response
-    response_ends_trial: true,
-    on_finish: function() {
-        jsPsych.data.addDataToLastTrial({'addingOnTrial': 'added!'})
-    }
-};
-var bc1_block = {
-    type: 'html-keyboard-response',
-    stimulus: bc_stim,
-    is_html: true,
-    data: {
-        exp_id: "breath-counting-task",
-        trial_id: "breath_counting1"
-    },
-    choices: [40, 39],     // 40 = down arrow, 39 = right arrow
-    timing_response: -1,   // until response
-    response_ends_trial: true,
-    post_trial_gap: 0,
-    on_finish: function() {
-        jsPsych.data.addDataToLastTrial({'addingOnTrial': 'added!'})
-    }
-};
-var bc1_node = {
-    timeline: [bc1_block],
-    /* stopping criteria */
-    loop_function: function(data) {
-        for (var i = 0; i < 1; i++) {
-            if ((data.values()[i].trial_type == 'html-keyboard-response') && (data.values()[i].rt != -1)) {
-                rt = data.values()[i].rt;
-                runTime = runTime + rt;
-            }
-        }
-        if (runTime <= taskTime * 1000) {
-            return true
-        } else if (runTime > taskTime * 1000) {
-            return false
-        }
-    }
-};
-
 var bc_cont_block = {
     type: "html-keyboard-response",
     data: {
@@ -172,44 +117,80 @@ var bc_cont_block = {
     choices: [13]
 };
 
-var bc2_first_block = {
-    on_start: function(trial) {
-        var bc_condition = jsPsych.data.get().values()[0].bc_condition;
-        if (bc_condition == "BC") {
-            trial.stimulus = bc_instrhelper.BCtask_start
-        } else {
-            trial.stimulus = bc_instrhelper.MFtask_start
+// Functions to create Block variables
+function firstblock(blockid){
+
+    var first_block = {
+        on_start: function(trial) {
+            var bc_condition = jsPsych.data.get().values()[0].bc_condition;
+            if (bc_condition == "BC") {
+                trial.stimulus = bc_instrhelper.BCtask_start
+            } else {
+                trial.stimulus = bc_instrhelper.MFtask_start
+            }
+        },
+        type: "html-keyboard-response",
+        data: {
+            exp_id: "breath-counting-task",
+            trial_id: blockid
+        },
+        stimulus: "",
+        choices: [40, 39],     // 40 = down arrow, 39 = right arrow
+        timing_response: -1,   // until response
+        response_ends_trial: true,
+        on_finish: function() {
+            jsPsych.data.addDataToLastTrial({'addingOnTrial': 'added!'})
         }
-    },
-    type: "html-keyboard-response",
-    data: {
-        exp_id: "breath-counting-task",
-        trial_id: "breath_counting2"
-    },
-    stimulus: "",
-    choices: [40, 39],     // 40 = down arrow, 39 = right arrow
-    timing_response: -1,   // until response
-    response_ends_trial: true,
-    on_finish: function() {
-        jsPsych.data.addDataToLastTrial({'addingOnTrial': 'added!'})
+    };
+
+    return first_block
+} //"breath_counting1"
+function continueblock(blockid){
+    var continueblock = {
+        type: 'html-keyboard-response',
+        stimulus: bc_stim,
+        is_html: true,
+        data: {
+            exp_id: "breath-counting-task",
+            trial_id: blockid
+        },
+        choices: [40, 39],     // 40 = down arrow, 39 = right arrow
+        timing_response: -1,   // until response
+        response_ends_trial: true,
+        post_trial_gap: 0,
+        on_finish: function() {
+            jsPsych.data.addDataToLastTrial({'addingOnTrial': 'added!'})
+        }
+    };
+
+    return continueblock
+
+}
+
+// Block 1
+var bc1_first_block = firstblock("breath_counting1");
+var bc1_block = continueblock("breath_counting1");
+var bc1_node = {
+    timeline: [bc1_block],
+    /* stopping criteria */
+    loop_function: function(data) {
+        for (var j = 0; j < 1; j++) {
+            if ((data.values()[j].trial_type == 'html-keyboard-response') && (data.values()[j].rt != -1)) {
+                rt = data.values()[j].rt;
+                runTime1 = runTime1 + rt;
+            }
+        }
+        if (runTime1 <= taskTime * 1000) {
+            return true
+        } else if (runTime1 > taskTime * 1000) {
+            return false
+        }
     }
 };
-var bc2_block = {
-    type: 'html-keyboard-response',
-    stimulus: bc_stim,
-    is_html: true,
-    data: {
-        exp_id: "breath-counting-task",
-        trial_id: "breath_counting2"
-    },
-    choices: [40, 39],     // 40 = down arrow, 39 = right arrow
-    timing_response: -1,   // until response
-    response_ends_trial: true,
-    post_trial_gap: 0,
-    on_finish: function() {
-        jsPsych.data.addDataToLastTrial({'addingOnTrial': 'added!'})
-    }
-};
+
+// Block 2
+var bc2_first_block = firstblock("breath_counting2");
+var bc2_block = continueblock("breath_counting2");
 var bc2_node = {
     timeline: [bc2_block],
     /* stopping criteria */
@@ -227,6 +208,49 @@ var bc2_node = {
         }
     }
 };
+
+// Block 3
+var bc3_first_block = firstblock("breath_counting3");
+var bc3_block = continueblock("breath_counting3");
+var bc3_node = {
+    timeline: [bc3_block],
+    /* stopping criteria */
+    loop_function: function(data) {
+        for (var j = 0; j < 1; j++) {
+            if ((data.values()[j].trial_type == 'html-keyboard-response') && (data.values()[j].rt != -1)) {
+                rt = data.values()[j].rt;
+                runTime3 = runTime3 + rt;
+            }
+        }
+        if (runTime3 <= taskTime * 1000) {
+            return true
+        } else if (runTime3 > taskTime * 1000) {
+            return false
+        }
+    }
+};
+
+// Block 4
+var bc4_first_block = firstblock("breath_counting4");
+var bc4_block = continueblock("breath_counting4");
+var bc4_node = {
+    timeline: [bc4_block],
+    /* stopping criteria */
+    loop_function: function(data) {
+        for (var j = 0; j < 1; j++) {
+            if ((data.values()[j].trial_type == 'html-keyboard-response') && (data.values()[j].rt != -1)) {
+                rt = data.values()[j].rt;
+                runTime4 = runTime4 + rt;
+            }
+        }
+        if (runTime4 <= taskTime * 1000) {
+            return true
+        } else if (runTime4 > taskTime * 1000) {
+            return false
+        }
+    }
+};
+
 
 // define bell sound
 var beep = function() {
@@ -253,14 +277,38 @@ var bc_end_block = {
     choices: [13]
 };
 
-var bc_exp = [];
-bc_exp.push(welcome_block);
-bc_exp.push(bc_instr);
-bc_exp.push(bc1_first_block);
-bc_exp.push(bc1_node);
-bc_exp.push(bc_beep_block);
-bc_exp.push(bc_cont_block);
-bc_exp.push(bc2_first_block);
-bc_exp.push(bc2_node);
-bc_exp.push(bc_beep_block);
-bc_exp.push(bc_end_block);
+// Block 1
+var bc_block1 = [];
+bc_block1.push(bc_instr);
+bc_block1.push(bc1_first_block);
+bc_block1.push(bc1_node);
+bc_block1.push(bc_beep_block);
+bc_block1.push(bc_cont_block);
+
+// Block 2
+var bc_block2 = [];
+bc_block2.push(bc2_first_block);
+bc_block2.push(bc2_node);
+bc_block2.push(bc_beep_block);
+bc_block2.push(bc_cont_block);
+
+// Block 3
+var bc_block3 = [];
+bc_block3.push(bc3_first_block);
+bc_block3.push(bc3_node);
+bc_block3.push(bc_beep_block);
+bc_block3.push(bc_cont_block);
+
+// Block 4
+var bc_block4 = [];
+bc_block4.push(bc4_first_block);
+bc_block4.push(bc4_node);
+bc_block4.push(bc_beep_block);
+
+// End block
+// bc_block1.push(bc_end_block);
+// bc_block2.push(bc_end_block);
+// bc_block3.push(bc_end_block);
+bc_block4.push(bc_end_block);
+
+bc_block = [...bc_block1, ...bc_block2, ...bc_block3, ...bc_block4];

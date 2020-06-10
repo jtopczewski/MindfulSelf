@@ -12,7 +12,7 @@ var welcome = {};
 
 welcome.task = {};
 welcome.task.blurb = '<b>"Body-mind training"</b> is a short mindfulness intervention study investigating how mindfulness affects the self.';
-welcome.task.time = '60 minutes';
+welcome.task.time = '120 minutes';
 
 // --------------  things that vary between ethics approvals --------------
 
@@ -24,7 +24,7 @@ welcome.ethics.invite =
 welcome.ethics.description =
     'In this study, you will perform several tasks, including a breath counting task and tasks that measure different aspects of mental flexibility. ' +
     'Additionally, you will also complete several questionnaires in between tasks. ' +
-    'The total time required for the study is approximately ' + welcome.task.time + '.' +
+    'The total time required for the study is approximately ' + welcome.task.time + ', and will be conducted over three non-consecutive days.' +
 
     '<p>As one of the tasks requires you to be exposed to several short horror clips (less than 1 minute), you might feel shocked for a moment. ' +
     'We cannot and do not guarantee or promise that the shock is short-lasting from this study. ' +
@@ -51,18 +51,54 @@ welcome.click.consent = function() {
     welcome.helpers.setHeader(' ');
 };
 welcome.click.demographics = function() {
+
+    // Get condition
     BC_EXP_CONDITIONS = ["BC", "MF"];
-    bc_condition = jsPsych.randomization.sampleWithReplacement(BC_EXP_CONDITIONS, 1);
+    lastDigit = document.getElementById("partID").value;
+
+    if (lastDigit.match(/^[a-zA-Z]+$/)) { // if alphabet
+        // take first character of name, turn into number, and assign condition
+        firstchar = lastDigit.toLowerCase().charCodeAt(0) - 96
+        bc_condition = BC_EXP_CONDITIONS[firstchar % 2]
+    } else { // if numbers
+        bc_condition = BC_EXP_CONDITIONS[lastDigit % 2]
+    }
+
+    // Get Day number
+    daynumber = welcome.helpers.getRadioButton("day");
     welcome.helpers.setDisplay('demographics', 'none');
     welcome.helpers.setDisplay('header', 'none');
+
+    // Add javscript properties
     jsPsych.data.addProperties({  // record the condition assignment in the jsPsych data
         ID: document.getElementById("partID").value,
         ID_DATE: document.getElementById("partID").value + "_" + DATE,
         gender: welcome.helpers.getRadioButton("gender"),
         age: document.getElementById("age").value,
-        bc_condition: bc_condition[0]
+        daynumber: welcome.helpers.getRadioButton("day"),
+        bc_condition: bc_condition,
     });
-    startExperiment(); // start the jsPsych experiment
+
+    if(daynumber === "NA"){
+        alert("Please select a day!");
+    }
+
+    // Run experiment based on day
+    if (daynumber === "1"){
+        console.log("Running Day 1")
+        startDay1(); // start the Day 1 jsPsych experiment
+    }
+
+    if (daynumber === "2"){
+        console.log("Running Day 2")
+        startDay2(); // start the Day 2 jsPsych experiment
+    }
+
+    if (daynumber === "3"){
+        console.log("Running Day 3")
+        startDay3(); // start the Day 3 jsPsych experiment
+    }
+
 };
 
 
@@ -105,6 +141,11 @@ welcome.section.demographics =
     '           <input type="radio" name="gender" value="other" /> Other<br/><br/>' +
     '			<!-- Age -->' +
     '           <label for="age"><b>Age: &nbsp;</b></label><input id="age" name="age" /><br/><br/>' +
+    '			<!-- Day Number -->' +
+    '           <label for="day"><b>Day Number: &nbsp;</b></label>' +
+    '           <input type="radio" name="day" value="1" /> 1 &nbsp; ' +
+    '           <input type="radio" name="day" value="2" /> 2 &nbsp;' +
+    '           <input type="radio" name="day" value="3" /> 3<br/><br/>' +
     '		<br><br>' +
     '		<!-- Demographics  button -->' +
     '        <p align="center">' +
