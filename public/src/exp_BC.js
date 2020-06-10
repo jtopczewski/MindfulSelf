@@ -3,7 +3,7 @@
 /* ************************************ */
 
 // task variables
-var bc_stim = 'Breath counting task in progress...<br>Keep your eyes closed';
+var bc_stim = 'Breath counting task in progress...<br>Keep your eyes closed until you hear the bell';
 var runTime = 0;  // ms
 var runTime2 = 0;  // ms
 var taskTime = 5 * 60; // 5 minutes in seconds

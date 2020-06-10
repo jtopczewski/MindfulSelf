@@ -494,22 +494,22 @@ sesiat_block.push(IAT_prac_congr_procedure);
 sesiat_block.push(IAT_instr2);
 
 // // Congruent experimental block 1
-// sesiat_block.push(iat_videos_array[0]);
-// sesiat_block.push(iat_videos_array[1]);
+sesiat_block.push(iat_videos_array[0]);
+sesiat_block.push(iat_videos_array[1]);
 sesiat_block.push(IAT_sound_conditions[0].start);
 sesiat_block.push(IAT_exp_congr_procedure);
 sesiat_block.push(IAT_sound_conditions[0].stop);
 sesiat_block.push(IAT_cont_next);
 
 // Congruent experimental block 2
-// sesiat_block.push(iat_videos_array[2]);
+sesiat_block.push(iat_videos_array[2]);
 sesiat_block.push(IAT_sound_conditions[1].start);
 sesiat_block.push(IAT_exp_congr_procedure);
 sesiat_block.push(IAT_sound_conditions[1].stop);
 sesiat_block.push(IAT_cont_next);
 
 // Congruent experimental block 3
-// sesiat_block.push(iat_videos_array[3]);
+sesiat_block.push(iat_videos_array[3]);
 sesiat_block.push(IAT_sound_conditions[2].start);
 sesiat_block.push(IAT_exp_congr_procedure);
 sesiat_block.push(IAT_sound_conditions[2].stop);
@@ -526,22 +526,22 @@ sesiat_block.push(IAT_prac_incongr_procedure);
 sesiat_block.push(IAT_instr4);
 
 // Incongruent experimental block 1
-// sesiat_block.push(iat_videos_array[4]);
-// sesiat_block.push(iat_videos_array[5]);
+sesiat_block.push(iat_videos_array[4]);
+sesiat_block.push(iat_videos_array[5]);
 sesiat_block.push(IAT_sound_conditions[3].start);
 sesiat_block.push(IAT_exp_incongr_procedure);
 sesiat_block.push(IAT_sound_conditions[3].stop);
 sesiat_block.push(IAT_cont_next);
 
 // Incongruent experimental block 2
-// sesiat_block.push(iat_videos_array[6]);
+sesiat_block.push(iat_videos_array[6]);
 sesiat_block.push(IAT_sound_conditions[4].start);
 sesiat_block.push(IAT_exp_incongr_procedure);
 sesiat_block.push(IAT_sound_conditions[4].stop);
 sesiat_block.push(IAT_cont_next);
 
 // Incongruent experimental block 3
-// sesiat_block.push(iat_videos_array[7]);
+sesiat_block.push(iat_videos_array[7]);
 sesiat_block.push(IAT_sound_conditions[5].start);
 sesiat_block.push(IAT_exp_incongr_procedure);
 sesiat_block.push(IAT_sound_conditions[5].stop);
