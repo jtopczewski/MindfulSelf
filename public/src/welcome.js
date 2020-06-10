@@ -22,14 +22,13 @@ welcome.ethics.invite =
     "We hope to learn about what affects a person's experience during mindfulness.";
 
 welcome.ethics.description =
-    'In this study, you will perform several tasks, including a breath counting task for about 10 minutes, and tasks that measure different aspects of mental flexibility. ' +
+    'In this study, you will perform several tasks, including a breath counting task and tasks that measure different aspects of mental flexibility. ' +
     'Additionally, you will also complete several questionnaires in between tasks. ' +
     'The total time required for the study is approximately ' + welcome.task.time + '.' +
 
     '<p>As one of the tasks requires you to be exposed to several short horror clips (less than 1 minute), you might feel shocked for a moment. ' +
-    'No other discomforts or inconveniences besides some boredom are reasonably expected. ' +
-    'No risks are reasonably expected as a result of your participation in this study.' +
-    'We cannot and do not guarantee or promise that the shock is short-lasting from this study.</p>';
+    'We cannot and do not guarantee or promise that the shock is short-lasting from this study. ' +
+    'No other discomforts or inconveniences besides some boredom are reasonably expected.</p>';
 
 // ----------------------- function to start the task ------------------
 welcome.run = function() { 
