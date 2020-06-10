@@ -72,7 +72,15 @@ jsPsych.plugins['survey-text'] = (function() {
         pretty_name: 'Button label',
         default:  'Continue',
         description: 'The text that appears on the button to finish the trial.'
-      }
+      },
+
+      // User-added trial duration
+      trial_duration: {
+        type: jsPsych.plugins.parameterType.INT,
+        pretty_name: 'Trial duration',
+        default: null,
+        description: 'How long to show the trial.'
+      },
     }
   }
 
@@ -168,6 +176,40 @@ jsPsych.plugins['survey-text'] = (function() {
       // next trial
       jsPsych.finishTrial(trialdata);
     });
+
+    // User-added trial duration
+    if (trial.trial_duration !== null) {
+      jsPsych.pluginAPI.setTimeout(function() {
+        var endTime = performance.now();
+        var response_time = endTime - startTime;
+
+        // create object to hold responses
+        var question_data = {};
+
+        for(var index=0; index < trial.questions.length; index++){
+          var id = "Q" + index;
+          var q_element = document.querySelector('#jspsych-survey-text-'+index).querySelector('textarea, input');
+          var val = q_element.value;
+          var name = q_element.attributes['data-name'].value;
+          if(name == ''){
+            name = id;
+          }
+          var obje = {};
+          obje[name] = val;
+          Object.assign(question_data, obje);
+        }
+        // save data
+        var trialdata = {
+          "rt": response_time,
+          "responses": JSON.stringify(question_data)
+        };
+
+        display_element.innerHTML = '';
+
+        // next trial
+        jsPsych.finishTrial(trialdata);
+      }, trial.trial_duration);
+    }
 
     var startTime = performance.now();
   };

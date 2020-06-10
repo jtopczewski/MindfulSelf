@@ -12,7 +12,8 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 app.use('/js', express.static(__dirname + "/js"));
 app.use('/shared', express.static(__dirname + '/shared'));
-app.use(body_parser.json());
+app.use(body_parser.json({limit: "50mb"}));
+app.use(body_parser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
 // --- VIEW LOCATION, SET UP SERVING STATIC HTML
 app.set('views', __dirname + '/public/views');
@@ -29,6 +30,8 @@ app.get('/finish', function(request, response) {
 });
 
 app.post('/experiment-data', function(request, response) {
+    console.log("obtaining data")
+
     // Convert to CSV
     DATA_CSV = JSON2CSV(request.body);
 

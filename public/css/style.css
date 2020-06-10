@@ -13,7 +13,7 @@
 	background-color: black;
 }
 
-/* Instructions */
+/* Breath-coutning instructions */
 table, th, tr, td {
     font-size: 24px;
     padding: .5em;
@@ -28,6 +28,64 @@ table, th, tr, td {
     font-size: 24px;
 }
 
+/* FIST task */
+.FIST_stimHeader {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.FIST_feedback {
+    font-size: 42px;
+}
+
+/* AUT task */
+.AUTstimHeader {
+    font-size: 24px;
+}
+
+.AUTstim {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+
+
+/* SES-IAT */
+.row {
+    display: flex;
+    width: 700px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+    flex: 50%;
+    padding: 10px;
+}
+
+.iat-cat-text {
+    font-size: 24px;
+    margin-top: 100px
+}
+
+.iat-stim-text {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 100px
+}
+
+.iat_feedback {
+    font-size: 42px;
+}
+
+.iat_leftcat {
+    font-weight: bold;
+    color: #238bdb;
+}
+.iat_rightcat {
+    font-weight: bold;
+    color: #b1389d;
+}
+
 /* Questionnaire */
 .q_title {
     font-size: 24px;
@@ -36,6 +94,18 @@ table, th, tr, td {
 .q_para {
     font-weight: bold;
     text-align: center;
+}
+
+.q_keys_text {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.q_keys_word {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
 }
 
 label.jspsych-survey-likert-statement {
