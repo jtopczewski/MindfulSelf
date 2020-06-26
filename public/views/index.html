@@ -1,54 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="icon"
-          type="image/png"
-          href="../img/logo.png">
-    <title>The Mindful Self Experiment</title>
-
-    <script src="../../js/jspsych.js"></script>
-    <script src="../../js/jquery.min.js"></script>
-
-    <script src="../../js/plugins/jspsych-call-function.js"></script>
-    <script src="../../js/plugins/jspsych-fullscreen.js"></script>
-
-    <script src="../../js/plugins/jspsych-instructions.js"></script>
-
-    <script src="../../js/plugins/jspsych-survey-html-form.js"></script>
-    <script src="../../js/plugins/jspsych-survey-text.js"></script>
-    <script src="../../js/plugins/jspsych-survey-likert.js"></script>
-
-    <script src="../../js/plugins/jspsych-html-button-response.js"></script>
-    <script src="../../js/plugins/jspsych-html-keyboard-response.js"></script>
-
-    <script src="../../js/plugins/jspsych-video-keyboard-response.js"></script>
-
-    <script src="../src/experiment.js"></script>
-
-    <script src="../src/utils.js"></script>
-    <script src="../src/welcome.js"></script>
-
-    <script src="../src/questionnaire_items.js"></script>
-    <script src="../src/questionnaire.js"></script>
-
-    <script src="../src/exp_FIST_stimuli.js"></script>
-    <script src="../src/exp_FIST.js"></script>
-    <script src="../src/exp_BC.js"></script>
-    <script src="../src/exp_AUT.js"></script>
-    <script src="../src/exp_SESIAT.js"></script>
-
-    <link rel="stylesheet" href="../css/jspsych.css" type="text/css"/>
-    <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="icon"
+      type="image/png"
+      href="../img/logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mindful Self</title>
+<link href="../css/simpleGridTemplate.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="welcome"></div>
+<!-- Main Container -->
+<div class="container"> 
+  <!-- Header -->
+  <header class="header">
+    <h4 class="logo">THE MINDFUL SELF EXPERIMENT</h4>
+  </header>
+  <!-- Hero Section -->
+  <section class="intro">
+    <div class="column">
+      <img src="../img/profile.png" alt="" class="profile"> </div>
+    <div class="column">
+      <p>Welcome to The Mindful Experiment. In this study, we want to investigate the effects of mindfulness on various aspects of the self, and cognition such as flexibility. The experiment has been set up using jsPsych.</p>
+      <p>There are several variants of the stud, depending on which stage of the study our team is at. Please click on the corresponding link to go to the experiment page.</p>
+    </div>
+  </section>
+  <!-- Stats Gallery Section -->
+  <div class="gallery">
+    <div class="thumbnail"> <a href="MindfulSelfPilot"><img src="../img/pilotstudy.jpg" alt="" width="2000" class="cards"/></a>
+      <h4>Mindful Self Pilot Study</h4>
+      <p class="tag">Questionnaires, FIST, Breath Counting</p>
+      <p class="text_column">In this study, you wil complete some questionnaires before and after the breath counting exercise over three days. Additionally, you will also complete one task before and after the study.</p>
+    </div>
+    <div class="thumbnail"> <a href="MindfulSelfFull"><img src="../img/mindfulness.jpg" alt="" width="2000" class="cards"/></a>
+      <h4>The Mindful Self Study</h4>
+      <p class="tag">Questionnaires, tasks, Breath Counting</p>
+      <p class="text_column">In the full Mindful Study, you will complete several questionnaires, behavioral tasks, and breath counting exercises over several days.</p>
+    </div>
+  </div>
+</div>
+<!-- Main Container Ends -->
 </body>
-<script>
-
-    /* start by running the "welcome" */
-    welcome.run();
-
-</script>
 </html>
