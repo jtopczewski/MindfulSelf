@@ -2,6 +2,9 @@
 /* Define experimental variables */
 /* ************************************ */
 
+// CONSTANTS
+const FDBCK_DUR = 1000;
+
 // functions
 function reverseString(str) {
     // Step 1. Use the split() method to return a new array
@@ -191,6 +194,8 @@ var fist_match2_feedback = {
         var n_correct = JSON.parse(jsPsych.data.getLastTrialData().values()[0]["n_correct"]);
         return "<div class='FIST_feedback'>you got " + n_correct + " correct</div>";
     },
+    choices: jsPsych.NO_KEYS,
+    trial_duration: FDBCK_DUR,
     on_finish: function(data) {
 
         var correct_num_pairs = ["12", "13"];
@@ -275,6 +280,8 @@ var fist_match2_how_feedback = {
         var n_correct = JSON.parse(jsPsych.data.getLastTrialData().values()[0]["n_correct"]);
         return "<div class='FIST_feedback'>you got " + n_correct + " correct</div>";
     },
+    choices: jsPsych.NO_KEYS,
+    trial_duration: FDBCK_DUR,
     on_finish: function(data) {
         var correct_num_pairs = ["12", "13"];
         var correct_type_pairs = ["sizes", "numbers"];
@@ -377,6 +384,8 @@ var fist_match3_feedback = {
         var n_correct = JSON.parse(jsPsych.data.getLastTrialData().values()[0]["n_correct"]);
         return "<div class='FIST_feedback'>you got " + n_correct + " correct</div>";
     },
+    choices: jsPsych.NO_KEYS,
+    trial_duration: FDBCK_DUR,
     on_finish: function(data) {
         var correct_num_pairs = ["12", "13", "24", "34"];
         var correct_type_pairs = ["colors", "numbers", "sizes", "shapes"];
@@ -461,6 +470,8 @@ var fist_match3_how_feedback = {
         var n_correct = JSON.parse(jsPsych.data.getLastTrialData().values()[0]["n_correct"]);
         return "<div class='FIST_feedback'>you got " + n_correct + " correct</div>";
     },
+    choices: jsPsych.NO_KEYS,
+    trial_duration: FDBCK_DUR,
     on_finish: function(data) {
         var correct_num_pairs = ["12", "13", "24", "34"];
         var correct_type_pairs = ["colors", "numbers", "sizes", "shapes"];
@@ -579,6 +590,8 @@ var fist_prac_trial_feedback = {
         var n_correct = JSON.parse(jsPsych.data.getLastTrialData().values()[0]["n_correct"]);
         return "<div class='FIST_feedback'>you got " + n_correct + " correct</div>";
     },
+    choices: jsPsych.NO_KEYS,
+    trial_duration: FDBCK_DUR,
     on_finish: function(data) {
         var correct_num_pairs = jsPsych.timelineVariable('correct_num_pairs', true);
         var correct_type_pairs = jsPsych.timelineVariable('correct_type_pairs', true);
@@ -675,7 +688,9 @@ var fist_prac_how_feedback = {
         // Return feedback
         var n_correct = JSON.parse(jsPsych.data.getLastTrialData().values()[0]["n_correct"]);
         return "<div class='FIST_feedback'>you got " + n_correct + " correct</div>";
-    }
+    },
+    choices: jsPsych.NO_KEYS,
+    trial_duration: FDBCK_DUR,
 };
 
 // Set practice procedure
