@@ -24,7 +24,7 @@ bc_instrhelper.instr1_pg1 =
 bc_instrhelper.instr1_pg4 =
     "<p>We suggest you sit in an upright, relaxed posture that feels comfortable. </p>" +
     "<p>Place the keyboard so that you can comfortably rest your fingers of your dominant hand over the down arrow and right arrow keys. </p>" +
-    "<p>The task will last about 10 minutes separated into 5-minutes block. " +
+    "<p>The task will last about 20 minutes separated into 5-minutes block. " +
     "<br>Your eyes will be closed, so a bell will sound to end the task; then you can open your eyes. </p>" +
     "<p><strong>Ensure that your computer's volume is set high enough for you to hear the end tone.</strong></p>" +
     "<p>Click the button below to test the volume. Adjust the volume until it is not too loud and comfortable for you.</p>" +
