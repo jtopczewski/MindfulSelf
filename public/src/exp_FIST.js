@@ -216,40 +216,72 @@ var fist_match2_how = {
     },
     preamble: function(){
         var responsepairs = JSON.parse(jsPsych.data.get().last(2).values()[0]["responses"]);
-        var firstpair = responsepairs["firstpair"];
-        var secondpair = responsepairs["secondpair"];
 
         return "<div class='FIST_stimHeader'>How are they the same?</div>" +
             "<img src='../img/FIST/2Match_2.jpg' width='333' height='333'>" +
-            "<br>You have chosen " + firstpair + " and " + secondpair
+            "<br>You have chosen " + responsepairs["firstpair"] + " and " + responsepairs["secondpair"]
     },
     html: '<p><input name="firstpair" type="text" />, <input name="secondpair" type="text" /></p>',
     on_finish: function (data) {
-        var firstpair = JSON.parse(data.responses)["firstpair"];
-        var secondpair = JSON.parse(data.responses)["secondpair"];
-        var subjectpairs = [firstpair, secondpair];
+        // Get type-pairs response
+        subjectpairs = [];
+        for(var i in JSON.parse(data.responses))
+            subjectpairs.push(JSON.parse(data.responses)[i].toLowerCase());
+        // Get responses from previous number pairs part
+        var responsepairs = JSON.parse(jsPsych.data.get().last(3).values()[0]["responses"]);
+        responsepairs_arr = []; // This is the numbers written down from previous part
+        for(var i in responsepairs)
+            responsepairs_arr.push(responsepairs[i]);
 
+        // Get correct number-type pairs
         var correct_num_pairs = ["12", "13"];
         var correct_type_pairs = ["sizes", "numbers"];
         data.correct_num_pairs = correct_num_pairs.toString();
         data.correct_type_pairs = correct_type_pairs.toString();
+        correct_num_type_pairs = {};
+        for (i = 0; i < correct_num_pairs.length; i++) {
+            correct_num_type_pairs[correct_num_pairs[i]] = correct_type_pairs[i]
+        }
 
         var i;
         var accuracy = 0;
 
+        // Get what participant should answer based on number-pairs response
+        sub_response = [];
+        for (i = 0; i < responsepairs_arr.length; i++) {
+            arr_i = responsepairs_arr[i]
+
+            // if exist correct paris, get what they should have responded
+            var check1 = correct_num_pairs.includes(arr_i);
+            var check2 = correct_num_pairs.includes(reverseString(arr_i));
+
+            if (check1 === true) {
+                sub_response.push(correct_num_type_pairs[arr_i]);
+            }
+            if (check2 === true) {
+                sub_response.push(correct_num_type_pairs[reverseString(arr_i)]);
+            }
+        };
+        sub_response = sub_response.filter((x, i, a) => a.indexOf(x) == i) // Get only unique
+
         // Loop to check accuracy
         for (i = 0; i < subjectpairs.length; i++) {
             subjectpairs_i = subjectpairs[i];
+            if(subjectpairs_i === "colours"||subjectpairs_i === "colors"||subjectpairs_i === "color"||subjectpairs_i === "colour"){
+                subjectpairs_i = "colors";
+            }
+            // Check for every element in num_pairs
+            for (ii = 0; ii < sub_response.length; ii++) {
 
-            // Check for every element in correct_num_pairs
-            for (ii = 0; ii < correct_type_pairs.length; ii++) {
                 // If answer is blank
                 if (subjectpairs_i == "") {
                     accuracy += 0;
                 } else {
-                    var check = correct_type_pairs[ii].includes(subjectpairs_i);
+                    // Compare against response
+
+                    var check = sub_response[ii].includes(subjectpairs_i);
                     if (check === true) {
-                        correct_type_pairs.splice(ii, 1);
+                        sub_response.splice(ii, 1);
                         accuracy += 1;
                         break
                     }
@@ -404,42 +436,74 @@ var fist_match3_how = {
     },
     preamble: function(){
         var responsepairs = JSON.parse(jsPsych.data.get().last(2).values()[0]["responses"]);
-        var firstpair = responsepairs["firstpair"];
-        var secondpair = responsepairs["secondpair"];
-        var thirdpair = responsepairs["thirdpair"];
-
         return "<div class='FIST_stimHeader'>How are they the same?</div>" +
             "<img src='../img/FIST/Demo2.jpg' width='333' height='333'>" +
-            "<br>You have chosen " + firstpair + " , " + secondpair + " , and " + thirdpair
+            "<br>You have chosen " + responsepairs["firstpair"] + " , " + responsepairs["secondpair"] + " , and " + responsepairs["thirdpair"];
     },
     html: '<p><input name="firstpair" type="text" />, ' +
         '<input name="secondpair" type="text" />, ' +
         '<input name="thirdpair" type="text" /></p>',
     on_finish: function (data) {
-        var firstpair = JSON.parse(data.responses)["firstpair"];
-        var secondpair = JSON.parse(data.responses)["secondpair"];
-        var thirdpair = JSON.parse(data.responses)["thirdpair"];
-        var subjectpairs = [firstpair, secondpair, thirdpair];
+        // Get type-pairs response
+        subjectpairs = [];
+        for(var i in JSON.parse(data.responses))
+            subjectpairs.push(JSON.parse(data.responses)[i].toLowerCase());
 
+        // Get responses from previous number pairs part
+        var responsepairs = JSON.parse(jsPsych.data.get().last(3).values()[0]["responses"]);
+        responsepairs_arr = []; // This is the numbers written down from previous part
+        for(var i in responsepairs)
+            responsepairs_arr.push(responsepairs[i]);
+
+        // Get correct number-type pairs
         var correct_num_pairs = ["12", "13", "24", "34"];
         var correct_type_pairs = ["colors", "numbers", "sizes", "shapes"];
         data.correct_num_pairs = correct_num_pairs.toString();
         data.correct_type_pairs = correct_type_pairs.toString();
+        correct_num_type_pairs = {};
+        for (i = 0; i < correct_num_pairs.length; i++) {
+            correct_num_type_pairs[correct_num_pairs[i]] = correct_type_pairs[i]
+        }
 
         var i;
         var accuracy = 0;
+
+        // Get what participant should answer based on number-pairs response
+        sub_response = [];
+        for (i = 0; i < responsepairs_arr.length; i++) {
+            arr_i = responsepairs_arr[i]
+
+            // if exist correct paris, get what they should have responded
+            var check1 = correct_num_pairs.includes(arr_i);
+            var check2 = correct_num_pairs.includes(reverseString(arr_i));
+
+            if (check1 === true) {
+                sub_response.push(correct_num_type_pairs[arr_i]);
+            }
+            if (check2 === true) {
+                sub_response.push(correct_num_type_pairs[reverseString(arr_i)]);
+            }
+        };
+        sub_response = sub_response.filter((x, i, a) => a.indexOf(x) == i) // Get only unique
+
         // Loop to check accuracy
         for (i = 0; i < subjectpairs.length; i++) {
             subjectpairs_i = subjectpairs[i];
-            // Check for every element in correct_num_pairs
-            for (ii = 0; ii < correct_type_pairs.length; ii++) {
+
+            if(subjectpairs_i === "colours"||subjectpairs_i === "colors"||subjectpairs_i === "color"||subjectpairs_i === "colour"){
+                subjectpairs_i = "colors";
+            }
+            // Check for every element in num_pairs
+            for (ii = 0; ii < sub_response.length; ii++) {
+
                 // If answer is blank
                 if (subjectpairs_i == "") {
                     accuracy += 0;
                 } else {
-                    var check = correct_type_pairs[ii].includes(subjectpairs_i);
+                    // Compare against response
+                    var check = sub_response[ii].includes(subjectpairs_i);
                     if (check === true) {
-                        correct_type_pairs.splice(ii, 1);
+                        sub_response.splice(ii, 1);
                         accuracy += 1;
                         break
                     }
@@ -537,7 +601,6 @@ var fist_prac_trial = {
         var correct_type_pairs = jsPsych.timelineVariable('correct_type_pairs', true);
         data.correct_num_pairs = correct_num_pairs.toString();
         data.correct_type_pairs = correct_type_pairs.toString();
-
         var i;
         var accuracy = 0;
 
@@ -593,8 +656,8 @@ var fist_prac_trial_feedback = {
     choices: jsPsych.NO_KEYS,
     trial_duration: FDBCK_DUR,
     on_finish: function(data) {
-        var correct_num_pairs = jsPsych.timelineVariable('correct_num_pairs', true);
-        var correct_type_pairs = jsPsych.timelineVariable('correct_type_pairs', true);
+        var correct_num_pairs = jsPsych.data.get().last(2).values()[0]["correct_num_pairs"].split(',');
+        var correct_type_pairs = jsPsych.data.get().last(2).values()[0]["correct_type_pairs"].split(',');
 
         // set data correct pairs
         data.correct_num_pairs = correct_num_pairs.toString();
@@ -607,15 +670,12 @@ var fist_prac_how = {
     on_start: function(trial) {
         stimulus = jsPsych.timelineVariable('stimulus', true);
         var responsepairs = JSON.parse(jsPsych.data.get().last(2).values()[0]["responses"]);
-        var firstpair = responsepairs["firstpair"];
-        var secondpair = responsepairs["secondpair"];
-        var thirdpair = responsepairs["thirdpair"];
 
         // Set trial parameters
         trial.preamble =
             "<div class='FIST_stimHeader'>How are they the same?</div>" +
             "<img src=" + stimulus + " width='333' height='333'>" +
-            "<br>You have chosen " + firstpair + " , " + secondpair + " , and " + thirdpair;
+            "<br>You have chosen " + responsepairs["firstpair"] + " , " + responsepairs["secondpair"] + " , and " + responsepairs["thirdpair"];
 
         trial.data = {
             exp_id: "FIST-task",
@@ -627,39 +687,72 @@ var fist_prac_how = {
         '<input name="secondpair" type="text" />, ' +
         '<input name="thirdpair" type="text" /></p>',
     on_finish: function (data) {
-        var firstpair = JSON.parse(data.responses)["firstpair"];
-        var secondpair = JSON.parse(data.responses)["secondpair"];
-        var thirdpair = JSON.parse(data.responses)["thirdpair"];
-        var subjectpairs = [firstpair, secondpair, thirdpair];
 
-        // set data correct pairs
-        var correct_num_pairs = jsPsych.timelineVariable('correct_num_pairs', true);
-        var correct_type_pairs = jsPsych.timelineVariable('correct_type_pairs', true);
+        // Get type-pairs response
+        subjectpairs = [];
+        for(var i in JSON.parse(data.responses))
+            subjectpairs.push(JSON.parse(data.responses)[i].toLowerCase());
+
+        // Get responses from previous number pairs part
+        var responsepairs = JSON.parse(jsPsych.data.get().last(3).values()[0]["responses"]);
+        responsepairs_arr = []; // This is the numbers written down from previous part
+        for(var i in responsepairs)
+            responsepairs_arr.push(responsepairs[i]);
+
+        // Get correct number-type pairs
+        var correct_num_pairs = jsPsych.data.get().last(2).values()[0]["correct_num_pairs"].split(',');
+        var correct_type_pairs = jsPsych.data.get().last(2).values()[0]["correct_type_pairs"].split(',');
         data.correct_num_pairs = correct_num_pairs.toString();
         data.correct_type_pairs = correct_type_pairs.toString();
+        correct_num_type_pairs = {};
+        for (i = 0; i < correct_num_pairs.length; i++) {
+            correct_num_type_pairs[correct_num_pairs[i]] = correct_type_pairs[i];
+        }
 
         var i;
         var accuracy = 0;
 
+        // Get what participant should answer based on number-pairs response
+        sub_response = [];
+        for (i = 0; i < responsepairs_arr.length; i++) {
+            arr_i = responsepairs_arr[i]
+
+            // if exist correct paris, get what they should have responded
+            var check1 = correct_num_pairs.includes(arr_i);
+            var check2 = correct_num_pairs.includes(reverseString(arr_i));
+
+            if (check1 === true) {
+                sub_response.push(correct_num_type_pairs[arr_i]);
+            }
+            if (check2 === true) {
+                sub_response.push(correct_num_type_pairs[reverseString(arr_i)]);
+            }
+        };
+        sub_response = sub_response.filter((x, i, a) => a.indexOf(x) == i) // Get only unique
+
         // Loop to check accuracy
         for (i = 0; i < subjectpairs.length; i++) {
             subjectpairs_i = subjectpairs[i];
+            if(subjectpairs_i === "colours"||subjectpairs_i === "colors"||subjectpairs_i === "color"||subjectpairs_i === "colour"){
+                subjectpairs_i = "colors";
+            }
+            // Check for every element in num_pairs
+            for (ii = 0; ii < sub_response.length; ii++) {
 
-            // Check for every element in correct_num_pairs
-            for (ii = 0; ii < correct_type_pairs.length; ii++) {
                 // If answer is blank
                 if (subjectpairs_i == "") {
                     accuracy += 0;
                 } else {
-                    var check = correct_type_pairs[ii].includes(subjectpairs_i);
+                    // Compare against response
+                    var check = sub_response[ii].includes(subjectpairs_i);
                     if (check === true) {
-                        correct_type_pairs.splice(ii, 1);
+                        sub_response.splice(ii, 1);
                         accuracy += 1;
                         break
                     }
                 }
             }
-        };
+        }
 
         // Append accuracy and no. correct responses
         data.n_correct = accuracy;
@@ -826,39 +919,72 @@ var fist_exp_how = {
         '<input name="secondpair" type="text" />, ' +
         '<input name="thirdpair" type="text" /></p>',
     on_finish: function (data) {
-        var firstpair = JSON.parse(data.responses)["firstpair"];
-        var secondpair = JSON.parse(data.responses)["secondpair"];
-        var thirdpair = JSON.parse(data.responses)["thirdpair"];
-        var subjectpairs = [firstpair, secondpair, thirdpair];
 
-        // set data correct pairs
-        var correct_num_pairs = jsPsych.timelineVariable('correct_num_pairs', true);
-        var correct_type_pairs = jsPsych.timelineVariable('correct_type_pairs', true);
+        // Get type-pairs response
+        subjectpairs = [];
+        for(var i in JSON.parse(data.responses))
+            subjectpairs.push(JSON.parse(data.responses)[i].toLowerCase());
+
+        // Get responses from previous number pairs part
+        var responsepairs = JSON.parse(jsPsych.data.get().last(2).values()[0]["responses"]);
+        responsepairs_arr = []; // This is the numbers written down from previous part
+        for(var i in responsepairs)
+            responsepairs_arr.push(responsepairs[i]);
+
+        // Get correct number-type pairs
+        var correct_num_pairs = jsPsych.data.get().last(2).values()[0]["correct_num_pairs"].split(',');
+        var correct_type_pairs = jsPsych.data.get().last(2).values()[0]["correct_type_pairs"].split(',');
         data.correct_num_pairs = correct_num_pairs.toString();
         data.correct_type_pairs = correct_type_pairs.toString();
+        correct_num_type_pairs = {};
+        for (i = 0; i < correct_num_pairs.length; i++) {
+            correct_num_type_pairs[correct_num_pairs[i]] = correct_type_pairs[i];
+        }
 
         var i;
         var accuracy = 0;
 
+        // Get what participant should answer based on number-pairs response
+        sub_response = [];
+        for (i = 0; i < responsepairs_arr.length; i++) {
+            arr_i = responsepairs_arr[i]
+
+            // if exist correct paris, get what they should have responded
+            var check1 = correct_num_pairs.includes(arr_i);
+            var check2 = correct_num_pairs.includes(reverseString(arr_i));
+
+            if (check1 === true) {
+                sub_response.push(correct_num_type_pairs[arr_i]);
+            }
+            if (check2 === true) {
+                sub_response.push(correct_num_type_pairs[reverseString(arr_i)]);
+            }
+        };
+        sub_response = sub_response.filter((x, i, a) => a.indexOf(x) == i) // Get only unique
+
         // Loop to check accuracy
         for (i = 0; i < subjectpairs.length; i++) {
             subjectpairs_i = subjectpairs[i];
+            if(subjectpairs_i === "colours"||subjectpairs_i === "colors"||subjectpairs_i === "color"||subjectpairs_i === "colour"){
+                subjectpairs_i = "colors";
+            }
 
-            // Check for every element in correct_num_pairs
-            for (ii = 0; ii < correct_type_pairs.length; ii++) {
+            // Check for every element in num_pairs
+            for (ii = 0; ii < sub_response.length; ii++) {
                 // If answer is blank
                 if (subjectpairs_i == "") {
                     accuracy += 0;
                 } else {
-                    var check = correct_type_pairs[ii].includes(subjectpairs_i);
+                    // Compare against response
+                    var check = sub_response[ii].includes(subjectpairs_i);
                     if (check === true) {
-                        correct_type_pairs.splice(ii, 1);
+                        sub_response.splice(ii, 1);
                         accuracy += 1;
                         break
                     }
                 }
             }
-        };
+        }
 
         // Append accuracy and no. correct responses
         data.n_correct = accuracy;
