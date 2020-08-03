@@ -67,7 +67,7 @@ function startDay1() {
         timeline: [
             ...welcome_block,
             ...FIST_block,
-            ...bc_block, ...aes_block,
+            ...bc_block, ...post_bc_block1, ...post_bc_block2, ...aes_block,
         ],
 
         /* on_close currently not working */
@@ -91,7 +91,7 @@ function startDay2() {
 
         timeline: [
             ...welcome_block,
-            ...bc_block, ...aes_block,
+            ...bc_block, ...post_bc_block2, ...aes_block,
             ...fadplus_block],
 
         /* on_close currently not working */
@@ -115,7 +115,7 @@ function startDay3() {
 
         timeline: [
             ...welcome_block,
-            ...bc_block, ...aes_block,
+            ...bc_block, ...post_bc_block2, ...aes_block,
             ...pss_block, ...panas_block,
             ...FIST_block
             ],
