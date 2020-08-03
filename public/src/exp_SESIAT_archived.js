@@ -8,34 +8,60 @@ const ME_WORDS = ["I", "me", "myself"];
 const FEAR_WORDS = ["fright", "anxiety", "horror", "fear", "terror"];
 
 const fright_options = ["Not afraid at all", "less afraid", "Somewhat afraid", "Afraid", "Very afraid"];
-const cat_tables =
-    "<table style='border-collapse:collapse;border-spacing:0' class='tg' align='center'>" +
-    "<thead><tr><th style='background-color:#333333;border-color:black;border-style:solid;border-width:1px;color:#ffffff;font-family:Arial, sans-serif;font-size:18px;font-weight:normal;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal'>" +
-    "<span style='font-weight:bold'>Category</span></th>" +
-    "<th style='background-color:#333333;border-color:black;border-style:solid;border-width:1px;color:#ffffff;font-family:Arial, sans-serif;font-size:18px;font-weight:normal;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal'>" +
-    "<span style='font-weight:bold'>Words</span></th></tr></thead>" +
-    "<tbody>" +
-    "<tr>" +
-    "<td style='border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal'>Me</td>" +
-    "<td style='border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal'>I, Me, Myself</td>" +
-    "</tr>" +
-    "<tr>" +
-    "<td style='border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal'>Fear</td>" +
-    "<td style='border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal'>Fear, Fright, Anxiety, Horror, Panic, Terror</td>" +
-    "</tr>" +
-    "<tr>" +
-    "<td style='border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal'>Office Equipment</td>" +
-    "<td style='border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px;overflow:hidden;padding:10px 5px;text-align:left;vertical-align:top;word-break:normal'>Notebook, Folder, Paper</td>" +
-    "</tr>" +
-    "</tbody>" +
-    "</table>";
 
-// task parameters: One set = 3 trials
-IAT_PRACT_REP = 7; // original 1
-IAT_TEST_REP = 7; // original 4
+
+// task parameters: One set = 6 trials
+IAT_PRACT_REP = 1; // original 1
+IAT_TEST_REP = 4; // original 4
 IAT_FIX_DUR = 1500;
 // Set helpers
 var IAT_taskhelper = {};
+
+// Instructions 1
+IAT_taskhelper.instr1_pg1 = "<p class='instr'>In this task, words will be presented in the middle of the screen.</p>" +
+    "<p class='instr'>These words belong to one of three categories: Me, fear, office equipment. <br>Your task is to sort these words into their " +
+    "<p class='instr'>These categories are presented below the word, and in two columns. " +
+    "<br>One of the categories is in one column while the other two are in another column.</p>" +
+    "<p class='instr'>Press <b>F</b> if the word belongs to the category on left. <br>Press <b>J</b> if the word belongs to the category on the right.";
+
+IAT_taskhelper.instr1_pg2 = "<p class='instr'>At the start of the experiment, you will also watch one or two horror clips of less than one minute each.</p>" +
+    "<p class='instr'>Additionally, throughout the task, monotonic scary background sounds will be played.</p>" +
+    "<p class='instr'>The video and sound will only be played during the experimental blocks but not during practice.</p>";
+
+IAT_taskhelper.instr1_pg3 = "<p class='instr'>There are two stages to the task, with each stage consisting of a practice block and three test blocks. " +
+    "<p class='instr'>We wil begin with the first stage.</p>" +
+    "<p class='instr'>In the first stage, <span class='iat_leftcat'>'me'</span> and <span class='iat_leftcat'>'Fear'</span> are grouped on the <span class='iat_leftcat'>left</span> " +
+    "while <span class='iat_rightcat'>'Office equipment'</span> is grouped on the <span class='iat_rightcat'>right.</span></p>" +
+    "<p class='instr'>Press <span class='iat_leftcat'>F</span> if the word belongs to the category on <span class='iat_leftcat'>left ('me' and 'Fear' words).</span> " +
+    "<br>Press <span class='iat_rightcat'>J</span> if the word belongs to the category on the <span class='iat_rightcat'>right ('Office equipment' words).</span>" +
+    "<p class='instr'>Press complete the task as quick and as accurate as possible</p>" +
+    "<p class='instr'>Press Next to start the practice block.</p>";
+
+// Instructions 2
+IAT_taskhelper.instr2_pg1 = "<p class='instr'>Thank you for completing the practice block. We will now proceed to the experimental block.</p>" +
+    "<p class='instr'>Remember, press <span class='iat_leftcat'>F</span> if the word belongs to the category on <span class='iat_leftcat'>left ('me' and 'Fear' words).</span> " +
+    "<br>Press <span class='iat_rightcat'>J</span> if the word belongs to the category on the <span class='iat_rightcat'>right ('Office equipment' words).</span>" +
+    "<p class='instr'>Press complete the task as quick and as accurate as possible</p>" +
+    "<p class='instr'>Press Next to start the experimental block.</p>" +
+    "<p class='instr'>Remember, we will begin with one to two horror video clips, and the task will be accompanied by monotonic scary background sounds</p>";
+
+// Instructions 3
+IAT_taskhelper.instr3_pg1 =
+    "<p class='instr'>Welcome to the second stage!</p> " +
+    "<p class='instr'>In the second stage, <span class='iat_leftcat'>'me'</span> is now grouped on the <span class='iat_leftcat'>left</span> " +
+    "while <span class='iat_rightcat'>'Fear'</span> and <span class='iat_rightcat'>'Office equipment'</span> are grouped on the <span class='iat_rightcat'>right.</span></p>" +
+    "<p class='instr'>Press <span class='iat_leftcat'>F</span> if the word belongs to the category on <span class='iat_leftcat'>left ('me' words).</span> " +
+    "<br>Press <span class='iat_rightcat'>J</span> if the word belongs to the category on the <span class='iat_rightcat'>right ('Fear' and 'Office equipment' words).</span>" +
+    "<p class='instr'>Press complete the task as quick and as accurate as possible</p>" +
+    "<p class='instr'>Press Next to start the practice block.</p>";
+
+// Instructions 4
+IAT_taskhelper.instr4_pg1 = "<p class='instr'>Thank you for completing the practice block. We will now proceed to the experimental block.</p>" +
+    "<p class='instr'>Remember, press <span class='iat_leftcat'>F</span> if the word belongs to the category on <span class='iat_leftcat'>left ('me' words).</span> " +
+    "<br>Press <span class='iat_rightcat'>J</span> if the word belongs to the category on the <span class='iat_rightcat'>right ('Fear' and 'Office equipment' words).</span>" +
+    "<p class='instr'>Press complete the task as quick and as accurate as possible</p>" +
+    "<p class='instr'>Press Next to start the experimental block.</p>" +
+    "<p class='instr'>Remember, we will begin with one to two horror video clips, and the task will be accompanied by monotonic scary background sounds</p>";
 
 // Task stimuli
 IAT_taskhelper.fixation = "<div style='font-size: 60px'>+</div>";
@@ -43,24 +69,25 @@ IAT_taskhelper.fixation = "<div style='font-size: 60px'>+</div>";
 IAT_taskhelper.congr_task_left =
     "<div class='row'>" +
     "<div class='column'><p class='iat-cat-text'>Fear<br>Me</p></div>" +
-    "<div class='column'><p class='iat-cat-text'><br>Office equipment</p></div>" +
+    "<div class='column'><p class='iat-cat-text'>Office equipment</p></div>" +
     "</div>";
 IAT_taskhelper.congr_task_right =
     "<div class='row'>" +
-    "<div class='column'><p class='iat-cat-text'><br>Office equipment</p></div>" +
+    "<div class='column'><p class='iat-cat-text'>Office equipment</p></div>" +
     "<div class='column'><p class='iat-cat-text'>Fear<br>Me</p></div>" +
     "</div>";
 
 IAT_taskhelper.incongr_task_left =
     "<div class='row'>" +
     "<div class='column'><p class='iat-cat-text'>Fear<br>Office equipment</p></div>" +
-    "<div class='column'><p class='iat-cat-text'><br>Me</p></div>" +
+    "<div class='column'><p class='iat-cat-text'>Me</p></div>" +
     "</div>";
 IAT_taskhelper.incongr_task_right =
     "<div class='row'>" +
-    "<div class='column'><p class='iat-cat-text'><br>Me</p></div>" +
+    "<div class='column'><p class='iat-cat-text'>Me</p></div>" +
     "<div class='column'><p class='iat-cat-text'>Fear<br>Office equipment</p></div>" +
     "</div>";
+
 
 IAT_taskhelper.cont_next =
     "<p class='continue_next'>Press <strong>ENTER</strong> to continue to the next set.</p>";
@@ -69,72 +96,22 @@ IAT_taskhelper.end_block = "<p class='continue_next'>Great job and thank you! Yo
     "<br>We will proceed with the next section.</p>" +
     "<p class='continue_next'>Press <strong>ENTER</strong> to continue.</p>";
 
-
-// Instructions 1
-IAT_taskhelper.instr1_pg1 = "<p class='instr'>In this task, words will be presented at the center of the screen after the other.</p>" +
-    "<p class='instr'>You will need to sort these words into categories according to their literal meaning. " +
-    "<br>The categories and the words that fit into them are as follows: </p>" + cat_tables;
-
-IAT_taskhelper.instr1_pg2 = "<p class='instr'>In this task, you need to sort words presented at the center of the screen into categories." +
-    "<br>The names of the categories are presented at the bottom of the screen. " +
-    "<p class='instr'>If the word at the center fits one of the categories at the <span class='iat_leftcat'>bottom-left side</span> of the screen, press <span class='iat_leftcat'>F</span>." +
-    "<br>If the word at the center fits one of the categories at the <span class='iat_rightcat'>bottom-right side</span> of the screen, press <span class='iat_rightcat'>J</span>.</p>" +
-    "<p class='instr'>During the task, the categories that fit each button will remain at the bottom of the screen. Each word fits into one category only.</p>" +
-    "<p class='instr'>Sort the words as quickly as you can while making as few mistakes as possible.</p>";
-
-// Instructions 2
-IAT_taskhelper.instr2_pg1 = "<p class='instr'>Thank you for completing the practice block. We will now proceed to the experimental block.</p>" +
-    "<p class='instr'>Now, during the rest of the task, you are going to watch short videos that might be unpleasant." +
-    "<br>You should watch each video to the end without looking away from the screen." +
-    "<br>There's no need to press anything or react while watching the videos. You should just watch them.</p>";
-
-// Instructions 3
-IAT_taskhelper.instr3_pg1 = "<p class='instr'><b><u>Remember:</u></b>" +
-    "<br>If the word at the center of the screen fits one of the categories on the <span class='iat_leftcat'>bottom-left side</span> of the screen, press <span class='iat_leftcat'>F</span>." +
-    "<br>If the word at the center of the screen fits one of the categories on the <span class='iat_rightcat'>bottom-right side</span> of the screen, press <span class='iat_rightcat'>J</span>. </p>" +
-    "<p class='instr'>Press complete the task as quick and as accurate as possible.</p>";
-
-// Stage Switch
-
-// Instructions 4
-IAT_taskhelper.instr4_pg1 =
-    "<p class='instr'>Now, you need to sort the words that will be presented in the center of the screen into categories again. " +
-    "<br><b>Notice that the fear category switched sides.</b>" +
-    "<p class='instr'>If the word at the center fits one of the categories at the <span class='iat_leftcat'>bottom-left side</span> of the screen, press <span class='iat_leftcat'>F</span>." +
-    "<br>If the word at the center fits one of the categories at the <span class='iat_rightcat'>bottom-right side</span> of the screen, press <span class='iat_rightcat'>J</span>.</p>" +
-    "<p class='instr'>Sort the words as quickly as you can while making as few mistakes as possible.</p>";
-
-
-
 /* ************************************ */
 /* Instructions */
 /* ************************************ */
 
-var IAT_instr1a = {
+var IAT_instr = {
     type: 'instructions',
     data: {
         exp_id: "ses-iat-task",
         trial_id: "instructions"
     },
-    pages: [IAT_taskhelper.instr1_pg1],
-    show_clickable_nav: true,
-    show_page_number: true
-};
-var IAT_instr1b = {
-    on_start: function (trial){
-        var ses_stage = jsPsych.data.get().values()[0].ses_stages.split(',');
-        if (ses_stage[0] == "congruent") {
-            trial.pages = [IAT_taskhelper.instr1_pg2 + IAT_taskhelper.congr_task_left]
-        } else {
-            trial.pages = [IAT_taskhelper.instr1_pg2 + IAT_taskhelper.incongr_task_right]
-        }
-    },
-    type: 'instructions',
-    data: {
-        exp_id: "ses-iat-task",
-        trial_id: "instructions"
-    },
-    pages: [""],
+    pages: [
+        IAT_taskhelper.instr1_pg1,
+        IAT_taskhelper.instr1_pg2,
+        IAT_taskhelper.instr1_pg3,
+
+    ],
     show_clickable_nav: true,
     show_page_number: true
 };
@@ -144,61 +121,33 @@ var IAT_instr2 = {
         exp_id: "ses-iat-task",
         trial_id: "instructions"
     },
-    pages: [IAT_taskhelper.instr2_pg1],
+    pages: [
+        IAT_taskhelper.instr2_pg1,
+    ],
     show_clickable_nav: true,
     show_page_number: true
 };
 var IAT_instr3 = {
-    on_start: function (trial){
-        var ses_stage = jsPsych.data.get().values()[0].ses_stages.split(',');
-        if (ses_stage[0] == "congruent") {
-            trial.pages = [IAT_taskhelper.instr3_pg1 + IAT_taskhelper.congr_task_left]
-        } else {
-            trial.pages = [IAT_taskhelper.instr3_pg1 + IAT_taskhelper.incongr_task_right]
-        }
-    },
     type: 'instructions',
     data: {
         exp_id: "ses-iat-task",
         trial_id: "instructions"
     },
-    pages: [""],
+    pages: [
+        IAT_taskhelper.instr3_pg1,
+    ],
     show_clickable_nav: true,
     show_page_number: true
 };
 var IAT_instr4 = {
-    on_start: function (trial){
-        var ses_stage = jsPsych.data.get().values()[0].ses_stages.split(',');
-        if (ses_stage[1] == "incongruent") {
-            trial.pages = [IAT_taskhelper.instr4_pg1 + IAT_taskhelper.incongr_task_right]
-        } else {
-            trial.pages = [IAT_taskhelper.instr4_pg1 + IAT_taskhelper.congr_task_left]
-        }
-    },
     type: 'instructions',
     data: {
         exp_id: "ses-iat-task",
         trial_id: "instructions"
     },
-    pages: [""],
-    show_clickable_nav: true,
-    show_page_number: true
-};
-var IAT_instr5 = {
-    on_start: function (trial){
-        var ses_stage = jsPsych.data.get().values()[0].ses_stages.split(',');
-        if (ses_stage[1] == "incongruent") {
-            trial.pages = [IAT_taskhelper.instr3_pg1 + IAT_taskhelper.incongr_task_right]
-        } else {
-            trial.pages = [IAT_taskhelper.instr3_pg1 + IAT_taskhelper.congr_task_left]
-        }
-    },
-    type: 'instructions',
-    data: {
-        exp_id: "ses-iat-task",
-        trial_id: "instructions"
-    },
-    pages: [""],
+    pages: [
+        IAT_taskhelper.instr4_pg1,
+    ],
     show_clickable_nav: true,
     show_page_number: true
 };
@@ -229,6 +178,7 @@ var IAT_end_block = {
 // set factorial design
 const IAT_factors = {
     condition: ["office", "me", "fear"],
+    location: ["left", "right",]
 };
 var IAT_conditions = jsPsych.randomization.factorial(IAT_factors, 1);
 
@@ -319,14 +269,14 @@ var IAT_sound_conditions = jsPsych.randomization.repeat(IAT_sounds, 2);
 // Videos
 const iat_videos = {
     condition: [
-        '../video/sesiat_Clip1.mp4',
-        '../video/sesiat_Clip2.mp4',
-        '../video/sesiat_Clip3.mp4',
-        '../video/sesiat_Clip4.mp4',
-        '../video/sesiat_Clip5.mp4',
-        '../video/sesiat_Clip6.mp4',
-        '../video/sesiat_Clip7.mp4',
-        '../video/sesiat_Clip8.mp4',
+        '../video/sesiat_Clip1.wmv',
+        '../video/sesiat_Clip2.wmv',
+        '../video/sesiat_Clip3.wmv',
+        '../video/sesiat_Clip4.wmv',
+        '../video/sesiat_Clip5.wmv',
+        '../video/sesiat_Clip6.wmv',
+        '../video/sesiat_Clip7.wmv',
+        '../video/sesiat_Clip8.wmv',
     ]
 };
 var iat_video_conditions = jsPsych.randomization.factorial(iat_videos, 1);
@@ -344,12 +294,7 @@ function createVideoArray() {
             },
             width: 700,
             trial_ends_after_video: true,
-            choices: [120],
-            on_finish: function (data) {
-                if(data.key_press == 120){
-                    jsPsych.endExperiment('The experiment was ended prematurely.');
-                }
-            }
+            choices: jsPsych.NO_KEYS,
         };
         videoarray[i] = videotrial;
     }
@@ -372,30 +317,42 @@ var IAT_fixation = {
 
 // function to create ses-iat trials
 function create_sesiatTrials(TRIALID, STAGEID) {
+
     var TRIAL = {
         on_start: function (trial) {
-            var ses_stages = jsPsych.data.get().values()[0].ses_stages.split(',');
-            if(STAGEID === "stage1") {
-                ses_stage = ses_stages[0];
-            } else {
-                ses_stage = ses_stages[1];
-            }
+            // Set fear key
+            FEARLOCATION = jsPsych.timelineVariable('location', true);
 
             // Congruent Left: left = Me + fear, Right = Office
-            if(ses_stage === "congruent") {
+            if(STAGEID === "congruent" && FEARLOCATION == "left") {
                 FEARKEY = 70;
                 MEKEY = 70;
                 OFFKEY = 74;
                 TASKPROMPT = IAT_taskhelper.congr_task_left;
             }
+            // Congruent Right: left = Office, Right = Me + fear
+            if(STAGEID === "congruent" && FEARLOCATION == "right") {
+                FEARKEY = 74;
+                MEKEY = 74;
+                OFFKEY = 70;
+                TASKPROMPT = IAT_taskhelper.congr_task_right;
+            }
 
             // Incongruent Left: left = Me, Right = Office + fear
-            if(ses_stage === "incongruent") {
+            if(STAGEID === "incongruent" && FEARLOCATION == "left") {
+                FEARKEY = 70;
+                MEKEY = 74;
+                OFFKEY = 70;
+                TASKPROMPT = IAT_taskhelper.incongr_task_left;
+            }
+            // Incongruent Right: left = Office + fear, Right = Me
+            if(STAGEID === "incongruent" && FEARLOCATION == "right") {
                 FEARKEY = 74;
                 MEKEY = 70;
                 OFFKEY = 74;
-                TASKPROMPT = IAT_taskhelper.incongr_task_right
+                TASKPROMPT = IAT_taskhelper.incongr_task_right;
             }
+
 
             if (jsPsych.timelineVariable('condition', true) === "office") {
                 trial_stim = jsPsych.randomization.sampleWithReplacement(OFFICE_WORDS, 1)[0];
@@ -412,7 +369,8 @@ function create_sesiatTrials(TRIALID, STAGEID) {
             trial.data = {
                 exp_id: "ses-iat-task",
                 trial_id: TRIALID,
-                stage_id: ses_stage,
+                stage_id: STAGEID,
+                location: FEARLOCATION,
                 stimulus: trial_stim,
                 correct_response: correct_response
             };
@@ -422,7 +380,7 @@ function create_sesiatTrials(TRIALID, STAGEID) {
         type: "html-keyboard-response",
         stimulus: "",
         prompt: "",
-        choices: [70, 74, 120],
+        choices: [70, 74],
         // post_trial_gap: 1500,
         on_finish: function (data) {
             var trial_data = JSON.parse(JSON.stringify(data));
@@ -430,10 +388,6 @@ function create_sesiatTrials(TRIALID, STAGEID) {
                 data.accuracy = 1;
             } else {
                 data.accuracy = 0;
-            }
-
-            if(data.key_press == 120){
-                jsPsych.endExperiment('The experiment was ended prematurely.');
             }
         }
     };
@@ -471,34 +425,34 @@ var IAT_pract_trial_feedback = {
 /* Set up experimental blocks */
 /* ************************************ */
 
-// Stage 1 block: categories me and fear were assigned different response key
-var IAT_stage1_pract_trial = create_sesiatTrials("stage1-practice", "stage1")
-var IAT_stage1_exp_trial = create_sesiatTrials("stage1-test", "stage1")
-var IAT_prac_stage1_procedure = {
-    timeline: [IAT_fixation, IAT_stage1_pract_trial, IAT_pract_trial_feedback],
+// Congruent block: categories me and fear were assigned different response key
+var IAT_congr_pract_trial = create_sesiatTrials("congruent-practice", "congruent")
+var IAT_congr_exp_trial = create_sesiatTrials("congruent-test", "congruent")
+var IAT_prac_congr_procedure = {
+    timeline: [IAT_fixation, IAT_congr_pract_trial, IAT_pract_trial_feedback],
     timeline_variables: IAT_conditions,
     randomize_order: true,
-    repetitions: IAT_PRACT_REP, // 1 set = 3 trials
+    repetitions: IAT_PRACT_REP, // 1 set = 6 trials
 };
-var IAT_exp_stage1_procedure = {
-    timeline: [IAT_fixation, IAT_stage1_exp_trial],
+var IAT_exp_congr_procedure = {
+    timeline: [IAT_fixation, IAT_congr_exp_trial],
     timeline_variables: IAT_conditions,
     randomize_order: true,
     repetitions: IAT_TEST_REP, // 1 set = 3 trials
 };
 
 
-// Stage 2 block: categories me and fear were assigned the same response key
-var IAT_stage2_pract_trial = create_sesiatTrials("stage2-practice", "stage2")
-var IAT_stage2_exp_trial = create_sesiatTrials("stage2-test", "stage2")
-var IAT_prac_stage2_procedure = {
-    timeline: [IAT_fixation, IAT_stage2_pract_trial, IAT_pract_trial_feedback],
+// Incongruent block: categories me and fear were assigned the same response key
+var IAT_incongr_pract_trial = create_sesiatTrials("incongruent-practice", "incongruent")
+var IAT_incongr_exp_trial = create_sesiatTrials("incongruent-test", "incongruent")
+var IAT_prac_incongr_procedure = {
+    timeline: [IAT_fixation, IAT_incongr_pract_trial, IAT_pract_trial_feedback],
     timeline_variables: IAT_conditions,
     randomize_order: true,
-    repetitions: IAT_PRACT_REP*2, // 1 set = 3 trials
+    repetitions: IAT_PRACT_REP, // 1 set = 3 trials
 };
-var IAT_exp_stage2_procedure = {
-    timeline: [IAT_fixation, IAT_stage2_exp_trial],
+var IAT_exp_incongr_procedure = {
+    timeline: [IAT_fixation, IAT_incongr_exp_trial],
     timeline_variables: IAT_conditions,
     randomize_order: true,
     repetitions: IAT_TEST_REP, // 1 set = 3 trials
@@ -535,70 +489,67 @@ var sesiat_fright_question = {
 /* ************************************ */
 
 var sesiat_block = [];
-sesiat_block.push(IAT_instr1a);
-sesiat_block.push(IAT_instr1b);
+sesiat_block.push(IAT_instr);
 
 // ========================
-// Stage 1 block
+// Congruent block
 // ========================
 
-// Stage 1 practice block
-sesiat_block.push(IAT_prac_stage1_procedure);
+// Congruent practice block
+sesiat_block.push(IAT_prac_congr_procedure);
 sesiat_block.push(IAT_instr2);
 
-// Stage 1 experimental block 1
+// // Congruent experimental block 1
 sesiat_block.push(iat_videos_array[0]);
 sesiat_block.push(iat_videos_array[1]);
-sesiat_block.push(IAT_instr3);
 sesiat_block.push(IAT_sound_conditions[0].start);
-sesiat_block.push(IAT_exp_stage1_procedure);
+sesiat_block.push(IAT_exp_congr_procedure);
 sesiat_block.push(IAT_sound_conditions[0].stop);
 sesiat_block.push(IAT_cont_next);
 
 // Congruent experimental block 2
 sesiat_block.push(iat_videos_array[2]);
 sesiat_block.push(IAT_sound_conditions[1].start);
-sesiat_block.push(IAT_exp_stage1_procedure);
+sesiat_block.push(IAT_exp_congr_procedure);
 sesiat_block.push(IAT_sound_conditions[1].stop);
 sesiat_block.push(IAT_cont_next);
 
 // Congruent experimental block 3
 sesiat_block.push(iat_videos_array[3]);
 sesiat_block.push(IAT_sound_conditions[2].start);
-sesiat_block.push(IAT_exp_stage1_procedure);
+sesiat_block.push(IAT_exp_congr_procedure);
 sesiat_block.push(IAT_sound_conditions[2].stop);
 sesiat_block.push(IAT_cont_next);
 
 
 // ========================
-// Stage 2 block
+// Incongruent block
 // ========================
 
-// Stage 2 practice block
+// Incongruent practice block
+sesiat_block.push(IAT_instr3);
+sesiat_block.push(IAT_prac_incongr_procedure);
 sesiat_block.push(IAT_instr4);
-sesiat_block.push(IAT_prac_stage2_procedure);
-sesiat_block.push(IAT_instr2);
 
-// Stage 2 experimental block 1
+// Incongruent experimental block 1
 sesiat_block.push(iat_videos_array[4]);
 sesiat_block.push(iat_videos_array[5]);
-sesiat_block.push(IAT_instr5);
 sesiat_block.push(IAT_sound_conditions[3].start);
-sesiat_block.push(IAT_exp_stage2_procedure);
+sesiat_block.push(IAT_exp_incongr_procedure);
 sesiat_block.push(IAT_sound_conditions[3].stop);
 sesiat_block.push(IAT_cont_next);
 
-// Stage 2 experimental block 2
+// Incongruent experimental block 2
 sesiat_block.push(iat_videos_array[6]);
 sesiat_block.push(IAT_sound_conditions[4].start);
-sesiat_block.push(IAT_exp_stage2_procedure);
+sesiat_block.push(IAT_exp_incongr_procedure);
 sesiat_block.push(IAT_sound_conditions[4].stop);
 sesiat_block.push(IAT_cont_next);
 
-// Stage 2 experimental block 3
+// Incongruent experimental block 3
 sesiat_block.push(iat_videos_array[7]);
 sesiat_block.push(IAT_sound_conditions[5].start);
-sesiat_block.push(IAT_exp_stage2_procedure);
+sesiat_block.push(IAT_exp_incongr_procedure);
 sesiat_block.push(IAT_sound_conditions[5].stop);
 sesiat_block.push(IAT_end_block);
 

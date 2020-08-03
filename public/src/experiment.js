@@ -11,7 +11,7 @@ function CloseSave() {
         contentType: "application/json"
     })
     // jsPsych.data.displayData()
-};
+}
 function FinishSave() {
 
     $.ajax({
@@ -33,7 +33,7 @@ function FinishSave() {
             window.location.href = "finish";
         });
     // jsPsych.data.displayData()
-};
+}
 
 // define welcome message trial
 var welcome_screen = {
@@ -54,6 +54,7 @@ welcome_block.push(welcome_screen);
 // bc_exp.push({type: 'fullscreen', fullscreen_mode: true}); /* enter fullscreen mode */
 // bc_exp.push({type: 'fullscreen', fullscreen_mode: false }); /* exit fullscreen mode */
 
+// Pre-test
 function startDay1() {
 
     /* start the experiment */
@@ -67,10 +68,9 @@ function startDay1() {
         timeline: [
             ...welcome_block,
             ...pss_block, ...panas_block,
-            ...bc_block, ...aes_block,
-            ...pss_block, ...panas_block,
-            ...FIST_block,
-            ...fadplus_block
+            ...FIST_block,  ...ffmq_block,
+            ...aut_block, ...fadplus_block,
+            ...maia_block, ...sesiat_block
         ],
 
         /* on_close currently not working */
@@ -81,7 +81,9 @@ function startDay1() {
             FinishSave()
         }
     });
-};
+}
+
+// Breath-counting
 function startDay2() {
 
     /* start the experiment */
@@ -94,11 +96,8 @@ function startDay2() {
 
         timeline: [
             ...welcome_block,
-            ...pss_block, ...panas_block,
-            ...bc_block, ...aes_block,
-            ...pss_block, ...panas_block,
-            ...aut_block,
-            ...ffmq_block,],
+            ...bc_block, ...post_bc_block1, ...post_bc_block2, ...sms_block, ...aes_block
+        ],
 
         /* on_close currently not working */
         on_close: function() {
@@ -108,7 +107,7 @@ function startDay2() {
             FinishSave()
         }
     });
-};
+}
 function startDay3() {
 
     /* start the experiment */
@@ -121,10 +120,8 @@ function startDay3() {
 
         timeline: [
             ...welcome_block,
-            ...pss_block, ...panas_block,
-            ...bc_block, ...aes_block,
-            ...pss_block, ...panas_block,
-            ...sesiat_block],
+            ...bc_block, ...post_bc_block2, ...sms_block, ...aes_block
+        ],
 
         /* on_close currently not working */
         on_close: function() {
@@ -134,4 +131,105 @@ function startDay3() {
             FinishSave()
         }
     });
-};
+}
+function startDay4() {
+
+    /* start the experiment */
+    jsPsych.init({
+        show_progress_bar: true,
+        on_interaction_data_update: function(data) {
+            var trial = jsPsych.currentTrial();
+            trial.data.screen_focus = data.event;
+        },
+
+        timeline: [
+            ...welcome_block,
+            ...bc_block, ...post_bc_block2, ...sms_block, ...aes_block
+        ],
+
+        /* on_close currently not working */
+        on_close: function() {
+            CloseSave()
+        },
+        on_finish: function() {
+            FinishSave()
+        }
+    });
+}
+function startDay5() {
+
+    /* start the experiment */
+    jsPsych.init({
+        show_progress_bar: true,
+        on_interaction_data_update: function(data) {
+            var trial = jsPsych.currentTrial();
+            trial.data.screen_focus = data.event;
+        },
+
+        timeline: [
+            ...welcome_block,
+            ...bc_block, ...post_bc_block2, ...sms_block, ...aes_block
+        ],
+
+        /* on_close currently not working */
+        on_close: function() {
+            CloseSave()
+        },
+        on_finish: function() {
+            FinishSave()
+        }
+    });
+}
+function startDay6() {
+
+    /* start the experiment */
+    jsPsych.init({
+        show_progress_bar: true,
+        on_interaction_data_update: function(data) {
+            var trial = jsPsych.currentTrial();
+            trial.data.screen_focus = data.event;
+        },
+
+        timeline: [
+            ...welcome_block,
+            ...bc_block, ...post_bc_block2, ...sms_block, ...aes_block
+        ],
+
+        /* on_close currently not working */
+        on_close: function() {
+            CloseSave()
+        },
+        on_finish: function() {
+            FinishSave()
+        }
+    });
+}
+
+// Post-test
+function startDay7() {
+
+    /* start the experiment */
+    jsPsych.init({
+        show_progress_bar: true,
+        on_interaction_data_update: function(data) {
+            var trial = jsPsych.currentTrial();
+            trial.data.screen_focus = data.event;
+        },
+
+        timeline: [
+            ...welcome_block,
+            ...pss_block, ...panas_block,
+            ...FIST_block,  ...ffmq_block,
+            ...aut_block, ...fadplus_block,
+            ...maia_block, ...sesiat_block
+        ],
+
+        /* on_close currently not working */
+        on_close: function() {
+            CloseSave()
+        },
+        on_finish: function() {
+            FinishSave()
+        }
+    });
+}
