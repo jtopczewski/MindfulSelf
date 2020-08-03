@@ -351,6 +351,7 @@ var bc_block4 = [];
 bc_block4.push(bc4_first_block);
 bc_block4.push(bc4_node);
 bc_block4.push(bc_beep_block);
+bc_block4.push(bc_cont_block);
 
 // End block
 bc_block4.push(hr_instr_post);
