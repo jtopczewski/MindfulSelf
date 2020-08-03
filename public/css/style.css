@@ -53,7 +53,8 @@ table, th, tr, td {
 /* SES-IAT */
 .row {
     display: flex;
-    width: 700px;
+    width: 900px;
+    margin: 0 auto;
 }
 
 /* Create two equal columns that sits next to each other */
@@ -69,6 +70,7 @@ table, th, tr, td {
 
 .iat-stim-text {
     font-weight: bold;
+    width: 900px;
     font-size: 24px;
     margin-top: 100px
 }

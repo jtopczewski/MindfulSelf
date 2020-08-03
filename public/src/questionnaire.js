@@ -7,7 +7,7 @@ function populateQs(start, end, qs, qs_options){
             prompt: "<p class='q_para'>" + qs[0][i+start] + '. ' + qs[1][i+start] + "</p>",
             name: qs[0][i+start],
             labels: qs_options,
-            required: true,
+            required: false,
             horizontal: true,};
     }
     return Qs
@@ -185,20 +185,105 @@ var PANAS_Qs2 = {
     scale_width: 500,
 };
 
+// SMS
+var SMS_Qs1 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "sms_qs1"
+    },
+    preamble:
+        "<p class='q_title'>Below is a list of statements. " +
+        "Please use the rating scale to indicate how well each statement describes your experiences in the past 20 minutes</p>",
+    questions: populateQs(1, 10, SMS_csv, SMS_options),
+    scale_width: 500,
+};
+var SMS_Qs2 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "sms_qs2"
+    },
+    preamble:
+        "<p class='q_title'>Below is a list of statements. " +
+        "Please use the rating scale to indicate how well each statement describes your experiences in the past 20 minutes</p>",
+    questions: populateQs(11, 21, SMS_csv, SMS_options),
+    scale_width: 500,
+};
+
+// MAIA-2
+var MAIA_Qs1 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "maia_qs1"
+    },
+    preamble:
+        "<p class='q_title'>Below you will find a list of statements. " +
+        "Please indicate how often each statement applies to you generally in daily life.</p>",
+    questions: populateQs(1, 10, MAIA_csv, MAIA_options),
+    scale_width: 500,
+};
+var MAIA_Qs2 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "maia_qs2"
+    },
+    preamble:
+        "<p class='q_title'>Below you will find a list of statements. " +
+        "Please indicate how often each statement applies to you generally in daily life.</p>",
+    questions: populateQs(11, 20, MAIA_csv, MAIA_options),
+    scale_width: 500,
+};
+var MAIA_Qs3 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "maia_qs3"
+    },
+    preamble:
+        "<p class='q_title'>Below you will find a list of statements. " +
+        "Please indicate how often each statement applies to you generally in daily life.</p>",
+    questions: populateQs(21, 30, MAIA_csv, MAIA_options),
+    scale_width: 500,
+};
+var MAIA_Qs4 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "maia_qs4"
+    },
+    preamble:
+        "<p class='q_title'>Below you will find a list of statements. " +
+        "Please indicate how often each statement applies to you generally in daily life.</p>",
+    questions: populateQs(31, 37, MAIA_csv, MAIA_options),
+    scale_width: 500,
+};
+
 
 // Qualitative data
-var post_BC_qs = {
+var post_BC_qs1 = {
     type: 'survey-text',
     data: {
         exp_id: "questionnaire",
-        trial_id: "post bc task questions"
+        trial_id: "postbc1"
     },
     questions: [
         {
             prompt: "<p style='font-size:20px'>Please summarize what you were asked to do during the breath-counting task.</p>",
             rows: 5,
             columns: 90
-        },
+        }
+    ],
+};
+var post_BC_qs2 = {
+    type: 'survey-text',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "postbc2"
+    },
+    questions: [
         {
             prompt: "<p style='font-size 20px'>Please comment in detail on what you experienced during the 10 minutes breath-counting task. " +
                 "Please note anything you noticed, regardless of how trivial you might think it is (e.g. I thought about…, I felt…, I noticed that…, after I noticed….).</p>",
@@ -207,8 +292,12 @@ var post_BC_qs = {
 };
 
 // Set up timeline
+var post_bc_block1 = [];
+post_bc_block1.push(post_BC_qs1);
+var post_bc_block2= [];
+post_bc_block2.push(post_BC_qs2);
+
 var aes_block = [];
-aes_block.push(post_BC_qs);
 aes_block.push(AES_Qs1);
 aes_block.push(AES_Qs2);
 aes_block.push(AES_Qs3);
@@ -231,5 +320,15 @@ pss_block.push(PSS_Qs1);
 var panas_block = [];
 panas_block.push(PANAS_Qs1);
 panas_block.push(PANAS_Qs2);
+
+var sms_block = [];
+sms_block.push(SMS_Qs1);
+sms_block.push(SMS_Qs2);
+
+var maia_block = [];
+maia_block.push(MAIA_Qs1);
+maia_block.push(MAIA_Qs2);
+maia_block.push(MAIA_Qs3);
+maia_block.push(MAIA_Qs4);
 
 // questionnaire_part.push({type: 'fullscreen', fullscreen_mode: false}); /* exit fullscreen mode */

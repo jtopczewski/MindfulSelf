@@ -182,3 +182,88 @@ const PANAS_description = [
     "Afraid"
 ];
 const PANAS_csv = [PANAS_qns, PANAS_description];
+
+// SMS
+const SMS_options = ["Not at all", "Slightly", "Somewhat", "Moderately", "Very well"];
+const SMS_qns = [
+    "Number",
+    "Q01", "Q02", "Q03", "Q04", "Q05", "Q06", "Q07", "Q08", "Q09", "Q10",
+    "Q11", "Q12", "Q13", "Q14", "Q15", "Q16", "Q17", "Q18", "Q19", "Q20", "Q21"
+];
+const SMS_description = [
+    "Description",
+    "I was aware of different emotions that arose in me.",
+    "I tried to pay attention to pleasant and unpleasant sensations.",
+    "I found some of my experiences interesting.",
+    "I noticed many small details of my experience.",
+    "I felt aware of what was happening inside of me.",
+    "I noticed pleasant and unpleasant emotions.",
+    "I actively explored my experience in the moment.",
+    "I clearly physically felt what was going on in my body.",
+    "I changed my body posture and paid attention to the physical process of moving.",
+    "I felt that I was experiencing the present moment fully.",
+    "I noticed pleasant and unpleasant thoughts.",
+    "I noticed emotions come and go.",
+    "I noticed various sensations caused by my surroundings (e.g., heat, coolness, the wind on my face).",
+    "I noticed physical sensations come and go.",
+    "I had moments when I felt alert and aware.",
+    "I felt closely connected to the present moment.",
+    "I noticed thoughts come and go.",
+    "I felt in contact with my body.",
+    "I was aware of what was going on in my mind.",
+    "It was interesting to see the patterns of my thinking.",
+    "I noticed some pleasant and unpleasant physical sensations."
+];
+const SMS_csv = [SMS_qns, SMS_description];
+
+// MAIA-2
+const MAIA_options = ["Not at all", "Slightly", "Somewhat", "Moderately", "Very well"];
+const MAIA_qns = [
+    "Number",
+    "Q01", "Q02", "Q03", "Q04", "Q05", "Q06", "Q07", "Q08", "Q09", "Q10",
+    "Q11", "Q12", "Q13", "Q14", "Q15", "Q16", "Q17", "Q18", "Q19", "Q20",
+    "Q21", "Q22", "Q23", "Q24", "Q25", "Q26", "Q27", "Q28", "Q29", "Q30",
+    "Q31", "Q32", "Q33", "Q34", "Q35", "Q36", "Q37"
+];
+const MAIA_description = [
+    "Description",
+    "I was aware of different emotions that arose in me.",
+    "I tried to pay attention to pleasant and unpleasant sensations.",
+    "I found some of my experiences interesting.",
+    "I noticed many small details of my experience.",
+    "I felt aware of what was happening inside of me.",
+    "I noticed pleasant and unpleasant emotions.",
+    "I actively explored my experience in the moment.",
+    "I clearly physically felt what was going on in my body.",
+    "I changed my body posture and paid attention to the physical process of moving.",
+    "I felt that I was experiencing the present moment fully.",
+    "I noticed pleasant and unpleasant thoughts.",
+    "I noticed emotions come and go.",
+    "I noticed various sensations caused by my surroundings (e.g., heat, coolness, the wind on my face).",
+    "I noticed physical sensations come and go.",
+    "I had moments when I felt alert and aware.",
+    "I felt closely connected to the present moment.",
+    "I noticed thoughts come and go.",
+    "I felt in contact with my body.",
+    "I was aware of what was going on in my mind.",
+    "It was interesting to see the patterns of my thinking.",
+    "I noticed some pleasant and unpleasant physical sensations.",
+    "I am able to consciously focus on my body as a whole.",
+    "I notice how my body changes when I am angry.",
+    "When something is wrong in my life I can feel it in my body.",
+    "I notice that my body feels different after a peaceful experience.",
+    "I notice that my breathing becomes free and easy when I feel comfortable.",
+    "I notice how my body changes when I feel happy / joyful.",
+    "When I feel overwhelmed I can find a calm place inside.",
+    "When I bring awareness to my body I feel a sense of calm.",
+    "I can use my breath to reduce tension.",
+    "When I am caught up in thoughts, I can calm my mind by focusing on my bodybreathing.",
+    "I listen for information from my body about my emotional state.",
+    "When I am upset, I take time to explore how my body feels.",
+    "I listen to my body to inform me about what to do.",
+    "I am at home in my body.",
+    "I feel my body is a safe place.",
+    "I trust my body sensations."
+];
+const MAIA_csv = [MAIA_qns, MAIA_description];
+

@@ -58,10 +58,17 @@ welcome.click.demographics = function() {
 
     if (lastDigit.match(/^[a-zA-Z]+$/)) { // if alphabet
         // take first character of name, turn into number, and assign condition
-        firstchar = lastDigit.toLowerCase().charCodeAt(0) - 96
-        bc_condition = BC_EXP_CONDITIONS[firstchar % 2]
+        firstchar = lastDigit.toLowerCase().charCodeAt(0) - 96;
+        bc_condition = BC_EXP_CONDITIONS[firstchar % 2];
     } else { // if numbers
-        bc_condition = BC_EXP_CONDITIONS[lastDigit % 2]
+        firstchar = lastDigit;
+        bc_condition = BC_EXP_CONDITIONS[lastDigit % 2];
+    }
+
+    if (firstchar == 0) { // if divisible by 2
+        ses_stages = ['congruent', 'incongruent'];
+    } else { // if not divisible by 2
+        ses_stages = ['incongruent', 'congruent'];
     }
 
     // Get Day number
@@ -77,6 +84,7 @@ welcome.click.demographics = function() {
         age: document.getElementById("age").value,
         daynumber: welcome.helpers.getRadioButton("day"),
         bc_condition: bc_condition,
+        ses_stages: ses_stages.toString(),
     });
 
     if(daynumber === "NA"){
@@ -97,6 +105,26 @@ welcome.click.demographics = function() {
     if (daynumber === "3"){
         console.log("Running Day 3")
         startDay3(); // start the Day 3 jsPsych experiment
+    }
+
+    if (daynumber === "4"){
+        console.log("Running Day 4")
+        startDay4(); // start the Day 4 jsPsych experiment
+    }
+
+    if (daynumber === "5"){
+        console.log("Running Day 5")
+        startDay5(); // start the Day 5 jsPsych experiment
+    }
+
+    if (daynumber === "6"){
+        console.log("Running Day 6")
+        startDay6(); // start the Day 6 jsPsych experiment
+    }
+
+    if (daynumber === "7"){
+        console.log("Running Day 7")
+        startDay7(); // start the Day 7 jsPsych experiment
     }
 
 };
@@ -143,9 +171,13 @@ welcome.section.demographics =
     '           <label for="age"><b>Age: &nbsp;</b></label><input id="age" name="age" /><br/><br/>' +
     '			<!-- Day Number -->' +
     '           <label for="day"><b>Day Number: &nbsp;</b></label>' +
-    '           <input type="radio" name="day" value="1" /> 1 &nbsp; ' +
+    '           <input type="radio" name="day" value="1" /> 1 &nbsp;' +
     '           <input type="radio" name="day" value="2" /> 2 &nbsp;' +
-    '           <input type="radio" name="day" value="3" /> 3<br/><br/>' +
+    '           <input type="radio" name="day" value="3" /> 3 &nbsp;' +
+    '           <input type="radio" name="day" value="4" /> 4 &nbsp;' +
+    '           <input type="radio" name="day" value="5" /> 5 &nbsp;' +
+    '           <input type="radio" name="day" value="6" /> 6 &nbsp;' +
+    '           <input type="radio" name="day" value="7" /> 7<br/><br/>' +
     '		<br><br>' +
     '		<!-- Demographics  button -->' +
     '        <p align="center">' +

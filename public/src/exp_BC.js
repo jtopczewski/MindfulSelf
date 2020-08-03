@@ -2,6 +2,13 @@
 /* Define experimental variables */
 /* ************************************ */
 
+// function for countdown timer
+var countdowntimer = function() {
+    document.getElementById("countdown").value = "Start counting your pulse now";
+    setTimeout("alert('You can stop counting now')", 30000);
+};
+
+
 // task variables
 var bc_stim = 'Breath counting task in progress...<br>Keep your eyes closed until you hear the bell';
 var runTime1 = 0;  // ms
@@ -13,7 +20,6 @@ var taskTime = 5 * 60; // 5 minutes in seconds
 // Set instructions helpers
 var bc_instrhelper = {};
 
-
 // Common instructions
 bc_instrhelper.instr1_pg1 =
     "<p>In this task, we would like you to be aware of your breath. </p>" +
@@ -21,15 +27,24 @@ bc_instrhelper.instr1_pg1 =
     "<br>Close your eyes, count to three breaths (in and out is one breath) and then open your eyes.</p> " +
     "<p>Use this same technique when counting your breaths in this task. There's no need to control the breath. Just breathe normally. </p>";
 
-bc_instrhelper.instr1_pg4 =
-    "<p>We suggest you sit in an upright, relaxed posture that feels comfortable. </p>" +
-    "<p>Place the keyboard so that you can comfortably rest your fingers of your dominant hand over the down arrow and right arrow keys. </p>" +
-    "<p>The task will last about 20 minutes separated into 5-minutes block. " +
-    "<br>Your eyes will be closed, so a bell will sound to end the task; then you can open your eyes. </p>" +
-    "<p><strong>Ensure that your computer's volume is set high enough for you to hear the end tone.</strong></p>" +
-    "<p>Click the button below to test the volume. Adjust the volume until it is not too loud and comfortable for you.</p>" +
-    "<input type='button' value='TEST VOLUME' onclick='beep()'>" +
-    "<p> Once you have adjusted your volume, you can continue";
+// Heart Rate instructions
+bc_instrhelper.hr_pre =
+    "<p>Before we begin, we would like to measure your heart rate." +
+    "<p><img src='../img/heartrate.png' style='width:300px;height:150px;'></p>" +
+    "<br>1. Take your index and middle fingers and place them on the side of your neck between the windpipe and the large muscle of your neck. " +
+    "<br>2. Press lightly in the hollow area until you locate your pulse.</p>" +
+    "<p>We will take your pulse for 30 seconds. Once you are able to locate your pulse, press the button to start counting your pulse." +
+    " Once the timer stops, please write down the count in the box below.</p>" +
+    "<input type='button' name='clickMe' id='countdown' value='Click to start' onclick='countdowntimer()'/>"
+
+bc_instrhelper.hr_post =
+    "<p>Once again, we would like to measure your heart rate." +
+    "<br><img src='../img/heartrate.png' style='width:630px;height:315px;'>" +
+    "<br>1. Take your index and middle fingers and place them on the side of your neck between the windpipe and the large muscle of your neck. " +
+    "<br>2. Press lightly in the hollow area until you locate your pulse.</p>" +
+    "<p>We will take your pulse for 30 seconds. Once you are able to locate your pulse, press the button to start counting your pulse." +
+    "Once the timer stops, please write down the count in the box below.</p>" +
+    "<input type='button' name='clickMe' id='countdown' value='Click to start' onclick='countdowntimer()'/>"
 
 // Breath-counting condition instructions
 bc_instrhelper.BCinstr1_pg2 =
@@ -53,6 +68,15 @@ bc_instrhelper.MFinstr1_pg3 =
     "<p>Additionally, to ensure you are following the task instructions, we would like you to complete a simple task at the same time.</p>" +
     "<p>Press the <em><strong>down arrow</strong> once on <strong>every breath</strong></p> ";
 
+bc_instrhelper.instr1_pg4 =
+    "<p>We suggest you sit in an upright, relaxed posture that feels comfortable. </p>" +
+    "<p>Place the keyboard so that you can comfortably rest your fingers of your dominant hand over the down arrow and right arrow keys. </p>" +
+    "<p>The task will last about 20 minutes separated into 5-minutes block. " +
+    "<br>Your eyes will be closed, so a bell will sound to end the task; then you can open your eyes. </p>" +
+    "<p><strong>Ensure that your computer's volume is set high enough for you to hear the end tone.</strong></p>" +
+    "<p>Click the button below to test the volume. Adjust the volume until it is not too loud and comfortable for you.</p>" +
+    "<input type='button' value='TEST VOLUME' onclick='beep()'>" +
+    "<p>Once you have adjusted your volume, you can continue";
 
 // start task
 bc_instrhelper.BCtask_start = "<p class='bc_start'>Close your eyes and place your attention on the breath.</p>" +
@@ -107,6 +131,28 @@ var bc_instr = {
 /* ************************************ */
 /* Set up jsPsych blocks */
 /* ************************************ */
+
+// Heart Rate block
+var hr_instr_pre = {
+    type: 'survey-text',
+    data: {
+        exp_id: "breath-counting-task",
+        trial_id: "hr-pre"
+    },
+    preamble: bc_instrhelper.hr_pre,
+    questions: [{prompt: "", placeholder: 'Heart Rate', name: 'HeartRate'}]
+};
+var hr_instr_post = {
+    type: 'survey-text',
+    data: {
+        exp_id: "breath-counting-task",
+        trial_id: "hr-post"
+    },
+    preamble: bc_instrhelper.hr_post,
+    questions: [{prompt: "", placeholder: 'Heart Rate', name: 'HeartRate'}]
+};
+
+
 var bc_cont_block = {
     type: "html-keyboard-response",
     data: {
@@ -279,6 +325,7 @@ var bc_end_block = {
 
 // Block 1
 var bc_block1 = [];
+bc_block1.push(hr_instr_pre);
 bc_block1.push(bc_instr);
 bc_block1.push(bc1_first_block);
 bc_block1.push(bc1_node);
@@ -306,9 +353,7 @@ bc_block4.push(bc4_node);
 bc_block4.push(bc_beep_block);
 
 // End block
-// bc_block1.push(bc_end_block);
-// bc_block2.push(bc_end_block);
-// bc_block3.push(bc_end_block);
+bc_block4.push(hr_instr_post);
 bc_block4.push(bc_end_block);
 
 bc_block = [...bc_block1, ...bc_block2, ...bc_block3, ...bc_block4];
