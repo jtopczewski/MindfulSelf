@@ -96,14 +96,7 @@ function startDay2() {
 
         /* on_close currently not working */
         on_close: function() {
-
-            $.ajax({
-                type: "POST",
-                url: "/experiment-data",
-                data: JSON.stringify(jsPsych.data.get().values()),
-                contentType: "application/json"
-            })
-            // jsPsych.data.displayData()
+            CloseSave()
         },
         on_finish: function() {
             FinishSave()
