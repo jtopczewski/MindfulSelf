@@ -149,7 +149,7 @@ var PSS_Qs1 = {
         exp_id: "questionnaire",
         trial_id: "pss_qs1"
     },
-    preamble: "<p class='q_title'>The questions in this scale ask you about your feelings and thoughts during the last month. " +
+    preamble: "<p class='q_title'>The questions in this scale ask you about your feelings and thoughts during the last week. " +
         "In each case, you will be asked to indicate by circling how often you felt or thought a certain way.</p>",
     questions: populateQs(1, 10, PSS_csv, PSS_options),
     scale_width: 500,
