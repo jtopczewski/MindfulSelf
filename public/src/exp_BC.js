@@ -140,7 +140,12 @@ var hr_instr_pre = {
         trial_id: "hr-pre"
     },
     preamble: bc_instrhelper.hr_pre,
-    questions: [{prompt: "", placeholder: 'Heart Rate', name: 'HeartRate'}]
+    questions: [{prompt: "", placeholder: 'Heart Rate', name: 'HeartRate'}],
+    on_finish: function(data){
+        var HR = JSON.parse(data.responses)["HeartRate"];
+        HR = '{"HeartRate":"' + HR * 2 + '"}';
+        data.responses = HR;
+    }
 };
 var hr_instr_post = {
     type: 'survey-text',
@@ -149,7 +154,12 @@ var hr_instr_post = {
         trial_id: "hr-post"
     },
     preamble: bc_instrhelper.hr_post,
-    questions: [{prompt: "", placeholder: 'Heart Rate', name: 'HeartRate'}]
+    questions: [{prompt: "", placeholder: 'Heart Rate', name: 'HeartRate'}],
+    on_finish: function(data){
+        var HR = JSON.parse(data.responses)["HeartRate"];
+        HR = '{"HeartRate":"' + HR * 2 + '"}';
+        data.responses = HR;
+    }
 };
 
 
