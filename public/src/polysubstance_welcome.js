@@ -24,11 +24,7 @@ welcome.ethics.invite =
 welcome.ethics.description =
     'In this study, you will perform several tasks, including a breath counting task and tasks that measure different aspects of mental flexibility. ' +
     'Additionally, you will also complete several questionnaires in between tasks. ' +
-    'The total time required for the study is approximately ' + welcome.task.time + ', and will be conducted over seven consecutive days.' +
-
-    '<p>As one of the tasks requires you to be exposed to several short horror clips (less than 1 minute), you might feel shocked for a moment. ' +
-    'We cannot and do not guarantee or promise that the shock is short-lasting from this study. ' +
-    'No other discomforts or inconveniences besides some boredom are reasonably expected.</p>';
+    'The total time required for the study is approximately ' + welcome.task.time + ', and will be conducted over seven consecutive days.';
 
 // ----------------------- function to start the task ------------------
 welcome.run = function() { 
@@ -65,12 +61,6 @@ welcome.click.demographics = function() {
         bc_condition = BC_EXP_CONDITIONS[lastDigit % 2];
     }
 
-    if (firstchar == 0) { // if divisible by 2
-        ses_stages = ['congruent', 'incongruent'];
-    } else { // if not divisible by 2
-        ses_stages = ['incongruent', 'congruent'];
-    }
-
     // Get Day number
     daynumber = welcome.helpers.getRadioButton("day");
     welcome.helpers.setDisplay('demographics', 'none');
@@ -83,8 +73,7 @@ welcome.click.demographics = function() {
         gender: welcome.helpers.getRadioButton("gender"),
         age: document.getElementById("age").value,
         daynumber: welcome.helpers.getRadioButton("day"),
-        bc_condition: bc_condition,
-        ses_stages: ses_stages.toString(),
+        bc_condition: bc_condition
     });
 
     if(daynumber === "NA"){

@@ -65,6 +65,27 @@ app.post('/pilot-experiment-data', function(request, response) {
 });
 
 
+
+app.post('/polysub-experiment-data', function(request, response) {
+    console.log("Posting data")
+    // Convert to CSV
+    DATA_CSV = JSON2CSV(request.body);
+
+    // Get ID_DATE
+    var rows = DATA_CSV.split('\n');
+    ID_DATE_index = rows[0].split(',').indexOf('"ID_DATE"');
+    ID_DATE = rows[1].split(',')[ID_DATE_index];
+    ID_DATE = ID_DATE.replace(/"/g, "");
+
+    DAYNUMBER_index = rows[0].split(',').indexOf('"daynumber"');
+    DAYNUMBER = rows[1].split(',')[DAYNUMBER_index];
+    DAYNUMBER = DAYNUMBER.replace(/"/g, "");
+    filename = "mindfulSelf_polysub/" + ID_DATE + "_day_" + DAYNUMBER + ".csv";
+    saveDropbox(DATA_CSV, filename);
+    response.end();
+});
+
+
 // --- START THE SERVER
 var server = app.listen(process.env.PORT, function(){
     console.log("Listening on port %d", server.address().port);

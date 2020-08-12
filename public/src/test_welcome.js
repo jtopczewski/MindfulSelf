@@ -20,7 +20,7 @@ function startExperiment() {
         },
 
         timeline: [
-            ...sesiat_block
+            ...gonogo_block
         ],
 
         /* on_close currently not working */

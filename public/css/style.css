@@ -48,7 +48,24 @@ table, th, tr, td {
     font-weight: bold;
   }
 
+/* Go NoGo */
 
+.GNGcolumn {
+    float: left;
+    width: 30%;
+    padding: 1px;
+}
+
+/* Clear floats after image containers */
+.GNGrow::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.gng_feedback {
+    font-size: 42px;
+}
 
 /* SES-IAT */
 .row {
