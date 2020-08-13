@@ -46,8 +46,9 @@ fist_instrhelper.instr1_pg3 =
 fist_instrhelper.instr1_pg4 =
     "<div class='FIST_stimHeader'>How are they the same?</div>" +
     "<img src='../img/FIST/2Match_1.jpg' width='333' height='333'>" +
-    "<br>The first pair (1 & 3) is similar in shape." +
-    "<br>The second pair (2 & 3) is similar in size.</br>";
+    "<br>The first pair (1 & 3) is similar in <b>shape</b>." +
+    "<br>The second pair (2 & 3) is similar in <b>size</b>.</br>" +
+    "<p> You only need to type one word for this (i.e., shape, size, color, number).</p>";
 
 // Instructions 4Match
 fist_instrhelper.instr2_pg1 =
@@ -67,10 +68,10 @@ fist_instrhelper.instr2_pg2 =
 fist_instrhelper.instr2_pg3 =
     "How are they the same?" +
     "<br><img src='../img/FIST/Demo1.jpg' width='333' height='333'>" +
-    "<p>The first pair (1 & 3) is similar in shape." +
-    "<br>The first pair (1 & 4) is similar in number." +
-    "<br>The second pair (2 & 3) is similar in size." +
-    "<br>The fourth pair (3 & 4) is similar in color.</p>";
+    "<p>The first pair (1 & 3) is similar in <b>shape</b>." +
+    "<br>The first pair (1 & 4) is similar in <b>number</b>." +
+    "<br>The second pair (2 & 3) is similar in <b>size</b>." +
+    "<br>The fourth pair (3 & 4) is similar in <b>color</b>.</p>";
 
 
 // Practice
