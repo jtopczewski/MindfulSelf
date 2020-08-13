@@ -4,7 +4,7 @@ var DD = String(TODAY.getDate()).padStart(2, '0');
 var MM = String(TODAY.getMonth() + 1).padStart(2, '0');
 var YYYY = TODAY.getFullYear();
 const DATE = YYYY + MM + DD;
-
+var SESIAT_STAGES = ['congruent', 'incongruent'];
 
 var welcome = {};
 
@@ -65,7 +65,8 @@ welcome.click.demographics = function() {
         bc_condition = BC_EXP_CONDITIONS[lastDigit % 2];
     }
 
-    if (firstchar == 0) { // if divisible by 2
+    const randomGen = Math.floor(Math.random() * SESIAT_STAGES.length);
+    if (randomGen === 0) { // if random number = 0
         ses_stages = ['congruent', 'incongruent'];
     } else { // if not divisible by 2
         ses_stages = ['incongruent', 'congruent'];
