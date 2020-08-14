@@ -13,6 +13,10 @@ module.exports = function(app){
         response.render('MindfulSelfFull.html');
     });
 
+    app.get('/MindfulSelfPoly', function(request, response) {
+        response.render('MindfulSelfPoly.html');
+    });
+
     app.get('/finish', function(request, response) {
         response.render('finish.html');
     });
