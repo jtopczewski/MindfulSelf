@@ -37,7 +37,7 @@ app.post('/experiment-data', function(request, response) {
     DAYNUMBER_index = rows[0].split(',').indexOf('"daynumber"');
     DAYNUMBER = rows[1].split(',')[DAYNUMBER_index];
     DAYNUMBER = DAYNUMBER.replace(/"/g, "");
-    filename = ID_DATE + "_day_" + DAYNUMBER + ".csv";
+    filename = "mindfulSelf_main/" + ID_DATE + "_day_" + DAYNUMBER + ".csv";
 
     saveDropbox(DATA_CSV, filename);
     response.end();
