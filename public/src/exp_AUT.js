@@ -3,8 +3,12 @@
 /* ************************************ */
 
 // Set task variables
-AUT_trial_duration_minutes = 3;
-AUT_trial_duration = AUT_trial_duration_minutes * 60 * 1000;
+var AUT_trial_duration_minutes = 3;
+var AUT_trial_duration = AUT_trial_duration_minutes * 60 * 1000;
+var AUT_stimulus = ['garden hose', 'wallet', 'newspaper', ' umbrella' , 'sock' ,'bowl'];
+var stim1;
+var stim2;
+var stim3;
 
 // Set instructions helpers
 var aut_instrhelper = {};
@@ -46,7 +50,19 @@ var aut_instr = {
         aut_instrhelper.page2,
     ],
     show_clickable_nav: true,
-    show_page_number: true
+    show_page_number: true,
+    on_finish: function(){
+        var dayno = jsPsych.data.get().values()[0].daynumber;
+        if (dayno == 1){
+            stim1 = AUT_stimulus[0];
+            stim2 = AUT_stimulus[1];
+            stim3 = AUT_stimulus[2];
+        } else {
+            stim1 = AUT_stimulus[3];
+            stim2 = AUT_stimulus[4];
+            stim3 = AUT_stimulus[5];
+        }
+    },
 };
 
 
@@ -55,42 +71,60 @@ var aut_instr = {
 /* ************************************ */
 
 var aut_1 = {
-    type: "survey-text",
-    data: {
-        exp_id: "aut-task",
-        trial_id: "aut_1"
+    on_start: function(trial){
+        trial.data = {
+            exp_id: "aut-task",
+            trial_id: "aut_1",
+            stimulus: stim1,
+        };
+        trial.questions = [{
+            prompt: "<p class='AUTstimHeader'>Please name all the possible uses of a <span class='AUTstim'>"+ stim1 + "</span>.</p>",
+            rows: 10,
+            columns: 90
+        }];
     },
-    questions: [{
-        prompt: "<p class='AUTstimHeader'>Please name all the possible uses of a <span class='AUTstim'>garden hose</span>.</p>",
-        rows: 10,
-        columns: 90
-        }],
+    type: "survey-text",
+    data: "",
+    questions: "",
     trial_duration: AUT_trial_duration
 };
 var aut_2 = {
-    type: "survey-text",
-    data: {
-        exp_id: "aut-task",
-        trial_id: "aut_2"
+    on_start: function(trial){
+        trial.data = {
+            exp_id: "aut-task",
+            trial_id: "aut_2",
+            stimulus: stim1,
+        };
+        trial.questions = [{
+            prompt: "<p class='AUTstimHeader'>Please name all the possible uses of a <span class='AUTstim'>"+ stim2 + "</span>.</p>",
+            rows: 10,
+            columns: 90
+        }];
     },
-    questions: [{
-        prompt: "<p class='AUTstimHeader'>Please name all the possible uses of a <span  class='AUTstim'>wallet</span>.</p>",
-        rows: 10,
-        columns: 90
-        }],
+    type: "survey-text",
+    data: "",
+    questions: "",
     trial_duration: AUT_trial_duration
 };
 var aut_3 = {
+    on_start: function(trial){
+        trial.data = {
+            exp_id: "aut-task",
+            trial_id: "aut_3",
+            stimulus: stim3,
+        };
+        trial.questions = [{
+            prompt: "<p class='AUTstimHeader'>Please name all the possible uses of a <span class='AUTstim'>"+ stim3 + "</span>.</p>",
+            rows: 10,
+            columns: 90
+        }];
+    },
     type: "survey-text",
     data: {
         exp_id: "aut-task",
         trial_id: "aut_3"
     },
-    questions: [{
-        prompt: "<p class='AUTstimHeader'>Please name all the possible uses of a <span  class='AUTstim'>newspaper</span>.</p>",
-        rows: 10,
-        columns: 90
-    }],
+    questions: "",
     trial_duration: AUT_trial_duration
 };
 
