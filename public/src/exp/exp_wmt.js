@@ -14,12 +14,12 @@ var n_back_instr_set = ["../img/WMT/intro1.bmp", "../img/WMT/intro2.bmp", "../im
 // Constants
 const nbackarray = [0, 1, 2, 3, 4 , 5, 6, 7];
 const PERCENTCORRECT = 0.20;
-const FIXATION_DURATION = .500; // 500
-const PICTURE_DURATION = .2000; // 2000
-const POSTTRIAL_DURATION = .500; // 500
-const FDBCK_DUR = .1000;
+const FIXATION_DURATION = 1000; // 500
+const PICTURE_DURATION = 2000; // 2000
+const POSTTRIAL_DURATION = 500; // 500
+const FDBCK_DUR = 1000;
 const NTRIALS = 20;
-const NBLOCKS = 4;
+const NBLOCKS = 1;
 var HOWMANYBACK;
 var SEQLENGTH;
 var letter1;
@@ -135,7 +135,7 @@ N_back_instr = makeNbackInstr();
 /* Fixation */
 var WMT_fixation = {
     type: "html-keyboard-response",
-    data: {screen_id: "fixation", stimulus: "fixation"},
+    data: {stimulus: "fixation"},
     stimulus: fixation_stim,
     choices: jsPsych.NO_KEYS,
     trial_duration: FIXATION_DURATION, // milliseconds
@@ -187,7 +187,7 @@ var n_back_trial = {
     data: "",
     trial_duration: PICTURE_DURATION,
     response_ends_trial: false,
-    post_trial_gap: POSTTRIAL_DURATION,
+    // post_trial_gap: POSTTRIAL_DURATION,
     on_finish: function (data) {
         if (data.match == true) {
             data.correct = (data.key_press === 65)
@@ -337,13 +337,10 @@ for (var i = 0; i <= 2; ++i) {
     wmt_prac_block.push(n_back_sequences_practice[i]);
     wmt_prac_block.push(overallfeedback);
 }
-
+wmt_prac_block.push(wmt_transition);
 
 // Real block
 var wmt_exp_block = [];
-
-wmt_exp_block.push(wmt_transition);
-
 for (var x = 1; x <= NBLOCKS; ++x) {
 
     shuffle(nbackarray); // shuffle if only RWMT

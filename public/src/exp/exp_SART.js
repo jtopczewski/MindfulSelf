@@ -1,7 +1,7 @@
 // Constants
-FIXATION_DURATION = 900;
-PICTURE_DURATION = 500;
-TRIAL_REPS = 10;
+const FIXATION_DURATION = 900;
+const PICTURE_DURATION = 500;
+const TRIAL_REPS = 10;
 
 // Date
 const today = new Date();

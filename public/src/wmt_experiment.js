@@ -95,7 +95,8 @@ function startDay5() {
 
         timeline: [
             ...welcome_block,
-            ...wmt_prac_block, ...wmt_exp_block
+            ...wmt_exp_block,
+            ...pss_block, ...panas_block
         ],
 
         /* on_close currently not working */
@@ -122,8 +123,8 @@ function startDay() {
 
         timeline: [
             ...welcome_block,
-            ...wmt_prac_block, ...wmt_exp_block,
-            ...pss_block, ...panas_block
+            ...wmt_exp_block,
+
         ],
 
         /* on_close currently not working */
