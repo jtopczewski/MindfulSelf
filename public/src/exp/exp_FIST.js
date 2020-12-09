@@ -32,20 +32,20 @@ fist_instrhelper.instr1_pg1 =
     "<p>In this task, you will be presented with four cards. </p>" +
     "<p>Your task is to match three pairs of cards that are the same in one way, yet different from the other two cards." +
     "<br>The cards are labelled 1 to 4 from the top to bottom:</p>" +
-    "<p><img src='../img/FIST/NumLoc.jpg' width='333' height='333'></p>" +
+    "<p><img src='../../img/FIST/NumLoc.jpg' width='333' height='333'></p>" +
     "<p>There will be boxes below the cards to type your answers. Please type the pair of numbers together. " +
     "<br>For example, if cards 1 and 2 match, type 12 in the box</p>" +
     "<p>At the end of each trial, you will be asked how similar each pair is.</p>";
 
 fist_instrhelper.instr1_pg3 =
     "<div class='FIST_stimHeader'>Now you choose</div>" +
-    "<img src='../img/FIST/2Match_1.jpg' width='333' height='333'>" +
+    "<img src='../../img/FIST/2Match_1.jpg' width='333' height='333'>" +
     "<br>The first pair is card 1 and 3." +
     "<br>The second pair is card 2 and 3.</br>";
 
 fist_instrhelper.instr1_pg4 =
     "<div class='FIST_stimHeader'>How are they the same?</div>" +
-    "<img src='../img/FIST/2Match_1.jpg' width='333' height='333'>" +
+    "<img src='../../img/FIST/2Match_1.jpg' width='333' height='333'>" +
     "<br>The first pair (1 & 3) is similar in <b>shape</b>." +
     "<br>The second pair (2 & 3) is similar in <b>size</b>.</br>" +
     "<p> You only need to type one word for this (i.e., shape, size, color, number).</p>";
@@ -59,7 +59,7 @@ fist_instrhelper.instr2_pg1 =
 
 fist_instrhelper.instr2_pg2 =
     "Now you choose" +
-    "<br><img src='../img/FIST/Demo1.jpg' width='333' height='333'>" +
+    "<br><img src='../../img/FIST/Demo1.jpg' width='333' height='333'>" +
     "<p>The first pair is picture 1 and 3." +
     "<br>The second pair is picture 1 and 4." +
     "<br>The third pair is picture 2 and 3." +
@@ -67,7 +67,7 @@ fist_instrhelper.instr2_pg2 =
 
 fist_instrhelper.instr2_pg3 =
     "How are they the same?" +
-    "<br><img src='../img/FIST/Demo1.jpg' width='333' height='333'>" +
+    "<br><img src='../../img/FIST/Demo1.jpg' width='333' height='333'>" +
     "<p>The first pair (1 & 3) is similar in <b>shape</b>." +
     "<br>The first pair (1 & 4) is similar in <b>number</b>." +
     "<br>The second pair (2 & 3) is similar in <b>size</b>." +
@@ -139,7 +139,7 @@ var fist_match2 = {
     },
     preamble:
         "<div class='FIST_stimHeader'>Now you choose</div>" +
-        "<img src='../img/FIST/2Match_2.jpg' width='333' height='333'>",
+        "<img src='../../img/FIST/2Match_2.jpg' width='333' height='333'>",
     html: '<p><input name="firstpair" type="text" />, <input name="secondpair" type="text" /></p>',
     on_finish: function (data) {
         var firstpair = JSON.parse(data.responses)["firstpair"];
@@ -219,7 +219,7 @@ var fist_match2_how = {
         var responsepairs = JSON.parse(jsPsych.data.get().last(2).values()[0]["responses"]);
 
         return "<div class='FIST_stimHeader'>How are they the same?</div>" +
-            "<img src='../img/FIST/2Match_2.jpg' width='333' height='333'>" +
+            "<img src='../../img/FIST/2Match_2.jpg' width='333' height='333'>" +
             "<br>You have chosen " + responsepairs["firstpair"] + " and " + responsepairs["secondpair"]
     },
     html: '<p><input name="firstpair" type="text" />, <input name="secondpair" type="text" /></p>',
@@ -359,7 +359,7 @@ var fist_match3 = {
     },
     preamble:
         "<div class='FIST_stimHeader'>Now you choose</div>" +
-        "<img src='../img/FIST/Demo2.jpg' width='333' height='333'>",
+        "<img src='../../img/FIST/Demo2.jpg' width='333' height='333'>",
     html: '<p><input name="firstpair" type="text" />, ' +
         '<input name="secondpair" type="text" />, ' +
         '<input name="thirdpair" type="text" /></p>',
@@ -438,7 +438,7 @@ var fist_match3_how = {
     preamble: function(){
         var responsepairs = JSON.parse(jsPsych.data.get().last(2).values()[0]["responses"]);
         return "<div class='FIST_stimHeader'>How are they the same?</div>" +
-            "<img src='../img/FIST/Demo2.jpg' width='333' height='333'>" +
+            "<img src='../../img/FIST/Demo2.jpg' width='333' height='333'>" +
             "<br>You have chosen " + responsepairs["firstpair"] + " , " + responsepairs["secondpair"] + " , and " + responsepairs["thirdpair"];
     },
     html: '<p><input name="firstpair" type="text" />, ' +

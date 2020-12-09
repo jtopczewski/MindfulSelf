@@ -1,7 +1,7 @@
 // Constants
-FIXATION_DURATION = 500;
-PICTURE_DURATION = 500;
-PROBE_DURATION = 500;
+const FIXATION_DURATION = 500;
+const PICTURE_DURATION = 500;
+const PROBE_DURATION = 500;
 
 // Date
 const today = new Date();
@@ -46,11 +46,11 @@ var instruction = {
         data.view_history = JSON.parse(data.view_history);
     }
 };
-"../sound/bell.wav"
+
 // Create stimulus
 var fixation_stim = "<div style='font-size: 60px'>+</div>";
-var neutral_stims = ["../img/MAB/neutral1.jpg", "../img/MAB/img/neutral2.jpg", "../img/MAB/img/neutral3.jpg", "../img/MAB/img/neutral4.jpg", ];
-var exp_stims = ["../img/MAB/img/exp1.jpg", "../img/MAB/img/exp2.jpg", "../img/MAB/img/exp3.jpg", "../img/MAB/img/exp4.jpg"];
+var neutral_stims = ["../img/MAB/neutral1.jpg", "../img/MAB/neutral2.jpg", "../img/MAB/neutral3.jpg", "../img/MAB/neutral4.jpg", ];
+var exp_stims = ["../img/MAB/exp1.jpg", "../img/MAB/exp2.jpg", "../img/MAB/exp3.jpg", "../img/MAB/exp4.jpg"];
 
 /*
 var factors = {
@@ -101,19 +101,19 @@ var exp_trial = {
         } else {  // if experimental trial, need to check if it is congruent or incongruent trial
             if (jsPsych.timelineVariable('condition', true) === "congruent"){ // if congruent trial
                 if (jsPsych.timelineVariable('probe_direction', true) === "left") { // if probe is on left
-                    var stim_1 = jsPsych.randomization.sampleWithReplacement(exp_stims, 1);
-                    var stim_2 = jsPsych.randomization.sampleWithReplacement(neutral_stims, 1);
+                    stim_1 = jsPsych.randomization.sampleWithReplacement(exp_stims, 1);
+                    stim_2 = jsPsych.randomization.sampleWithReplacement(neutral_stims, 1);
                 } else { // if probe is on right
-                    var stim_1 = jsPsych.randomization.sampleWithReplacement(neutral_stims, 1);
-                    var stim_2 = jsPsych.randomization.sampleWithReplacement(exp_stims, 1);
+                    stim_1 = jsPsych.randomization.sampleWithReplacement(neutral_stims, 1);
+                    stim_2 = jsPsych.randomization.sampleWithReplacement(exp_stims, 1);
                 }
             } else { // if incongruent trial
                 if (jsPsych.timelineVariable('probe_direction', true) === "left") { // if probe is on left
-                    var stim_1 = jsPsych.randomization.sampleWithReplacement(neutral_stims, 1);
-                    var stim_2 = jsPsych.randomization.sampleWithReplacement(exp_stims, 1);
+                    stim_1 = jsPsych.randomization.sampleWithReplacement(neutral_stims, 1);
+                    stim_2 = jsPsych.randomization.sampleWithReplacement(exp_stims, 1);
                 } else { // if probe is on right
-                    var stim_1 = jsPsych.randomization.sampleWithReplacement(exp_stims, 1);
-                    var stim_2 = jsPsych.randomization.sampleWithReplacement(neutral_stims, 1);
+                    stim_1 = jsPsych.randomization.sampleWithReplacement(exp_stims, 1);
+                    stim_2 = jsPsych.randomization.sampleWithReplacement(neutral_stims, 1);
                 }
             }
         }

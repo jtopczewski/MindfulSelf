@@ -22,19 +22,9 @@
     <script src="../../js/plugins/jspsych-video-keyboard-response.js"></script>
 
     <script src="../src/utils.js"></script>
-    <script src="../src/test_welcome.js"></script>
+    <script src="../src/welcome/wmt_welcome.js"></script>
+    <script src="../src/exp/exp_wmt.js"></script>
 
-    <script src="../src/questionnaire_items.js"></script>
-    <script src="../src/questionnaire.js"></script>
-
-    <script src="../src/polysubstance_experiment.js"></script>
-    <script src="../src/exp_FIST_stimuli.js"></script>
-    <script src="../src/exp_FIST.js"></script>
-    <script src="../src/exp_BC.js"></script>
-    <script src="../src/exp_AUT.js"></script>
-    <script src="../src/exp_SESIAT.js"></script>
-    <script src="../src/exp_GoNoGo_stimuli.js"></script>
-    <script src="../src/exp_GoNoGo.js"></script>
 
     <link rel="stylesheet" href="../css/jspsych.css" type="text/css"/>
     <link rel="stylesheet" href="../css/style.css" type="text/css"/>
@@ -46,64 +36,33 @@
 <script>
 
 
-    // function startExperiment() {
-    //
-    //     /* start the experiment */
-    //     jsPsych.init({
-    //         show_progress_bar: true,
-    //         on_interaction_data_update: function(data) {
-    //             var trial = jsPsych.currentTrial();
-    //             trial.data.screen_focus = data.event;
-    //         },
-    //
-    //         timeline: [
-    //             // ...maia_block
-    //             // ...post_bc_block1, ...post_bc_block2, ...sms_block, ...aes_block,
-    //             // ...bc_exp, ...aes_block, ...ffmq_block,
-    //             // ...FIST_block, ...fadplus_block, ...pss_block,
-    //             // ...aut_block, ...panas_block,
-    //             ...sesiat_block
-    //             ],
-    //
-    //         /* on_close currently not working */
-    //         on_close: function() {
-    //
-    //             $.ajax({
-    //                 type: "POST",
-    //                 url: "/experiment-data",
-    //                 data: JSON.stringify(jsPsych.data.get().values()),
-    //                 contentType: "application/json"
-    //             })
-    //             // jsPsych.data.displayData()
-    //         },
-    //
-    //         on_finish: function() {
-    //             console.log("posting data")
-    //             // $.ajax({
-    //             //     type: "POST",
-    //             //     url: "/experiment-data",
-    //             //     data: JSON.stringify(jsPsych.data.get().values()),
-    //             //     contentType: "application/json"
-    //             // })
-    //             //     .done(function() {
-    //             //         window.location.href = "finish";
-    //             //     })
-    //             //     .fail(function() {
-    //             //         alert("Problem occurred while writing data to Dropbox. " +
-    //             //             "Data will be saved to your computer. " +
-    //             //             "Please contact the experimenter regarding this issue!");
-    //             //         var csv = jsPsych.data.get().csv();
-    //             //         var filename = jsPsych.data.get().values()[0].part_ID + "_" + DATE + ".csv";
-    //             //         downloadCSV(csv, filename);
-    //             //         window.location.href = "finish";
-    //             //     });
-    //             jsPsych.data.displayData()
-    //         }
-    //     });
-    // }
-    //
-    // startExperiment();
-    welcome.run()
+    function startExperiment() {
+
+        /* start the experiment */
+        jsPsych.init({
+            show_progress_bar: true,
+            on_interaction_data_update: function(data) {
+                var trial = jsPsych.currentTrial();
+                trial.data.screen_focus = data.event;
+            },
+
+            timeline: [
+               ...wmt_prac_block, ...wmt_exp_block
+                ],
+
+
+
+            on_finish: function() {
+                console.log("posting data")
+
+                FinishSave()
+
+                jsPsych.data.displayData()
+            }
+        });
+    }
+
+    startExperiment()
 
 </script>
 </html>

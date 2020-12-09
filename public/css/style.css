@@ -13,6 +13,13 @@
 	background-color: black;
 }
 
+
+.jspsych-display-element {
+    background-color: black;
+    color: white;
+    box-shadow: none;
+}
+
 /* Breath-coutning instructions */
 table, th, tr, td {
     font-size: 24px;
@@ -104,6 +111,23 @@ table, th, tr, td {
     font-weight: bold;
     color: #b1389d;
 }
+
+/* Working Memory */
+.center-fit {
+    width:70%;
+    height:auto;
+    overflow:hidden;
+    display:block;
+    margin: auto;
+}
+
+.WMT_instr {
+    font-size: 26px;
+}
+.WMT_feedback {
+    font-size: 42px;
+}
+
 
 /* Questionnaire */
 .q_title {

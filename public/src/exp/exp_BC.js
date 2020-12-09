@@ -30,7 +30,7 @@ bc_instrhelper.instr1_pg1 =
 // Heart Rate instructions
 bc_instrhelper.hr_pre =
     "<p>Before we begin, we would like to measure your heart rate." +
-    "<p><img src='../img/heartrate.png' style='width:300px;height:150px;'></p>" +
+    "<p><img src='../../img/heartrate.png' style='width:300px;height:150px;'></p>" +
     "<br>1. Take your index and middle fingers and place them on the side of your neck between the windpipe and the large muscle of your neck. " +
     "<br>2. Press lightly in the hollow area until you locate your pulse.</p>" +
     "<p>We will take your pulse for 30 seconds. Once you are able to locate your pulse, press the button to start counting your pulse." +
@@ -39,7 +39,7 @@ bc_instrhelper.hr_pre =
 
 bc_instrhelper.hr_post =
     "<p>Once again, we would like to measure your heart rate." +
-    "<br><img src='../img/heartrate.png' style='width:630px;height:315px;'>" +
+    "<br><img src='../../img/heartrate.png' style='width:630px;height:315px;'>" +
     "<br>1. Take your index and middle fingers and place them on the side of your neck between the windpipe and the large muscle of your neck. " +
     "<br>2. Press lightly in the hollow area until you locate your pulse.</p>" +
     "<p>We will take your pulse for 30 seconds. Once you are able to locate your pulse, press the button to start counting your pulse." +
@@ -53,7 +53,7 @@ bc_instrhelper.BCinstr1_pg2 =
     "<strong><em>An in and out breath together make one count.</em></strong></p>" +
     "<p>Say the count softly in your mind so it only gets a little attention while most of the attention is on feeling the breath. </p>";
 bc_instrhelper.BCinstr1_pg3 =
-    "<p>Press the <em><strong>down arrow</strong> once on <strong>breaths 1-8</strong></em>, and the <em><strong>right arrow</strong> once on <strong>breath 9</strong>.</em></p> " +
+    "<p>Press the <em><strong>down arrow ONCE</strong> on <strong>breaths 1-8</strong></em>, and the <em><strong>right arrow ONCE</strong> on <strong>breath 9</strong>.</em></p> " +
     "<p>This means you'll be pressing a button once with each breath. Each time you reach breath 9, start counting again at 1.</p>" +
     "<p><div class='table'><table align='center'><tr><td>Breath number</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>1</td><td>2</td><td>etc.</td></tr>" +
     "<tr><td>Press this key once</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&darr;</td><td>&rarr;</td><td>&darr;</td><td>&darr;</td><td>etc.</td></tr></table></div></p>" +
@@ -66,9 +66,16 @@ bc_instrhelper.MFinstr1_pg2 =
     "<strong><em>An in and out breath together make one count.</em></strong></p>";
 bc_instrhelper.MFinstr1_pg3 =
     "<p>Additionally, to ensure you are following the task instructions, we would like you to complete a simple task at the same time.</p>" +
-    "<p>Press the <em><strong>down arrow</strong> once on <strong>every breath</strong></p> ";
+    "<p>Press the <em><strong>down arrow ONCE</strong> on <strong>every breath</strong></p> ";
 
 bc_instrhelper.instr1_pg4 =
+    "<p>Press the button on either your in-breath or out-breath. " +
+    "<br>That is, press the button when you <strong>either</strong> breathe in or breathe out.</p>" +
+    "<p><strong>DO NOT</strong> press the button when you breath in and breath out</p>";
+
+
+
+bc_instrhelper.instr1_pg5 =
     "<p>We suggest you sit in an upright, relaxed posture that feels comfortable. </p>" +
     "<p>Place the keyboard so that you can comfortably rest your fingers of your dominant hand over the down arrow and right arrow keys. </p>" +
     "<p>The task will last about 20 minutes separated into 5-minutes block. " +
@@ -107,6 +114,7 @@ var bc_instr = {
             bc_instrhelper.BCinstr1_pg2,
             bc_instrhelper.BCinstr1_pg3,
             bc_instrhelper.instr1_pg4,
+            bc_instrhelper.instr1_pg5,
             ]
         } else {
             trial.pages = [
@@ -114,6 +122,7 @@ var bc_instr = {
                 bc_instrhelper.MFinstr1_pg2,
                 bc_instrhelper.MFinstr1_pg3,
                 bc_instrhelper.instr1_pg4,
+                bc_instrhelper.instr1_pg5,
             ]
         }
     },

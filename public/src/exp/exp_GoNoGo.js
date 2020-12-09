@@ -32,25 +32,25 @@ GNG_taskhelper.instr1_pg1 = "<p class='instr'>In this task, a picture will be pr
 GNG_taskhelper.instr1_pg2_alc =
     "<p class='instr'> These are the alcohol pictures:</p>" +
     "<div class='GNGrow'>" +
-    "<div class='GNGcolumn'><img src='../img/GoNoGo/alcohol1.jpg' style='width:100%'></div>" +
-    "<div class='GNGcolumn'><img src='../img/GoNoGo/alcohol2.jpg' style='width:100%'></div>" +
-    "<div class='GNGcolumn'><img src='../img/GoNoGo/alcohol3.jpg' style='width:100%'></div>" +
+    "<div class='GNGcolumn'><img src='../../img/GoNoGo/alcohol1.jpg' style='width:100%'></div>" +
+    "<div class='GNGcolumn'><img src='../../img/GoNoGo/alcohol2.jpg' style='width:100%'></div>" +
+    "<div class='GNGcolumn'><img src='../../img/GoNoGo/alcohol3.jpg' style='width:100%'></div>" +
     "</div>";
 
 GNG_taskhelper.instr1_pg3_tbc =
     "<p class='instr'> These are the tobacco pictures:</p>" +
     "<div class='GNGrow'>" +
-    "<div class='GNGcolumn'><img src='../img/GoNoGo/tobacco1.jpg' style='width:100%'></div>" +
-    "<div class='GNGcolumn'><img src='../img/GoNoGo/tobacco2.jpg' style='width:100%'></div>" +
-    "<div class='GNGcolumn'><img src='../img/GoNoGo/tobacco3.jpg' style='width:100%'></div>" +
+    "<div class='GNGcolumn'><img src='../../img/GoNoGo/tobacco1.jpg' style='width:100%'></div>" +
+    "<div class='GNGcolumn'><img src='../../img/GoNoGo/tobacco2.jpg' style='width:100%'></div>" +
+    "<div class='GNGcolumn'><img src='../../img/GoNoGo/tobacco3.jpg' style='width:100%'></div>" +
     "</div>";
 
 GNG_taskhelper.instr1_pg4_cnb =
     "<p class='instr'> These are the cannabis pictures:</p>" +
     "<div class='GNGrow'>" +
-    "<div class='GNGcolumn'><img src='../img/GoNoGo/cannabis1.jpg' style='width:100%'></div>" +
-    "<div class='GNGcolumn'><img src='../img/GoNoGo/cannabis2.jpg' style='width:100%'></div>" +
-    "<div class='GNGcolumn'><img src='../img/GoNoGo/cannabis3.jpg' style='width:100%'></div>" +
+    "<div class='GNGcolumn'><img src='../../img/GoNoGo/cannabis1.jpg' style='width:100%'></div>" +
+    "<div class='GNGcolumn'><img src='../../img/GoNoGo/cannabis2.jpg' style='width:100%'></div>" +
+    "<div class='GNGcolumn'><img src='../../img/GoNoGo/cannabis3.jpg' style='width:100%'></div>" +
     "</div>";
 
 GNG_taskhelper.instr1_pg5 =

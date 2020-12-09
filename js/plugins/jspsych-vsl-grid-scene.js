@@ -1,5 +1,5 @@
 /**
- * jsPsych plugin for showing scenes that mimic the experiments described in
+ * jsPsych plugin for showing scenes that mimic the exp described in
  *
  * Fiser, J., & Aslin, R. N. (2001). Unsupervised statistical learning of
  * higher-order spatial structures from visual scenes. Psychological science,

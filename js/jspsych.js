@@ -1626,7 +1626,7 @@ jsPsych.turk = (function() {
 
   var module = {};
 
-  // core.turkInfo gets information relevant to mechanical turk experiments. returns an object
+  // core.turkInfo gets information relevant to mechanical turk exp. returns an object
   // containing the workerID, assignmentID, and hitID, and whether or not the HIT is in
   // preview mode, meaning that they haven't accepted the HIT yet.
   module.turkInfo = function() {

@@ -5,6 +5,10 @@ module.exports = function(app){
         response.render('index.html');
     });
 
+    app.get('/WorkingMemoryTraining', function(request, response) {
+        response.render('WMT.html');
+    });
+
     app.get('/MindfulSelfPilot', function(request, response) {
         response.render('MindfulSelfPilot.html');
     });

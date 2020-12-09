@@ -7,7 +7,7 @@ function populateQs(start, end, qs, qs_options){
             prompt: "<p class='q_para'>" + qs[0][i+start] + '. ' + qs[1][i+start] + "</p>",
             name: qs[0][i+start],
             labels: qs_options,
-            required: false,
+            required: true,
             horizontal: true,};
     }
     return Qs
