@@ -61,14 +61,15 @@ function startDay1() {
     jsPsych.init({
         show_progress_bar: true,
         on_interaction_data_update: function(data) {
-            var trial = jsPsych.currentTrial();
+            trial = jsPsych.currentTrial();
             trial.data.screen_focus = data.event;
         },
 
         timeline: [
             ...welcome_block,
             ...pss_block, ...panas_block,
-            ...wmt_prac_block, ...wmt_exp_block
+            ...wmt_prac_block, ...wmt_exp_block,
+            ...aes_block
         ],
 
         /* on_close currently not working */
@@ -96,6 +97,7 @@ function startDay5() {
         timeline: [
             ...welcome_block,
             ...wmt_exp_block,
+            ...aes_block,
             ...pss_block, ...panas_block
         ],
 
@@ -124,6 +126,7 @@ function startDay() {
         timeline: [
             ...welcome_block,
             ...wmt_exp_block,
+            ...aes_block
 
         ],
 

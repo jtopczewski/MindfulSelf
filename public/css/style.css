@@ -19,9 +19,8 @@
     color: white;
     box-shadow: none;
 }
-
-.jspsych-survey-likert-opt-label{
-    color: #adadad;
+label.jspsych-survey-likert-opt-label {
+    color: #dddddd;
 }
 
 /* Breath-coutning instructions */

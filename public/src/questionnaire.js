@@ -179,7 +179,7 @@ var PANAS_Qs2 = {
     preamble:
         "<p class='q_title'>This scale consists of a number of words that describe different feelings and emotions. " +
         "Read each item and then mark the appropriate answer in the space next to that word." +
-        "Indicate to what extent you GENERALLY feel this way, that is how you feel ON AVERAGE.</p>" +
+        "Indicate to what extent you GENERALLY feel this way during the past week, that is how you felt last week.</p>" +
         "<p>Indicate the extent you have felt this way over the past week.</p>",
     questions: populateQs(11, 20, PANAS_csv, PANAS_options),
     scale_width: 500,

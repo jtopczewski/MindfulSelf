@@ -5,19 +5,16 @@
 // Set task variables
 var sequence = [];
 var fixation_stim = "<img class='center-fit' src='../img/WMT/cross.bmp'>"
-var n_back_set = ["../img/WMT/1f.bmp", "../img/WMT/2f.bmp", "../img/WMT/3f.bmp", "../img/WMT/4f.bmp",
-    "../img/WMT/5f.bmp", "../img/WMT/6f.bmp", "../img/WMT/7f.bmp", "../img/WMT/8f.bmp"];
+var n_back_set = ["../img/WMT/1f.bmp", "../img/WMT/2f.bmp", "../img/WMT/3f.bmp", "../img/WMT/4f.bmp"];
 
-var n_back_instr_set = ["../img/WMT/intro1.bmp", "../img/WMT/intro2.bmp", "../img/WMT/intro3.bmp", "../img/WMT/intro4.bmp",
-    "../img/WMT/intro5.bmp", "../img/WMT/intro6.bmp", "../img/WMT/intro7.bmp", "../img/WMT/intro8.bmp"];
+var n_back_instr_set = ["../img/WMT/intro1.jpg", "../img/WMT/intro2.jpg", "../img/WMT/intro3.jpg", "../img/WMT/intro4.jpg"];
 
 // Constants
-const nbackarray = [0, 1, 2, 3, 4 , 5, 6, 7];
+const nbackarray = [0, 1, 2, 3];
 const PERCENTCORRECT = 0.20;
-const FIXATION_DURATION = 1000; // 500
+const FIXATION_DURATION = 500; // 500
 const PICTURE_DURATION = 2000; // 2000
-const POSTTRIAL_DURATION = 500; // 500
-const FDBCK_DUR = 1000;
+const FDBCK_DUR = 1;
 const NTRIALS = 20;
 const NBLOCKS = 1;
 var HOWMANYBACK;
@@ -33,51 +30,60 @@ const DATETODAY = yyyy + + mm + dd;
 
 
 function shuffle(array) {array.sort(() => Math.random() - 0.5)}
+function permutator(inputArr) {
+    var results = [];
+
+    function permute(arr, memo) {
+        var cur, memo = memo || [];
+
+        for (var i = 0; i < arr.length; i++) {
+            cur = arr.splice(i, 1);
+            if (arr.length === 0) {
+                results.push(memo.concat(cur));
+            }
+            permute(arr.slice(), memo.concat(cur));
+            arr.splice(i, 0, cur[0]);
+        }
+
+        return results;
+    }
+
+    return permute(inputArr);
+}
+
+var allbackarray = permutator(nbackarray);
 
 // Set instructions helpers
 var wmt_instrhelper = {};
 
 wmt_instrhelper.page1 =
     "<div class='WMT_instr'>" +
-    "<p>In this test, you will see a sequence of blue squares appearing one after another on different locations on the computer screen: </p>" +
-    "<p><img src='../img/WMT/instrsample.jpg' width='1400'></p>" +
-    "<p>The presentation rate is quite fast. There is a new square every 3 seconds.</p>" +
+    "<p><img src='../img/WMT/instrsample.jpg' width='900'></p>" +
     "</div>";
 
 wmt_instrhelper.page2_1back =
     "<div class='WMT_instr'>" +
-    "<p>If you are asked to do a <b style='color:red;'>1-back</b> task, you have to press the “A” key each time the current square appears at the same location " +
-    "as the one presented just before (i.e. 1 trial back in the sequence). </p>" +
-    "<p>Press the “L” key each time the current square does not appear at the same location as the one presented just before.</p>" +
-    "<p><img src='../img/WMT/instrsample.jpg' width='900'></p>" +
+    "<p><img src='../img/WMT/instr1back.jpg' width='900'></p>" +
     "</div>";
 
 wmt_instrhelper.page2_2back =
     "<div class='WMT_instr'>" +
-    "<p>If you are asked to do a <b style='color:red;'>2-back</b> task, you have to press the “A” key each time the current square appears at the same location " +
-    "as the one presented just before (i.e. 2 trials back in the sequence). </p>" +
-    "<p>Press the “L” key each time the current square does not appear at the same location as the one presented just before.</p>" +
     "<p><img src='../img/WMT/instr2back.jpg' width='900'></p>" +
     "</div>";
 
 wmt_instrhelper.page2_3back =
     "<div class='WMT_instr'>" +
-    "<p>If you are asked to do a <b style='color:red;'>3-back</b> task, you have to press the “A” key each time the current square appears at the same location " +
-    "as the one presented just before (i.e. 3 trials back in the sequence). </p>" +
-    "<p>Press the “L” key each time the current square does not appear at the same location as the one presented just before.</p>" +
     "<p><img src='../img/WMT/instr3back.jpg' width='900'></p>" +
     "</div>";
 
 wmt_instrhelper.page3 =
     "<div class='WMT_instr'>" +
-    "<p>As you have probably noticed, the test gets harder the higher the number (=n-back level). </p>" +
-    "<p>The 4-back task is extremely hard for most people. However, some people could do very well even when n=8. </p>" +
-    "<p>Any way, please relax, keep your mind in it and try your best. </p>" +
+    "<p><img src='../img/WMT/instrpg2.jpg' width='900'></p>" +
     "</div>";
 
 wmt_instrhelper.page4 =
     "<div class='WMT_instr'>" +
-    "<p>In order to make you familiar with the task, you can now practice by doing a 1-back, 2-back, and 3-back task.</p>" +
+    "<p><img src='../img/WMT/instrpg3.jpg' width='900'></p>" +
     "</div>";
 
 wmt_instrhelper.transition =
@@ -103,9 +109,7 @@ var wmt_instr = {
     pages: [
         // Page 1
         wmt_instrhelper.page1,
-        wmt_instrhelper.page2_1back,
-        wmt_instrhelper.page2_2back,
-        wmt_instrhelper.page2_3back,
+        wmt_instrhelper.page2_1back, wmt_instrhelper.page2_2back, wmt_instrhelper.page2_3back,
         wmt_instrhelper.page3,
         wmt_instrhelper.page4,
     ],
@@ -286,7 +290,7 @@ var wmt_blocktransition = {
 
 function makeNbackSeq(TYPE){
     var n_back_sequences = [];
-    for (var i = 0; i <= 7; ++i) {
+    for (var i = 0; i <= 3; ++i) {
         NBACK=i+1
         n_back_sequences[i] = createseqence(NBACK, TYPE);
     }
@@ -327,8 +331,6 @@ n_back_sequences_practice = makeNbackSeq('practice');
 n_back_sequences_exp = makeNbackSeq('exp');
 
 
-
-
 // Practice block
 var wmt_prac_block = [];
 wmt_prac_block.push(wmt_instr);
@@ -343,9 +345,14 @@ wmt_prac_block.push(wmt_transition);
 var wmt_exp_block = [];
 for (var x = 1; x <= NBLOCKS; ++x) {
 
-    shuffle(nbackarray); // shuffle if only RWMT
-    for (var i = 0; i <= 7; ++i) {
-        nbacktest_i = nbackarray[i]
+    // shuffle(nbackarray); // shuffle if only RWMT
+    var nbackindex = Math.floor(Math.random() * allbackarray .length)
+    var targetindex = allbackarray[nbackindex]
+
+    allbackarray.splice(nbackindex, 1);
+
+    for (var i = 0; i <= 3; ++i) {
+        nbacktest_i = targetindex[i]
         wmt_exp_block.push(N_back_instr[nbacktest_i]);
         wmt_exp_block.push(n_back_sequences_exp[nbacktest_i]);
     }

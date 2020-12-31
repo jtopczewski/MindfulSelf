@@ -1,4 +1,107 @@
-.jspsych-survey-likert-opt-label{
-    color: #adadad;
-
+.page p {
+    margin: 0;
+    padding-bottom: .2em;
 }
+
+.display_stage {
+    background-color: black;
+    color: white;
+    box-shadow: none;
+}
+
+.display_stage_background {
+    background-color: black;
+}
+
+
+.jspsych-display-element {
+    background-color: black;
+    color: white;
+    box-shadow: none;
+}
+label.jspsych-survey-likert-opt-label {
+    color: #dddddd;
+}
+
+label.jspsych-survey-likert-statement {
+    display: block;
+    font-size: 16px;
+    padding-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+ul.jspsych-survey-likert-opts {
+    list-style: none;
+    width: 500px;
+    margin: auto;
+    padding: 0 0 10px;
+    display: block;
+    font-size: 14px;
+    line-height: 1.1em;
+}
+
+/* Go NoGo */
+
+.GNGcolumn {
+    float: left;
+    width: 30%;
+    padding: 1px;
+}
+
+/* Clear floats after image containers */
+.GNGrow::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.gng_feedback {
+    font-size: 42px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+    flex: 50%;
+    padding: 10px;
+}
+
+
+/* Working Memory */
+.center-fit {
+    width:70%;
+    height:auto;
+    overflow:hidden;
+    display:block;
+    margin: auto;
+}
+
+.WMT_instr {
+    font-size: 26px;
+}
+.WMT_feedback {
+    font-size: 42px;
+}
+
+
+/* Questionnaire */
+.q_title {
+    font-size: 24px;
+}
+
+.q_para {
+    font-weight: bold;
+    text-align: center;
+}
+
+.q_keys_text {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.q_keys_word {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+}
+
