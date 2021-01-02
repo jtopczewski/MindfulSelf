@@ -74,6 +74,8 @@ welcome.click.demographics = function() {
         startDay1();
     } else if (daynumber == 5) {
         startDay5();
+    } else if (daynumber == 10) {
+        startDay10();
     } else {
         startDay();
     }

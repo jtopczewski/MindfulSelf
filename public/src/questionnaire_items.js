@@ -267,3 +267,100 @@ const MAIA_description = [
 ];
 const MAIA_csv = [MAIA_qns, MAIA_description];
 
+// ADHD
+const ADHD_options = ["Never", "Rarely", "Sometimes", "Often", "Very Often"];
+const ADHD_qns = [
+    "Number",
+    "Q01", "Q02", "Q03", "Q04", "Q05", "Q06", "Q07", "Q08", "Q09", "Q10",
+    "Q11", "Q12", "Q13", "Q14", "Q15", "Q16", "Q17", "Q18"
+];
+const ADHD_description = [
+    "Description",
+    "How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?",
+    "How often do you have difficulty getting things in order when you have to do a task that requires organization?",
+    "How often do you have problems remembering appointments or obligations?",
+    "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?",
+    "How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?",
+    "How often do you feel overly active and compelled to do things, like you were driven by a motor?",
+    "How often do you make careless mistakes when you have to work on a boring or difficult project?",
+    "How often do you have difficulty keeping your attention when you are doing boring or repetitive work?",
+    "How often do you have difficulty concentrating on what people say to you, even when they are speaking to you directly?",
+    "How often do you misplace or have difficulty finding things at home or at work?",
+    "How often are you distracted by activity or noise around you?",
+    "How often do you leave your seat in meetings or other situations in which you are expected to remain seated?",
+    "How often do you feel restless or fidgety?",
+    "How often do you have difficulty unwinding and relaxing when you have time to yourself?",
+    "How often do you find yourself talking too much when you are in social situations?",
+    "When you’re in a conversation, how often do you find yourself finishing the sentences of the people you are talking to, before they can finish them themselves?",
+    "How often do you have difficulty waiting your turn in situations when turn taking is required?",
+    "How often do you interrupt others when they are busy?"
+];
+const ADHD_csv = [ADHD_qns, ADHD_description];
+
+// Anxiety
+const Anxiety_options = ["Never", "Rarely", "Sometimes", "Often", "Always"];
+const Anxiety_qns = [
+    "Number",
+    "Q01", "Q02", "Q03", "Q04", "Q05", "Q06", "Q07", "Q08"
+];
+const Anxiety_description = [
+    "Description",
+    "I felt fearful",
+    "I found it hard to focus on anything other than my anxiety",
+    "My worries overwhelmed me",
+    "I felt uneasy",
+    "I felt nervous",
+    "I felt like I needed help for my anxiety",
+    "I felt anxious",
+    "I felt tense"
+];
+const Anxiety_csv = [Anxiety_qns, Anxiety_description];
+
+// Depression
+const QIDS_qns = [
+    "Number",
+    "Q01", "Q02", "Q03", "Q04", "Q05", "Q06", "Q07", "Q08", "Q09", "Q10",
+    "Q11", "Q12", "Q13", "Q14", "Q15", "Q16"
+];
+const QIDS_description = [
+    "Description",
+    "Falling Asleep:",
+    "Sleep During the Night:",
+    "Waking Up Too Early:",
+    "Sleeping Too Much:",
+    "Feeling Sad:",
+    "Decreased Appetite:",
+    "Increased Appetite:",
+    "Decreased Weight (Within the Last Two Weeks):",
+    "Increased Weight (Within the Last Two Weeks):",
+    "Concentration/Decision Making:",
+    "View of Myself:",
+    "Thoughts of Death or Suicide:",
+    "General Interest:",
+    "Energy Level:",
+    "Feeling Slowed Down:",
+    "Feeling Restless:"
+];
+const QIDS_csv = [QIDS_qns, QIDS_description];
+
+
+// ERQ
+const ERQ_options = ["Strongly disagree", "Disagree", "Slightly disagree", "Neutral", "Slightly agree", "Agree", "Strongly agree"];
+const ERQ_qns = [
+    "Number",
+    "Q01", "Q02", "Q03", "Q04", "Q05", "Q06", "Q07", "Q08", "Q09", "Q10"
+];
+const ERQ_description = [
+    "Description",
+    "When I want to feel more positive emotion (such as joy or amusement), I change what I’m thinking about.",
+    "I keep my emotions to myself.",
+    "When I want to feel less negative emotion (such as sadness or anger), I change what I’m thinking about.",
+    "When I am feeling positive emotions, I am careful not to express them.",
+    "When I’m faced with a stressful situation, I make myself think about it in a way that helps me stay calm.",
+    "I control my emotions by not expressing them.",
+    "When I want to feel more positive emotion, I change the way I’m thinking about the situation.",
+    "I control my emotions by changing the way I think about the situation I’m in.",
+    "When I am feeling negative emotions, I make sure not to express them.",
+    "When I want to feel less negative emotion, I change the way I’m thinking about the situation.",
+];
+const ERQ_csv = [ERQ_qns, ERQ_description];

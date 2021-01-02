@@ -12,11 +12,11 @@ var n_back_instr_set = ["../img/WMT/intro1.jpg", "../img/WMT/intro2.jpg", "../im
 // Constants
 const nbackarray = [0, 1, 2, 3];
 const PERCENTCORRECT = 0.20;
-const FIXATION_DURATION = 500; // 500
+const FIXATION_DURATION = 1000; // 1000
 const PICTURE_DURATION = 2000; // 2000
-const FDBCK_DUR = 1;
+const FDBCK_DUR = 1000;
 const NTRIALS = 20;
-const NBLOCKS = 1;
+const NBLOCKS = 1; // Need to change to 8
 var HOWMANYBACK;
 var SEQLENGTH;
 var letter1;
@@ -58,37 +58,49 @@ var wmt_instrhelper = {};
 
 wmt_instrhelper.page1 =
     "<div class='WMT_instr'>" +
-    "<p><img src='../img/WMT/instrsample.jpg' width='900'></p>" +
+    "<p><img src='../img/WMT/instrsample.jpg' width='800'></p>" +
     "</div>";
 
 wmt_instrhelper.page2_1back =
     "<div class='WMT_instr'>" +
-    "<p><img src='../img/WMT/instr1back.jpg' width='900'></p>" +
+    "<p><img src='../img/WMT/instr1back.jpg' width='800'></p>" +
     "</div>";
 
 wmt_instrhelper.page2_2back =
     "<div class='WMT_instr'>" +
-    "<p><img src='../img/WMT/instr2back.jpg' width='900'></p>" +
+    "<p><img src='../img/WMT/instr2back.jpg' width='800'></p>" +
     "</div>";
 
 wmt_instrhelper.page2_3back =
     "<div class='WMT_instr'>" +
-    "<p><img src='../img/WMT/instr3back.jpg' width='900'></p>" +
+    "<p><img src='../img/WMT/instr3back.jpg' width='800'></p>" +
+    "</div>";
+
+wmt_instrhelper.page2_4back =
+    "<div class='WMT_instr'>" +
+    "<p><img src='../img/WMT/instr4back.jpg' width='800'></p>" +
     "</div>";
 
 wmt_instrhelper.page3 =
     "<div class='WMT_instr'>" +
-    "<p><img src='../img/WMT/instrpg2.jpg' width='900'></p>" +
+    "<p><img src='../img/WMT/instrpg2.jpg' width='800'></p>" +
     "</div>";
 
 wmt_instrhelper.page4 =
     "<div class='WMT_instr'>" +
-    "<p><img src='../img/WMT/instrpg3.jpg' width='900'></p>" +
+    "<p><img src='../img/WMT/instrpg3.jpg' width='800'></p>" +
+    "</div>";
+
+wmt_instrhelper.conditional =
+    "<div class='WMT_instr'>" +
+    "<p>Great job and thank you for completing the practice block.</p>" +
+    "<p>Would you like to practice the task one more time?" +
+    "<p>Press <b style='color:#677be9 !important;'>y</b> to practice again. Press <b style='color:#d72965 !important;'>n</b> to skip the practice.</p>" +
     "</div>";
 
 wmt_instrhelper.transition =
     "<div class='WMT_instr'>" +
-    "<p>Great job and thank you for completing the practice block. We will now proceed to the experimental block.</p>" +
+    "<p>Thank you for completing the practice block. We will now proceed to the experimental block.</p>" +
     "<p>This time, there will not be any feedback, so you will have to carry on until the task is finished." +
     "<p>The experiment will start once you press the button.</p>" +
     "</div>";
@@ -109,7 +121,7 @@ var wmt_instr = {
     pages: [
         // Page 1
         wmt_instrhelper.page1,
-        wmt_instrhelper.page2_1back, wmt_instrhelper.page2_2back, wmt_instrhelper.page2_3back,
+        wmt_instrhelper.page2_1back, wmt_instrhelper.page2_2back, wmt_instrhelper.page2_3back,  wmt_instrhelper.page2_4back,
         wmt_instrhelper.page3,
         wmt_instrhelper.page4,
     ],
@@ -121,7 +133,7 @@ var wmt_instr = {
 function makeNbackInstr() {
 
     var Nbackinstr = [];
-    for (var i = 0; i <= 7; ++i) {
+    for (var i = 0; i <= 3; ++i) {
         var N_back_instr_i = {
             type: 'html-keyboard-response',
             data: {
@@ -334,12 +346,35 @@ n_back_sequences_exp = makeNbackSeq('exp');
 // Practice block
 var wmt_prac_block = [];
 wmt_prac_block.push(wmt_instr);
-for (var i = 0; i <= 2; ++i) {
+for (var i = 0; i <= 3; ++i) {
     wmt_prac_block.push(N_back_instr[i]);
     wmt_prac_block.push(n_back_sequences_practice[i]);
     wmt_prac_block.push(overallfeedback);
 }
-wmt_prac_block.push(wmt_transition);
+
+// Transition and condition to practice again or proceeed to experiment
+
+var pre_if_trial = {
+    type: 'html-keyboard-response',
+    stimulus: wmt_instrhelper.conditional
+}
+
+var if_node = {
+    timeline: [...wmt_prac_block],
+    conditional_function: function(){
+        var data = jsPsych.data.get().last(1).values()[0];
+        if(data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode('n')){
+            return false;
+        } else {
+            return true;
+        }
+    }
+};
+
+var conditional_block = [];
+conditional_block.push(pre_if_trial);
+conditional_block.push(if_node);
+conditional_block.push(wmt_transition);
 
 // Real block
 var wmt_exp_block = [];

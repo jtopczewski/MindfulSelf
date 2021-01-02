@@ -12,6 +12,19 @@ function populateQs(start, end, qs, qs_options){
     }
     return Qs
 };
+function populateQIDs(start, end, qs, qs_options){
+    diff = end-start;
+    var Qs = [];
+    for (var i=0; i<=diff; i++) {
+        Qs[i] = {
+            prompt: "<p class='q_para'>" + qs[0][i+start] + '. ' + qs[1][i+start] + "</p>",
+            name: qs[0][i+start],
+            labels: qs_options[i+start],
+            required: true,
+            horizontal: true,};
+    }
+    return Qs
+};
 
 // AES
 var AES_Qs1 = {
@@ -291,6 +304,88 @@ var post_BC_qs2 = {
     ],
 };
 
+
+// ADHD
+var ADHD_Qs1 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "adhd_qs1"
+    },
+    preamble:
+        "<p class='q_title'>Please answer the questions that best describes how you have felt and conducted yourself over the past week.</p>",
+    questions: populateQs(1, 10, ADHD_csv, ADHD_options),
+    scale_width: 500,
+};
+var ADHD_Qs2 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "adhd_qs2"
+    },
+    preamble:
+        "<p class='q_title'>Please answer the questions that best describes how you have felt and conducted yourself over the past week.</p>",
+    questions: populateQs(11, 18, ADHD_csv, ADHD_options),
+    scale_width: 500,
+};
+
+
+// Anxiety
+var Anxiety_Qs1 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "anxiety_qs1"
+    },
+    preamble:
+        "<p class='q_title'>Please respond to each question or statement best describes how you have felt over the past week.</p>",
+    questions: populateQs(1, 8, Anxiety_csv, Anxiety_options),
+    scale_width: 500,
+};
+
+
+// Depression
+var QIDS_Qs1 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "qids_qs1"
+    },
+    preamble:
+        "<p class='q_title'>Please indicate the one response to each item that best describes you for the past seven days.</p>",
+    questions: populateQIDs(1, 10, QIDS_csv, QIDS_options),
+    scale_width: 500,
+};
+var QIDS_Qs2 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "qids_qs2"
+    },
+    preamble:
+        "<p class='q_title'>Please indicate the one response to each item that best describes you for the past seven days.</p>",
+    questions: populateQIDs(11, 16, QIDS_csv, QIDS_options),
+    scale_width: 500,
+};
+
+// ERQ
+var ERQ_Qs1 = {
+    type: 'survey-likert',
+    data: {
+        exp_id: "questionnaire",
+        trial_id: "erq_qs1"
+    },
+    preamble:
+        "<p class='q_title'>We would like to ask you some questions about your emotional life, in particular, how you control (that is, regulate and manage) your emotions. " +
+        "The questions below involve two distinct aspects of your emotional life. " +
+        "One is your emotional experience, or what you feel like inside. " +
+        "The other is your emotional expression, or how you show your emotions in the way you talk, gesture, or behave. " +
+        "Although some of the following questions may seem similar to one another, they differ in important ways. For each item, please answer using the following scale:</p>",
+    questions: populateQs(1, 10, ERQ_csv, ERQ_options),
+    scale_width: 500,
+};
+
+
 // Set up timeline
 var post_bc_block1 = [];
 post_bc_block1.push(post_BC_qs1);
@@ -330,5 +425,19 @@ maia_block.push(MAIA_Qs1);
 maia_block.push(MAIA_Qs2);
 maia_block.push(MAIA_Qs3);
 maia_block.push(MAIA_Qs4);
+
+var adhd_block = [];
+adhd_block.push(ADHD_Qs1);
+adhd_block.push(ADHD_Qs2);
+
+var anxiety_block = [];
+anxiety_block.push(Anxiety_Qs1);
+
+var qids_block = [];
+qids_block.push(QIDS_Qs1);
+qids_block.push(QIDS_Qs2);
+
+var erq_block = [];
+erq_block.push(ERQ_Qs1);
 
 // questionnaire_part.push({type: 'fullscreen', fullscreen_mode: false}); /* exit fullscreen mode */

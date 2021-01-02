@@ -68,7 +68,11 @@ function startDay1() {
         timeline: [
             ...welcome_block,
             ...pss_block, ...panas_block,
-            ...wmt_prac_block, ...wmt_exp_block,
+            ...erq_block,
+            ...adhd_block, ...anxiety_block, ...qids_block,
+            ...wmt_prac_block,
+            ...conditional_block,
+            ...wmt_exp_block,
             ...aes_block
         ],
 
@@ -82,6 +86,7 @@ function startDay1() {
         }
     });
 }
+
 
 // For Day 5
 function startDay5() {
@@ -98,7 +103,39 @@ function startDay5() {
             ...welcome_block,
             ...wmt_exp_block,
             ...aes_block,
-            ...pss_block, ...panas_block
+            ...pss_block, ...panas_block, ...erq_block
+        ],
+
+        /* on_close currently not working */
+        on_close: function() {
+            CloseSave()
+        },
+        on_finish: function() {
+            FinishSave()
+            jsPsych.data.displayData();
+        }
+    });
+}
+
+
+// For Day 10
+function startDay10() {
+
+    /* start the experiment */
+    jsPsych.init({
+        show_progress_bar: true,
+        on_interaction_data_update: function(data) {
+            var trial = jsPsych.currentTrial();
+            trial.data.screen_focus = data.event;
+        },
+
+        timeline: [
+            ...welcome_block,
+            ...wmt_exp_block,
+            ...aes_block,
+            ...pss_block, ...panas_block,
+            ...erq_block,
+            ...adhd_block, ...anxiety_block, ...qids_block
         ],
 
         /* on_close currently not working */
