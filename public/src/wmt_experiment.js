@@ -144,7 +144,6 @@ function startDay10() {
         },
         on_finish: function() {
             FinishSave()
-            jsPsych.data.displayData();
         }
     });
 }
