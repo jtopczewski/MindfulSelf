@@ -320,7 +320,7 @@ const Anxiety_csv = [Anxiety_qns, Anxiety_description];
 const QIDS_qns = [
     "Number",
     "Q01", "Q02", "Q03", "Q04", "Q05", "Q06", "Q07", "Q08", "Q09", "Q10",
-    "Q11", "Q12", "Q13", "Q14", "Q15", "Q16"
+    "Q11", "Q12", "Q13", "Q14", "Q15"
 ];
 const QIDS_description = [
     "Description",
@@ -335,7 +335,6 @@ const QIDS_description = [
     "Increased Weight (Within the Last Two Weeks):",
     "Concentration/Decision Making:",
     "View of Myself:",
-    "Thoughts of Death or Suicide:",
     "General Interest:",
     "Energy Level:",
     "Feeling Slowed Down:",

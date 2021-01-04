@@ -364,7 +364,7 @@ var QIDS_Qs2 = {
     },
     preamble:
         "<p class='q_title'>Please indicate the one response to each item that best describes you for the past seven days.</p>",
-    questions: populateQIDs(11, 16, QIDS_csv, QIDS_options),
+    questions: populateQIDs(11, 15, QIDS_csv, QIDS_options),
     scale_width: 500,
 };
 

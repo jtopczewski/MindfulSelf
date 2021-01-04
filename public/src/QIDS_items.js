@@ -55,33 +55,27 @@ QIDS_options11 = ["I see myself as equally worthwhile and deserving as other peo
     "I largely believe that I cause problems for others.",
     "I think almost constantly about major and minor defects in myself."];
 
-QIDS_options12 = ["I do not think of suicide or death.",
-    "I feel that life is empty or wonder if it’s worth living.",
-    "I think of suicide or death several times a week for several minutes.",
-    "I think of suicide or death several times a day in some detail, or I have made specific plans for suicide or have actually tried to take my life."];
-
-QIDS_options13 = ["There is no change from usual in how interested I am in other people or activities.",
+QIDS_options12 = ["There is no change from usual in how interested I am in other people or activities.",
     "I notice that I am less interested in people or activities.",
     "I find I have interest in only one or two of my formerly pursued activities.",
     "I have virtually no interest in formerly pursued activities."];
 
-QIDS_options14 = ["There is no change in my usual level of energy.",
+QIDS_options13 = ["There is no change in my usual level of energy.",
     "I get tired more easily than usual.",
     "I have to make a big effort to start or finish my usual daily activities (for example, shopping, homework, cooking, or going to work).",
     "I really cannot carry out most of my usual daily activities because I just don’t have the energy."];
 
-QIDS_options15 = ["I think, speak, and move at my usual rate of speed.",
+QIDS_options14 = ["I think, speak, and move at my usual rate of speed.",
     "I find that my thinking is slowed down or my voice sounds dull or flat.",
     "It takes me several seconds to respond to most questions and I’m sure my thinking is slowed.",
     "I am often unable to respond to questions without extreme effort."];
 
-QIDS_options16 = ["I do not feel restless.",
+QIDS_options15 = ["I do not feel restless.",
     "I’m often fidgety, wringing my hands, or need to shift how I am sitting.",
     "I have impulses to move about and am quite restless.",
     "At times, I am unable to stay seated and need to pace around."];
 
 QIDS_options = [QIDS_options00,
-    QIDS_options01, QIDS_options02, QIDS_options03, QIDS_options04,
-    QIDS_options05, QIDS_options06, QIDS_options07, QIDS_options08,
-    QIDS_options09, QIDS_options10, QIDS_options11, QIDS_options13,
-    QIDS_options13, QIDS_options14, QIDS_options15, QIDS_options16];
+    QIDS_options01, QIDS_options02, QIDS_options03, QIDS_options04, QIDS_options05,
+    QIDS_options06, QIDS_options07, QIDS_options08, QIDS_options09, QIDS_options10,
+    QIDS_options11, QIDS_options13, QIDS_options13, QIDS_options14, QIDS_options15];
