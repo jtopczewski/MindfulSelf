@@ -5,23 +5,31 @@
 
 .display_stage {
     background-color: black;
-    color: white;
+    color: #ffffff;
     box-shadow: none;
 }
 
 .display_stage_background {
-    background-color: black;
+    background-color: #000000;
 }
 
+div.jspsych-survey-likert-preamble{
+    background-color: #000000;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
 
 .jspsych-display-element {
-    background-color: black;
-    color: white;
+    background-color: #000000;
+    color: #ffffff;
     box-shadow: none;
 }
 label.jspsych-survey-likert-opt-label {
     color: #dddddd;
 }
+
 
 label.jspsych-survey-likert-statement {
     display: block;
@@ -39,32 +47,6 @@ ul.jspsych-survey-likert-opts {
     font-size: 14px;
     line-height: 1.1em;
 }
-
-/* Go NoGo */
-
-.GNGcolumn {
-    float: left;
-    width: 30%;
-    padding: 1px;
-}
-
-/* Clear floats after image containers */
-.GNGrow::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.gng_feedback {
-    font-size: 42px;
-}
-
-/* Create two equal columns that sits next to each other */
-.column {
-    flex: 50%;
-    padding: 10px;
-}
-
 
 /* Working Memory */
 .center-fit {
@@ -86,6 +68,13 @@ ul.jspsych-survey-likert-opts {
 /* Questionnaire */
 .q_title {
     font-size: 24px;
+    background-color: #000000;
+}
+
+.q_dur {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #677be9;
 }
 
 .q_para {

@@ -7,7 +7,7 @@ function populateQs(start, end, qs, qs_options){
             prompt: "<p class='q_para'>" + qs[0][i+start] + '. ' + qs[1][i+start] + "</p>",
             name: qs[0][i+start],
             labels: qs_options,
-            required: true,
+            required: false,
             horizontal: true,};
     }
     return Qs
@@ -20,7 +20,7 @@ function populateQIDs(start, end, qs, qs_options){
             prompt: "<p class='q_para'>" + qs[0][i+start] + '. ' + qs[1][i+start] + "</p>",
             name: qs[0][i+start],
             labels: qs_options[i+start],
-            required: true,
+            required: false,
             horizontal: true,};
     }
     return Qs
@@ -162,8 +162,8 @@ var PSS_Qs1 = {
         exp_id: "questionnaire",
         trial_id: "pss_qs1"
     },
-    preamble: "<p class='q_title'>The questions in this scale ask you about your feelings and thoughts during the last week. " +
-        "In each case, you will be asked to indicate by circling how often you felt or thought a certain way.</p>",
+    preamble: "<h1 class='q_title'>The questions in this scale ask you about your feelings and thoughts during the <span class='q_dur'>last week</span>. " +
+        "In each case, you will be asked to indicate by circling how often you felt or thought a certain way.</h1>",
     questions: populateQs(1, 10, PSS_csv, PSS_options),
     scale_width: 500,
 };
@@ -176,10 +176,10 @@ var PANAS_Qs1 = {
         trial_id: "panas_qs1"
     },
     preamble:
-        "<p class='q_title'>This scale consists of a number of words that describe different feelings and emotions. " +
+        "<h1 class='q_title'>This scale consists of a number of words that describe different feelings and emotions. " +
         "Read each item and then mark the appropriate answer in the space next to that word." +
-        "Indicate to what extent you GENERALLY feel this way, that is how you feel ON AVERAGE.</p>" +
-        "<p>Indicate the extent you have felt this way over the past week.</p>",
+        "Indicate to what extent you GENERALLY feel this way, that is how you feel ON AVERAGE." +
+        "<p>Indicate the extent you have felt this way over the <span class='q_dur'>past week.</span></p></h1>",
     questions: populateQs(1, 10, PANAS_csv, PANAS_options),
     scale_width: 500,
 };
@@ -190,10 +190,10 @@ var PANAS_Qs2 = {
         trial_id: "panas_qs2"
     },
     preamble:
-        "<p class='q_title'>This scale consists of a number of words that describe different feelings and emotions. " +
+        "<h1 class='q_title'>This scale consists of a number of words that describe different feelings and emotions. " +
         "Read each item and then mark the appropriate answer in the space next to that word." +
-        "Indicate to what extent you GENERALLY feel this way during the past week, that is how you felt last week.</p>" +
-        "<p>Indicate the extent you have felt this way over the past week.</p>",
+        "Indicate to what extent you GENERALLY feel this way during the past week, that is how you felt last week." +
+        "<p>Indicate the extent you have felt this way over the <span class='q_dur'>past week.</span></p></h1>",
     questions: populateQs(11, 20, PANAS_csv, PANAS_options),
     scale_width: 500,
 };
@@ -206,8 +206,8 @@ var SMS_Qs1 = {
         trial_id: "sms_qs1"
     },
     preamble:
-        "<p class='q_title'>Below is a list of statements. " +
-        "Please use the rating scale to indicate how well each statement describes your experiences in the past 20 minutes</p>",
+        "<h1 class='q_title'>Below is a list of statements. " +
+        "Please use the rating scale to indicate how well each statement describes your experiences in the <span class='q_dur'>past 20 minutes</span></h1>",
     questions: populateQs(1, 10, SMS_csv, SMS_options),
     scale_width: 500,
 };
@@ -218,8 +218,8 @@ var SMS_Qs2 = {
         trial_id: "sms_qs2"
     },
     preamble:
-        "<p class='q_title'>Below is a list of statements. " +
-        "Please use the rating scale to indicate how well each statement describes your experiences in the past 20 minutes</p>",
+        "<h1 class='q_title'>Below is a list of statements. " +
+        "Please use the rating scale to indicate how well each statement describes your experiences in the past <span class='q_dur'>20 minutes</span></h1>",
     questions: populateQs(11, 21, SMS_csv, SMS_options),
     scale_width: 500,
 };
@@ -232,8 +232,8 @@ var MAIA_Qs1 = {
         trial_id: "maia_qs1"
     },
     preamble:
-        "<p class='q_title'>Below you will find a list of statements. " +
-        "Please indicate how often each statement applies to you generally in daily life.</p>",
+        "<h1 class='q_title'>Below you will find a list of statements. " +
+        "Please indicate how often each statement applies to you <span class='q_dur'>generally</span> in daily life.</h1>",
     questions: populateQs(1, 10, MAIA_csv, MAIA_options),
     scale_width: 500,
 };
@@ -244,8 +244,8 @@ var MAIA_Qs2 = {
         trial_id: "maia_qs2"
     },
     preamble:
-        "<p class='q_title'>Below you will find a list of statements. " +
-        "Please indicate how often each statement applies to you generally in daily life.</p>",
+        "<h1 class='q_title'>Below you will find a list of statements. " +
+        "Please indicate how often each statement applies to you <span class='q_dur'>generally</span> in daily life.</h1>",
     questions: populateQs(11, 20, MAIA_csv, MAIA_options),
     scale_width: 500,
 };
@@ -256,8 +256,8 @@ var MAIA_Qs3 = {
         trial_id: "maia_qs3"
     },
     preamble:
-        "<p class='q_title'>Below you will find a list of statements. " +
-        "Please indicate how often each statement applies to you generally in daily life.</p>",
+        "<h1 class='q_title'>Below you will find a list of statements. " +
+        "Please indicate how often each statement applies to you <span class='q_dur'>generally</span> in daily life.</h1>",
     questions: populateQs(21, 30, MAIA_csv, MAIA_options),
     scale_width: 500,
 };
@@ -268,8 +268,8 @@ var MAIA_Qs4 = {
         trial_id: "maia_qs4"
     },
     preamble:
-        "<p class='q_title'>Below you will find a list of statements. " +
-        "Please indicate how often each statement applies to you generally in daily life.</p>",
+        "<h1 class='q_title'>Below you will find a list of statements. " +
+        "Please indicate how often each statement applies to you <span class='q_dur'>generally</span> in daily life.</h1>",
     questions: populateQs(31, 37, MAIA_csv, MAIA_options),
     scale_width: 500,
 };
@@ -313,7 +313,7 @@ var ADHD_Qs1 = {
         trial_id: "adhd_qs1"
     },
     preamble:
-        "<p class='q_title'>Please answer the questions that best describes how you have felt and conducted yourself over the past week.</p>",
+        "<h1 class='q_title'>Please answer the questions that best describes how you have felt and conducted yourself over the <span class='q_dur'>past week.</span></h1>",
     questions: populateQs(1, 10, ADHD_csv, ADHD_options),
     scale_width: 500,
 };
@@ -324,7 +324,7 @@ var ADHD_Qs2 = {
         trial_id: "adhd_qs2"
     },
     preamble:
-        "<p class='q_title'>Please answer the questions that best describes how you have felt and conducted yourself over the past week.</p>",
+        "<h1 class='q_title'>Please answer the questions that best describes how you have felt and conducted yourself over the <span class='q_dur'>past week.</span></h1>",
     questions: populateQs(11, 18, ADHD_csv, ADHD_options),
     scale_width: 500,
 };
@@ -338,7 +338,7 @@ var Anxiety_Qs1 = {
         trial_id: "anxiety_qs1"
     },
     preamble:
-        "<p class='q_title'>Please respond to each question or statement best describes how you have felt over the past week.</p>",
+        "<h1 class='q_title'>Please respond to each question or statement best describes how you have felt over the <span class='q_dur'>past week.</span></h1>",
     questions: populateQs(1, 8, Anxiety_csv, Anxiety_options),
     scale_width: 500,
 };
@@ -352,7 +352,7 @@ var QIDS_Qs1 = {
         trial_id: "qids_qs1"
     },
     preamble:
-        "<p class='q_title'>Please indicate the one response to each item that best describes you for the past seven days.</p>",
+        "<h1 class='q_title'>Please indicate the one response to each item that best describes you for the past <span class='q_dur'>seven days.</span></h1>",
     questions: populateQIDs(1, 10, QIDS_csv, QIDS_options),
     scale_width: 500,
 };
@@ -363,7 +363,7 @@ var QIDS_Qs2 = {
         trial_id: "qids_qs2"
     },
     preamble:
-        "<p class='q_title'>Please indicate the one response to each item that best describes you for the past seven days.</p>",
+        "<h1 class='q_title'>Please indicate the one response to each item that best describes you for the past <span class='q_dur'>seven days.</span></h1>",
     questions: populateQIDs(11, 15, QIDS_csv, QIDS_options),
     scale_width: 500,
 };
@@ -376,11 +376,8 @@ var ERQ_Qs1 = {
         trial_id: "erq_qs1"
     },
     preamble:
-        "<p class='q_title'>We would like to ask you some questions about your emotional life, in particular, how you control (that is, regulate and manage) your emotions. " +
-        "The questions below involve two distinct aspects of your emotional life. " +
-        "One is your emotional experience, or what you feel like inside. " +
-        "The other is your emotional expression, or how you show your emotions in the way you talk, gesture, or behave. " +
-        "Although some of the following questions may seem similar to one another, they differ in important ways. For each item, please answer using the following scale:</p>",
+        "<h1 class='q_title'>We would like to ask you some questions about your emotional life, in particular, how you control (that is, regulate and manage) your emotions. " +
+        "For each item, please answer using the following scale:</h1>",
     questions: populateQs(1, 10, ERQ_csv, ERQ_options),
     scale_width: 500,
 };

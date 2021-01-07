@@ -14,8 +14,7 @@ welcome.task = {};
 welcome.task.blurb = '<b>"Improving performances through attention and self-control training"</b> ' +
     'aims to explore the individual differences in response to mental training. ' +
     'We hope that this study will provide valuable information about the effects of training on the brain and behavior.';
-welcome.task.time = '30 minutes';
-welcome.task.pay = '$60';
+welcome.task.time = '60 minutes';
 
 // --------------  things that vary between ethics approvals --------------
 
@@ -23,7 +22,7 @@ welcome.ethics = {};
 welcome.ethics.name = 'Improving performances through attention and self-control training';
 welcome.ethics.invite = "You are invited to participate in a study to test individual differences in response to training in college students. " +
     "The study will help us learn the potential individual differences in training and performance";
-welcome.ethics.description = 'We will schedule you for 5 separate mental training sessions using computerized working memory task. ' +
+welcome.ethics.description = 'We will schedule you for 10 separate mental training sessions using computerized working memory task. ' +
     'You will also be asked to complete brief questionnaires related to stress and mood. The total time for each visit will be less than 60 min each day';
 welcome.ethics.risk = 'There is very little risk to you to participate in this study. ' +
     'You may be uncomfortable filling our information about stress and mood and mental training';

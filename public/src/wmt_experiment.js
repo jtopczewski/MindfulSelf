@@ -59,7 +59,7 @@ function startDay1() {
 
     /* start the experiment */
     jsPsych.init({
-        show_progress_bar: true,
+        show_progress_bar: false,
         on_interaction_data_update: function(data) {
             trial = jsPsych.currentTrial();
             trial.data.screen_focus = data.event;
@@ -71,6 +71,7 @@ function startDay1() {
             ...erq_block,
             ...adhd_block, ...anxiety_block, ...qids_block,
             ...wmt_prac_block,
+            ...conditional_block,
             ...conditional_block,
             ...wmt_exp_block,
             ...aes_block
@@ -93,7 +94,7 @@ function startDay5() {
 
     /* start the experiment */
     jsPsych.init({
-        show_progress_bar: true,
+        show_progress_bar: false,
         on_interaction_data_update: function(data) {
             var trial = jsPsych.currentTrial();
             trial.data.screen_focus = data.event;
@@ -123,7 +124,7 @@ function startDay10() {
 
     /* start the experiment */
     jsPsych.init({
-        show_progress_bar: true,
+        show_progress_bar: false,
         on_interaction_data_update: function(data) {
             var trial = jsPsych.currentTrial();
             trial.data.screen_focus = data.event;

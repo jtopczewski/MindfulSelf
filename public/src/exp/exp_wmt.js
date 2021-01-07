@@ -11,11 +11,13 @@ var n_back_instr_set = ["../img/WMT/intro1.jpg", "../img/WMT/intro2.jpg", "../im
 
 // Constants
 const nbackarray = [0, 1, 2, 3];
+const PERCENTCORRECTPRACT = 0.40;
 const PERCENTCORRECT = 0.20;
 const FIXATION_DURATION = 1000; // 1000
 const PICTURE_DURATION = 2000; // 2000
 const FDBCK_DUR = 1000;
 const NTRIALS = 20;
+const NTRIALSPRAC = 5;
 const NBLOCKS = 1; // Need to change to 8
 var HOWMANYBACK;
 var SEQLENGTH;
@@ -310,14 +312,21 @@ function makeNbackSeq(TYPE){
     return n_back_sequences
 };
 function createseqence(NBACK, TYPE){
+    if (TYPE === 'practice'){
+        SEQLENGTH = NTRIALSPRAC + NBACK;
+        var NMATCHTRIALS = PERCENTCORRECTPRACT*NTRIALSPRAC
+        var NNONMATCHTRIALS = NTRIALSPRAC - NMATCHTRIALS
+    } else if (TYPE === 'exp') {
+        SEQLENGTH = NTRIALS + NBACK;
+        var NMATCHTRIALS = PERCENTCORRECT*NTRIALS
+        var NNONMATCHTRIALS = NTRIALS - NMATCHTRIALS
+    }
 
-    SEQLENGTH = NTRIALS + NBACK;
     var FIRSTNTRIALS = NBACK
-    var NMATCHTRILS = PERCENTCORRECT*NTRIALS
-    var NNONMATCHTRIALS = NTRIALS - NMATCHTRILS
+
 
     var firsttrials = Array(FIRSTNTRIALS).fill({match: false, nback: NBACK, seqlen: SEQLENGTH, phase: TYPE});
-    var matchtrials = Array(NMATCHTRILS).fill({match: true, nback: NBACK, seqlen: SEQLENGTH, phase: TYPE});
+    var matchtrials = Array(NMATCHTRIALS).fill({match: true, nback: NBACK, seqlen: SEQLENGTH, phase: TYPE});
     var unmatchtrials = Array(NNONMATCHTRIALS).fill({match: false, nback: NBACK, seqlen: SEQLENGTH, phase: TYPE});
 
     var n_back_trials = matchtrials.concat(unmatchtrials);
@@ -353,12 +362,10 @@ for (var i = 0; i <= 3; ++i) {
 }
 
 // Transition and condition to practice again or proceeed to experiment
-
 var pre_if_trial = {
     type: 'html-keyboard-response',
     stimulus: wmt_instrhelper.conditional
 }
-
 var if_node = {
     timeline: [...wmt_prac_block],
     conditional_function: function(){
