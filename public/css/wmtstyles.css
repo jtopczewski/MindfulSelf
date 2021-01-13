@@ -33,18 +33,18 @@ label.jspsych-survey-likert-opt-label {
 
 label.jspsych-survey-likert-statement {
     display: block;
-    font-size: 16px;
+    font-size: 20px;
     padding-top: 0px !important;
     margin-bottom: 0px !important;
 }
 
 ul.jspsych-survey-likert-opts {
     list-style: none;
-    width: 500px;
+    /*width: 500px;*/
     margin: auto;
     padding: 0 0 10px;
     display: block;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.1em;
 }
 
@@ -61,7 +61,7 @@ ul.jspsych-survey-likert-opts {
     font-size: 26px;
 }
 .WMT_feedback {
-    font-size: 42px;
+    font-size: 36px;
 }
 
 
@@ -74,7 +74,7 @@ ul.jspsych-survey-likert-opts {
 .q_dur {
     font-weight: bold;
     text-decoration: underline;
-    color: #677be9;
+    color: #ff0000;
 }
 
 .q_para {
@@ -83,14 +83,15 @@ ul.jspsych-survey-likert-opts {
 }
 
 .q_keys_text {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     font-style: italic;
 }
 
 .q_keys_word {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     font-style: italic;
+    color: #f8952f;
 }
 

@@ -28,7 +28,7 @@ const today = new Date();
 const dd = String(today.getDate()).padStart(2, '0');
 const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 const yyyy = today.getFullYear();
-const DATETODAY = yyyy + + mm + dd;
+const DATETODAY = yyyy + mm + dd;
 
 
 function shuffle(array) {array.sort(() => Math.random() - 0.5)}
@@ -103,7 +103,8 @@ wmt_instrhelper.conditional =
 wmt_instrhelper.transition =
     "<div class='WMT_instr'>" +
     "<p>Thank you for completing the practice block. We will now proceed to the experimental block.</p>" +
-    "<p>This time, there will not be any feedback, so you will have to carry on until the task is finished." +
+    "<p>This time, there will not be any feedback, so you will have to carry on until the task is finished. </p>" +
+    "<p>The sequence for the experiment may not be in consecutive order, i.e., 1-2-3-4, but in different order, e.g., 2-4-1-3. </p>" +
     "<p>The experiment will start once you press the button.</p>" +
     "</div>";
 
@@ -262,9 +263,11 @@ var overallfeedback = {
         var percentage = all_correct/(SEQLENGTH-HOWMANYBACK) * 100;
 
         var html =
-            "<div class='WMT_feedback' style='width:800px;'>"+
+            "<div class='WMT_feedback' style='width:900px;'>"+
             "<p>All done!</p>"+
-            "<p>Accuracy: " + percentage + "%</p>"+
+            "<p>Accuracy: " + percentage + "%"+
+            "<br>Hits: " + n_correct/n_match  * 100 + "% matching items."+
+            "<br>Incorrect: " + false_alarms/n_nonmatch  * 100 + "% non-matching items.</p>" +
             "<p>Press any key to begin.</p>" +
             "</div>";
 
@@ -364,14 +367,16 @@ for (var i = 0; i <= 3; ++i) {
 // Transition and condition to practice again or proceeed to experiment
 var pre_if_trial = {
     type: 'html-keyboard-response',
-    stimulus: wmt_instrhelper.conditional
+    stimulus: wmt_instrhelper.conditional,
+    choices: ['y', 'n'],
 }
 var if_node = {
-    timeline: [...wmt_prac_block],
-    conditional_function: function(){
+    timeline: [...wmt_prac_block, pre_if_trial],
+    // conditional_function: function(){
+    loop_function: function(){
         var data = jsPsych.data.get().last(1).values()[0];
         if(data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode('n')){
-            return false;
+            return false; // skip repeat
         } else {
             return true;
         }

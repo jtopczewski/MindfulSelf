@@ -67,11 +67,7 @@ function startDay1() {
 
         timeline: [
             ...welcome_block,
-            ...pss_block, ...panas_block,
-            ...erq_block,
-            ...adhd_block, ...anxiety_block, ...qids_block,
             ...wmt_prac_block,
-            ...conditional_block,
             ...conditional_block,
             ...wmt_exp_block,
             ...aes_block
@@ -83,7 +79,6 @@ function startDay1() {
         },
         on_finish: function() {
             FinishSave()
-            jsPsych.data.displayData();
         }
     });
 }
@@ -103,8 +98,7 @@ function startDay5() {
         timeline: [
             ...welcome_block,
             ...wmt_exp_block,
-            ...aes_block,
-            ...pss_block, ...panas_block, ...erq_block
+            ...aes_block
         ],
 
         /* on_close currently not working */
@@ -113,7 +107,6 @@ function startDay5() {
         },
         on_finish: function() {
             FinishSave()
-            jsPsych.data.displayData();
         }
     });
 }
@@ -134,9 +127,6 @@ function startDay10() {
             ...welcome_block,
             ...wmt_exp_block,
             ...aes_block,
-            ...pss_block, ...panas_block,
-            ...erq_block,
-            ...adhd_block, ...anxiety_block, ...qids_block
         ],
 
         /* on_close currently not working */
@@ -173,7 +163,6 @@ function startDay() {
         },
         on_finish: function() {
             FinishSave()
-            jsPsych.data.displayData();
         }
     });
 }

@@ -36,7 +36,7 @@ var AES_Qs1 = {
     preamble: "<p class='q_title'>Please rate each of the following statements on a scale of 1 ('strongly agree') to 5 ('strongly disagree') regarding the breath-counting task you just completed. " +
         "Please do not leave any items blank</p>",
     questions: populateQs(1, 9, aes_csv, aes_options),
-    scale_width: 500,
+    scale_width: 700,
 };
 var AES_Qs2 = {
     type: 'survey-likert',
@@ -47,7 +47,7 @@ var AES_Qs2 = {
     preamble: "<p class='q_title'>Please rate each of the following statements on a scale of 1 ('strongly agree') to 5 ('strongly disagree') regarding the breath-counting task you just completed. " +
         "Please do not leave any items blank</p>",
     questions: populateQs(10, 18, aes_csv, aes_options),
-    scale_width: 500,
+    scale_width: 700,
 };
 var AES_Qs3 = {
     type: 'survey-likert',
@@ -58,7 +58,7 @@ var AES_Qs3 = {
     preamble: "<p class='q_title'>Please rate each of the following statements on a scale of 1 ('strongly agree') to 5 ('strongly disagree') regarding the breath-counting task you just completed. " +
         "Please do not leave any items blank</p>",
     questions: populateQs(19, 26, aes_csv, aes_options),
-    scale_width: 500,
+    scale_width: 700,
 };
 
 // FFMQ
@@ -165,7 +165,7 @@ var PSS_Qs1 = {
     preamble: "<h1 class='q_title'>The questions in this scale ask you about your feelings and thoughts during the <span class='q_dur'>last week</span>. " +
         "In each case, you will be asked to indicate by circling how often you felt or thought a certain way.</h1>",
     questions: populateQs(1, 10, PSS_csv, PSS_options),
-    scale_width: 500,
+    scale_width: 600,
 };
 
 // PANAS
@@ -181,7 +181,7 @@ var PANAS_Qs1 = {
         "Indicate to what extent you GENERALLY feel this way, that is how you feel ON AVERAGE." +
         "<p>Indicate the extent you have felt this way over the <span class='q_dur'>past week.</span></p></h1>",
     questions: populateQs(1, 10, PANAS_csv, PANAS_options),
-    scale_width: 500,
+    scale_width: 600,
 };
 var PANAS_Qs2 = {
     type: 'survey-likert',
@@ -195,7 +195,7 @@ var PANAS_Qs2 = {
         "Indicate to what extent you GENERALLY feel this way during the past week, that is how you felt last week." +
         "<p>Indicate the extent you have felt this way over the <span class='q_dur'>past week.</span></p></h1>",
     questions: populateQs(11, 20, PANAS_csv, PANAS_options),
-    scale_width: 500,
+    scale_width: 600,
 };
 
 // SMS
@@ -315,7 +315,7 @@ var ADHD_Qs1 = {
     preamble:
         "<h1 class='q_title'>Please answer the questions that best describes how you have felt and conducted yourself over the <span class='q_dur'>past week.</span></h1>",
     questions: populateQs(1, 10, ADHD_csv, ADHD_options),
-    scale_width: 500,
+    scale_width: 600,
 };
 var ADHD_Qs2 = {
     type: 'survey-likert',
@@ -326,7 +326,7 @@ var ADHD_Qs2 = {
     preamble:
         "<h1 class='q_title'>Please answer the questions that best describes how you have felt and conducted yourself over the <span class='q_dur'>past week.</span></h1>",
     questions: populateQs(11, 18, ADHD_csv, ADHD_options),
-    scale_width: 500,
+    scale_width: 600,
 };
 
 
@@ -340,7 +340,7 @@ var Anxiety_Qs1 = {
     preamble:
         "<h1 class='q_title'>Please respond to each question or statement best describes how you have felt over the <span class='q_dur'>past week.</span></h1>",
     questions: populateQs(1, 8, Anxiety_csv, Anxiety_options),
-    scale_width: 500,
+    scale_width: 600,
 };
 
 
@@ -354,7 +354,7 @@ var QIDS_Qs1 = {
     preamble:
         "<h1 class='q_title'>Please indicate the one response to each item that best describes you for the past <span class='q_dur'>seven days.</span></h1>",
     questions: populateQIDs(1, 10, QIDS_csv, QIDS_options),
-    scale_width: 500,
+    scale_width: 1000,
 };
 var QIDS_Qs2 = {
     type: 'survey-likert',
@@ -365,7 +365,7 @@ var QIDS_Qs2 = {
     preamble:
         "<h1 class='q_title'>Please indicate the one response to each item that best describes you for the past <span class='q_dur'>seven days.</span></h1>",
     questions: populateQIDs(11, 15, QIDS_csv, QIDS_options),
-    scale_width: 500,
+    scale_width: 1000,
 };
 
 // ERQ
@@ -379,7 +379,7 @@ var ERQ_Qs1 = {
         "<h1 class='q_title'>We would like to ask you some questions about your emotional life, in particular, how you control (that is, regulate and manage) your emotions. " +
         "For each item, please answer using the following scale:</h1>",
     questions: populateQs(1, 10, ERQ_csv, ERQ_options),
-    scale_width: 500,
+    scale_width: 700,
 };
 
 
