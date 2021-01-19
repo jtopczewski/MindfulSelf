@@ -18,7 +18,7 @@ const PICTURE_DURATION = 2000; // 2000
 const FDBCK_DUR = 1000;
 const NTRIALS = 20;
 const NTRIALSPRAC = 5;
-const NBLOCKS = 1; // Need to change to 8
+const NBLOCKS = 8; // Need to change to 8
 var HOWMANYBACK;
 var SEQLENGTH;
 var letter1;
